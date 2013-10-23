@@ -47,7 +47,8 @@ def dbscan3(X, eps=0.5, min_samples=5, timeScale=1, metric='euclidean', indexing
     # Get data into correct format
     #X = np.asarray(zip(X[0],X[1]))   # convert to tuples of (long,lat)
     X = np.asarray(X,dtype = np.float32)    # convert to numpy array
-    X[:,2] *= timeScale 
+    XT = X[:,2]*timeScale # Separate time Component and rescale the times.
+    XX = X[:,:1] # Separate spatial component
     
     n = np.shape(X)[0]   # Number of points
     deg2rad = np.pi/180. # Conversion
@@ -110,19 +111,24 @@ def dbscan3(X, eps=0.5, min_samples=5, timeScale=1, metric='euclidean', indexing
     #===========================================================================    
     GTX,GTY, GTT = np.transpose(X)
     def epsQuery(i):
-        xcut = where( ((X[i][0]-eps <= GTX ) & (GTX <= X[i][0]+eps)))[0]
-        return xcut[where(  ((X[i][1]-eps <= GTY[xcut]) & (GTY[xcut] < X[i][1]+eps) ))[0]]
+        xcut = np.logical_and(GTX <= X[i][0]+eps,GTX >= X[i][0]-eps)
+        ycut = np.logical_and(GTY <= X[i][1]+eps,GTY >= X[i][1]-eps)
+        tcut = np.logical_and(GTT <= X[i][2]+eps,GTT >= X[i][2]-eps)
+        cut = np.logical_and(xcut,ycut)
+        cut = np.logical_and(cut,tcut)
+        #xcut = np.intersect1d(where( ((X[i][0]-eps <= GTX ) and (GTX <= X[i][0]+eps)) )[0], where( ((X[i][0]-eps <= GTX ) and (GTX <= X[i][0]+eps)) )[0])
+        return np.where(cut==True)[0]
     
     neighborhoods = [epsQuery(i) for i in range(0,n)]
         
     #===========================================================================
-    # Refine the epislon neighborhoods
+    # Refine the epislon neighborhoods (compute the euclidean distances)
     #===========================================================================
     if (metric == 'euclidean'):
         # Compute distances using numpy vector methods ONLY if neighborhood size 
         # is already greater than min_samples, otherwise don't bother.          
-        neighborhoods = [(neighborhoods[i][where( sum(square( X[neighborhoods[i]] - X[i]),axis=1) <= eps*eps)[0]]) if len(neighborhoods[i])>=min_samples else neighborhoods[i] for i in range(0,n)]
-    #TODO: implement spherical refinement
+        neighborhoods = [(neighborhoods[i][where( sum(square( XX[neighborhoods[i]] - XX[i]),axis=1) <= eps*eps)[0]]) if len(neighborhoods[i])>=min_samples else neighborhoods[i] for i in range(0,n)]
+    #TODO: implement spherical refinement for real data
     
     
     #======================================================
@@ -269,6 +275,7 @@ def dbscan(X, eps=0.5, min_samples=5, metric='euclidean', indexing = False):
 
 
 class DBSCAN(BaseEstimator, ClusterMixin):
+#class DBSCAN(BaseEstimator):
     """Perform DBSCAN clustering from vector array or distance matrix.
 
     DBSCAN - Density-Based Spatial Clustering of Applications with Noise.
