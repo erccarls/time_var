@@ -104,6 +104,32 @@ def Cluster_Sigs_BG(dbscanResults,BGDensity, BGTemplate = 'BGRateMap.pickle',ang
     return map(BG_PARTIAL,dbscanResults)
 
 
+def Cluster_Sigs_Annulus(dbscanResults,BGDensity, BGTemplate = 'BGRateMap.pickle',angularSize = 10.,numProcs = 1):
+    """
+    Compute the cluster significances on results of DBSCAN_Compute_Clusters() using a background model.
+    
+    Inputs:
+        dbscanResults: output from DBSCAN_Compute_Clusters.  Must load from file if using pickled results
+        BGTemplate: background template filename.
+        angularSize: Size of square in degrees
+        BG: The expected percentage of photons that are background
+    """
+    # Initialize the thread pool to the correct number of threads
+    #if (numProcs<=0):numProcs += mp.cpu_count()
+    #p = mp.pool.Pool(numProcs)
+    
+    #===========================================================================
+    # Currently assuming isotropic BG
+    #===========================================================================
+    # Load background template
+    #BGTemplate = pickle.load(open(BGTemplate,'r'))
+
+    # Asynchronosly map results 
+    BG_PARTIAL = partial(BG_THREAD, BGTemplate= '', angularSize = angularSize, BGDensity = BGDensity)
+    return map(BG_PARTIAL,dbscanResults)
+
+
+
 def BG_THREAD(sim,BGTemplate, angularSize , BGDensity ):
     clusters,labels = sim 
     return [DBSCAN.Compute_Cluster_Significance(cluster, BGTemplate,BGDensity = BGDensity, totalPhotons=len(labels),angularSize = angularSize) for cluster in clusters]
@@ -121,27 +147,35 @@ def Cluster_Sigs_BG_3d(dbscanResults,BGDensity, totalTime):
     #===========================================================================
     # Currently assuming isotropic BG
     #===========================================================================
-    BG_PARTIAL = partial(BG_THREAD_3d, BGDensity = BGDensity, totalTime=totalTime)
-    #print dbscanResults[0][0]
-    #cluster, sim = dbscanResults[0]
-    #return[DBSCAN.Compute_Cluster_Significance_3d(cluster, BGDensity = BGDensity, totalTime=totalTime),]
+    # Initialize the thread pool to the correct number of threads
+    p = mp.pool.Pool(mp.cpu_count())
+    # Call mutithreaded map. 
+    BG_PARTIAL = partial(__BG_THREAD_3d, BGDensity = BGDensity, totalTime=totalTime)
+    sigs = p.map(BG_PARTIAL,dbscanResults)   
+    p.close()  # Kill pool after jobs complete.  required to free memory.
+    p.join()   # wait for jobs to finish.
+    return sigs 
     
-#    res = []
-#    for i in dbscanResults:
-#        clusters,labels = i
-#        sigs = []
-#        for cluster in clusters:
-#            sigs.append(DBSCAN.Compute_Cluster_Significance_3d(cluster, BGDensity = float(BGDensity), totalTime=float(totalTime)))
-#        res.append(sigs)
-#    return res
-    
-    
-    return map(BG_PARTIAL,dbscanResults)
-
-
-def BG_THREAD_3d(sim, BGDensity, totalTime ):
+def __BG_THREAD_3d(sim, BGDensity, totalTime ):
     clusters,labels = sim 
-    return [DBSCAN.Compute_Cluster_Significance_3d(cluster, BGDensity = BGDensity, totalTime=totalTime) for cluster in clusters]    
+    return [DBSCAN.Compute_Cluster_Significance_3d_Isotropic(cluster, BGDensity = BGDensity, totalTime=totalTime) for cluster in clusters]    
+
+
+
+def Cluster_Sigs_3d_Annulus(dbscanResults, mcSims,inner=1.25,outer=2.0):
+    """
+    Compute the cluster significances on results of DBSCAN_Compute_Clusters() using an annulus centered on cluster to estimate
+    the background density.
+    
+    Inputs:
+        dbscanResults: output from DBSCAN_Compute_Clusters.  Must load from file if using pickled results
+        mcSims: Original Monte Carlo -- i.e. A Tuple of lists of coordinate triplets for each simulation. 
+        inner: Inner radius to use for annulus as fraction of cluster radius
+        outer: Outer radius to use for annulus as fraction of cluster radius
+    """
+    
+    return [[DBSCAN.Compute_Cluster_Significance_3d_Annulus(cluster, mcSims[i], inner, outer) for cluster in dbscanResults[i][0]] for i in range(len(dbscanResults))]
+                
 
 
 #===============================================================================

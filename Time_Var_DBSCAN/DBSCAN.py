@@ -36,8 +36,8 @@ def RunDBScan(X,eps,n_samples,timeScale,nCorePoints =3 ,indexing = None, plot=Fa
     #===========================================================================
     db = dbscan_indexed.DBSCAN(eps, min_samples=n_samples, timeScale=timeScale, indexing = indexing).fit(X)
     
-    core_samples = db.core_sample_indices_
-    labels = db.labels_
+    core_samples = db.core_sample_indices_ # Select only core points.
+    labels = db.labels_                    # Assign Cluster Labels
     
     # Get the cluster labels for each core point
     coreLabels = [labels[i] for i in core_samples]
@@ -151,7 +151,7 @@ def Evaluate_BG_Contribution(x,y,radius, BGTemplate, numBGEvents, flatLevel = 0)
     return float(weave.inline(code,['radius','BGTemplate','size','x','y','start'], compiler='gcc', type_converters = converters.blitz)) 
             
     
-def Compute_Cluster_Significance(X, BGTemplate,BGDensity, totalPhotons,outputSize=300, angularSize = 10.0,flatLevel = 0):
+def Compute_Cluster_Significance_Isotropic(X, BGTemplate,BGDensity, totalPhotons,outputSize=300, angularSize = 10.0,flatLevel = 0):
     """
     Takes input list of coordinate pairs (in angular scale) and computes the cluster significance based on a background model.
     
@@ -206,7 +206,7 @@ def Compute_Cluster_Significance(X, BGTemplate,BGDensity, totalPhotons,outputSiz
     
     
     
-def Compute_Cluster_Significance_3d(X, BGDensity, totalTime):
+def Compute_Cluster_Significance_3d_Isotropic(X, BGDensity, totalTime):
     """
     Takes input list of coordinate pairs (in angular scale) and computes the cluster significance based on a background model.
     
@@ -265,9 +265,74 @@ def Compute_Cluster_Significance_3d(X, BGDensity, totalTime):
     else: return 0
     
     
+    
+def Compute_Cluster_Significance_3d_Annulus(X_cluster,X_all,inner=1.25, outer=2.0):
+    """
+    Takes input list of coordinate triplets for the cluster and for the entire simulation and computes the cluster size.
+    Next, the background level is computed by drawing an annulus centered on the the cluster with inner and outer radii 
+    specified as a fraction of the initial radius.  Then the significance is calculated.  The cluster is cylindrical
+    with the axis aligned temproally.  Similarly, the background annulus is taken over a cylindrical shell and is 
+    computed within the same times as the cluster limits. 
+    
+    Inputs:
+        -X_cluster: A tuple containing a coordinate triplet (x,y,z) for each point in a cluster.  
+        -X_all:     A tuple containing coordinate triplets for background events, typically just all events.
+        -inner:    The inner radius of the background annulus in fraction of cluster radius.
+        -outer:    The outer radius of the background annulus in fraction of cluster radius.
+        
+    return:
+        Cluster significance from Li & Ma (1985)
+    """
+    
+    # Default to zero significance
+    if (len(X_cluster)==1):return 0
+    
+    # Otherwise.......
+    x,y,t = np.transpose(X_cluster) # Reformat input
+    x_all,y_all,t_all = X_all # Reformat input
+    
+    centX,centY,centT = np.mean(x), np.mean(y),np.mean(t) # Compute Centroid
+    minT,maxT = np.min(t), np.max(t) # find the window of times for the cluster
+    
+    
+    # Build list of radii from cluster centroid
+    r = np.sqrt(np.square(x-centX)+np.square(y-centY))
+    
+    # Sort the list and choose the radius where the cumulative count is >95%
+    countIndex = int(math.ceil(0.95*np.shape(r)[0]-1)) 
+    clusterRadius = np.sort(r)[countIndex]   # choose the radius at this index 
+
+    # Estimate the background count
+    #N_bg = Evaluate_BG_Contribution(centX*ppa+outputSize/2.0,centY*ppa+outputSize/2.0,clusterRadius*ppa,BGTemplate,numBGEvents, flatLevel = flatLevel)
+
+    AnnulusArea = np.pi* ((outer*clusterRadius)**2 -(inner*clusterRadius)**2)
+    
+    r_all = np.sqrt(np.square(x_all-centX)+np.square(y_all-centY)) # compute all points radius from the centroid. 
+    # Count the number of points within the annulus and find BG density
+    tcut  = np.logical_and(t_all>minT,t_all<maxT)
+    r_cut = np.logical_and(r_all>clusterRadius*inner,r_all<clusterRadius*outer)
+    idx =  np.where( np.logical_and(tcut,r_cut)==True)[0]
+    BGDensity = np.shape(idx)[0]/AnnulusArea # Counts/spatial area 
+    # BG density equal to 
+    N_bg = np.pi * clusterRadius**2. * BGDensity
+    N_cl = countIndex # Number of counts in cluster.
+    
+    print 'clusterRadius: ',clusterRadius, ', N_cl: ', N_cl, ', N_bg: ', N_bg
+    
+    # Ensure log args are greater than 0.
+    if N_cl/(N_cl+N_bg) <= 0 or N_bg/(N_cl+N_bg) <= 0: return 0
+    # Compute significance from Li & Ma
+    S2 = 2.0*(N_cl*math.log(2.0*N_cl/(N_cl+N_bg)) + N_bg*math.log(2.0*N_bg/(N_cl+N_bg)))
+    
+    if S2>0.:
+        return math.sqrt(S2)   
+    else:
+        return 0.
+
+    
 def Compute_Cluster_Scale(cluster):
     '''
-    Computes the mean parwise distance matrix standard deviation 
+    Computes the mean 2-d pairwise distance matrix and standard deviation 
     Inputs: 
      -cluster: Tuple containing a coordinate pair for each cluster point.
     Returns:
