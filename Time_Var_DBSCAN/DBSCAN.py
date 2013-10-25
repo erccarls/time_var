@@ -272,7 +272,7 @@ def Compute_Cluster_Significance_3d_Annulus(X_cluster,X_all,inner=1.25, outer=2.
     Next, the background level is computed by drawing an annulus centered on the the cluster with inner and outer radii 
     specified as a fraction of the initial radius.  Then the significance is calculated.  The cluster is cylindrical
     with the axis aligned temproally.  Similarly, the background annulus is taken over a cylindrical shell and is 
-    computed within the same times as the cluster limits. 
+    computed over the range of times in X_all (thus if the background is time varying, this will average that).  
     
     Inputs:
         -X_cluster: A tuple containing a coordinate triplet (x,y,z) for each point in a cluster.  
@@ -301,20 +301,19 @@ def Compute_Cluster_Significance_3d_Annulus(X_cluster,X_all,inner=1.25, outer=2.
     # Sort the list and choose the radius where the cumulative count is >95%
     countIndex = int(math.ceil(0.95*np.shape(r)[0]-1)) 
     clusterRadius = np.sort(r)[countIndex]   # choose the radius at this index 
-
+    min_T_all, max_T_all = np.min(t_all),np.max(t_all)
     # Estimate the background count
     #N_bg = Evaluate_BG_Contribution(centX*ppa+outputSize/2.0,centY*ppa+outputSize/2.0,clusterRadius*ppa,BGTemplate,numBGEvents, flatLevel = flatLevel)
 
-    AnnulusArea = np.pi* ((outer*clusterRadius)**2 -(inner*clusterRadius)**2)
+    AnnulusVolume = np.pi* ((outer*clusterRadius)**2 -(inner*clusterRadius)**2)*(max_T_all-min_T_all)
     
     r_all = np.sqrt(np.square(x_all-centX)+np.square(y_all-centY)) # compute all points radius from the centroid. 
     # Count the number of points within the annulus and find BG density
-    tcut  = np.logical_and(t_all>minT,t_all<maxT)
     r_cut = np.logical_and(r_all>clusterRadius*inner,r_all<clusterRadius*outer)
-    idx =  np.where( np.logical_and(tcut,r_cut)==True)[0]
-    BGDensity = np.shape(idx)[0]/AnnulusArea # Counts/spatial area 
+    idx =  np.where(r_cut==True)[0]
+    BGDensity = np.shape(idx)[0]/AnnulusVolume # Density = counts / annulus volume 
     # BG density equal to 
-    N_bg = np.pi * clusterRadius**2. * BGDensity
+    N_bg = np.pi * clusterRadius**2. * (maxT-minT)* BGDensity # BG count = cluster volume*bgdensity
     N_cl = countIndex # Number of counts in cluster.
     
     print 'clusterRadius: ',clusterRadius, ', N_cl: ', N_cl, ', N_bg: ', N_bg
