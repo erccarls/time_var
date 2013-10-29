@@ -58,11 +58,15 @@ def RunDBScan(X,eps,n_samples,timeScale,nCorePoints =3 ,indexing = None, plot=Fa
     if (plot == True):   
         import pylab as pl
         from itertools import cycle
+        from mpl_toolkits.mplot3d import Axes3D
         pl.close('all')
         fig = pl.figure(1)
+        
         pl.clf()
         fig = pl.gcf()
         ax = fig.gca(projection='3d')
+                    
+        
         # Black removed and is used for noise instead.
         colors = cycle('bgrcmybgrcmybgrcmybgrcmy')
         
@@ -82,7 +86,10 @@ def RunDBScan(X,eps,n_samples,timeScale,nCorePoints =3 ,indexing = None, plot=Fa
             for index in class_members:
                 x = X[index]
                 if index in core_samples and k != -1:
-                    markersize = 4
+                    markersize = 6
+                    
+                    ax.scatter(x[0],x[1],x[2], color=col,s=markersize)
+                    
                     #fig.gca().add_artist(pl.Circle((x[0],x[1]),eps,fc = 'none',ec = col))
                     # Plot sphere
 #                    
@@ -93,8 +100,7 @@ def RunDBScan(X,eps,n_samples,timeScale,nCorePoints =3 ,indexing = None, plot=Fa
 #                    ax.plot_wireframe(x1, y1, z1, color="r")
                 else:
                     markersize = 2
-                pl.plot(x[0], x[1], 'o', markerfacecolor=col,
-                        markeredgecolor='k', markersize=markersize)
+                    ax.scatter(x[0], x[1],x[2], c=col,s=2)
         pl.axis('equal')
         pl.xlabel(r'$l$ [$^\circ$]')
         pl.ylabel(r'$b$ [$^\circ$]')

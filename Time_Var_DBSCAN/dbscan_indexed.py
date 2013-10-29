@@ -43,12 +43,10 @@ def dbscan3(X, eps=0.5, min_samples=5, timeScale=1, metric='euclidean', indexing
     and Data Mining, Portland, OR, AAAI Press, pp. 226–231. 1996
     """
     
-    
-    # Get data into correct format
-    #X = np.asarray(zip(X[0],X[1]))   # convert to tuples of (long,lat)
     X = np.asarray(X,dtype = np.float32)    # convert to numpy array
+    XX = X[:,0] # Separate spatial component
+    XY = X[:,1] # Separate spatial component
     XT = X[:,2]*timeScale # Separate time Component and rescale the times.
-    XX = X[:,:1] # Separate spatial component
     
     n = np.shape(X)[0]   # Number of points
     deg2rad = np.pi/180. # Conversion
@@ -63,26 +61,6 @@ def dbscan3(X, eps=0.5, min_samples=5, timeScale=1, metric='euclidean', indexing
     # always need to do this without modifying the rtree package.  It also allows
     # for precise computation of the central angle in spherical coordinates.  
     def refine_nhood(nhood,index,eps):
-        if (metric == 'euclidean'):
-            x1, y1 = float(X[index][0]), float(X[index][1])
-            x2 = np.asarray([X[i][0] for i in nhood])
-            y2 = np.asarray([X[i][1] for i in nhood])
-            n2 = len(x2)
-            support = "#include <math.h>"
-            code = """
-            py::list ret;
-            for (int i=0;i<n2;i++){
-                double d = sqrt( (y1-y2[i])*(y1-y2[i]) + (x1-x2[i])*(x1-x2[i]) );
-                if (d <= eps) ret.append(nhood[i]);
-            }
-            return_val = ret;
-            """
-            return np.array(weave.inline(code,['n2','x2','y2','nhood','x1','y1','eps'],support_code = support, libraries = ['m']))    
-            
-            
-            #def neighbor(p): return (np.sqrt((X[index][0]-X[p][0])*(X[index][0]-X[p][0]) + (X[index][1]-X[p][1])*(X[index][1]-X[p][1]))<=eps) 
-            #return np.array(filter(neighbor,nhood))
-            
         if (metric == 'spherical'):
             # Use Haverside Formula http://en.wikipedia.org/wiki/Great-circle_distance
             x1, y1 = float(X[index][0]), float(X[index][1])
@@ -109,14 +87,13 @@ def dbscan3(X, eps=0.5, min_samples=5, timeScale=1, metric='euclidean', indexing
     # of interest.  This gives a quick way to only compute distances for nearest
     # neighbors.
     #===========================================================================    
-    GTX,GTY, GTT = np.transpose(X)
+    
     def epsQuery(i):
-        xcut = np.logical_and(GTX <= X[i][0]+eps,GTX >= X[i][0]-eps)
-        ycut = np.logical_and(GTY <= X[i][1]+eps,GTY >= X[i][1]-eps)
-        tcut = np.logical_and(GTT <= X[i][2]+eps,GTT >= X[i][2]-eps)
+        xcut = np.logical_and(XX <= XX[i]+eps,XX >= XX[i]-eps)
+        ycut = np.logical_and(XY <= XY[i]+eps,XY >= XY[i]-eps)
+        tcut = np.logical_and(XT <= XT[i]+eps,XT >= XT[i]-eps)
         cut = np.logical_and(xcut,ycut)
         cut = np.logical_and(cut,tcut)
-        #xcut = np.intersect1d(where( ((X[i][0]-eps <= GTX ) and (GTX <= X[i][0]+eps)) )[0], where( ((X[i][0]-eps <= GTX ) and (GTX <= X[i][0]+eps)) )[0])
         return np.where(cut==True)[0]
     
     neighborhoods = [epsQuery(i) for i in range(0,n)]
@@ -127,8 +104,10 @@ def dbscan3(X, eps=0.5, min_samples=5, timeScale=1, metric='euclidean', indexing
     if (metric == 'euclidean'):
         # Compute distances using numpy vector methods ONLY if neighborhood size 
         # is already greater than min_samples, otherwise don't bother.          
-        neighborhoods = [(neighborhoods[i][where( sum(square( XX[neighborhoods[i]] - XX[i]),axis=1) <= eps*eps)[0]]) if len(neighborhoods[i])>=min_samples else neighborhoods[i] for i in range(0,n)]
+        neighborhoods = [(neighborhoods[i][where( square( XX[neighborhoods[i]] - XX[i]) + square(XY[neighborhoods[i]] - XY[i]) <= eps*eps)[0]]) if len(neighborhoods[i])>=min_samples else neighborhoods[i] for i in range(0,n)]
     #TODO: implement spherical refinement for real data
+    
+    
     
     
     #======================================================
