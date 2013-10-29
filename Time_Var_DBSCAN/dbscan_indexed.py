@@ -46,8 +46,7 @@ def dbscan3(X, eps=0.5, min_samples=5, timeScale=1, metric='euclidean', indexing
     X = np.asarray(X,dtype = np.float32)    # convert to numpy array
     XX = X[:,0] # Separate spatial component
     XY = X[:,1] # Separate spatial component
-    XT = X[:,2]*timeScale # Separate time Component and rescale the times.
-    
+    XT = X[:,2] # Separate time Component and rescale the times.
     n = np.shape(X)[0]   # Number of points
     deg2rad = np.pi/180. # Conversion
     where = np.where
@@ -91,7 +90,7 @@ def dbscan3(X, eps=0.5, min_samples=5, timeScale=1, metric='euclidean', indexing
     def epsQuery(i):
         xcut = np.logical_and(XX <= XX[i]+eps,XX >= XX[i]-eps)
         ycut = np.logical_and(XY <= XY[i]+eps,XY >= XY[i]-eps)
-        tcut = np.logical_and(XT <= XT[i]+eps,XT >= XT[i]-eps)
+        tcut = np.logical_and(XT <= XT[i]+eps*float(timeScale),XT >= XT[i]-eps*float(timeScale))
         cut = np.logical_and(xcut,ycut)
         cut = np.logical_and(cut,tcut)
         return np.where(cut==True)[0]

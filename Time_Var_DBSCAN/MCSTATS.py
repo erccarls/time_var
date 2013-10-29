@@ -160,6 +160,32 @@ def __BG_THREAD_3d(sim, BGDensity, totalTime ):
     clusters,labels = sim 
     return [DBSCAN.Compute_Cluster_Significance_3d_Isotropic(cluster, BGDensity = BGDensity, totalTime=totalTime) for cluster in clusters]    
 
+def Cluster_Times(dbscanResults):
+    master_T = []
+    for scan in dbscanResults:
+        T = []
+        print scan
+        for cluster in scan:
+            x,y,t = np.transpose(scan[0]) # Reformat input
+            T.append(np.max(t)-np.min(t))
+        master_t.append(T)
+    return master_T
+
+def Cluster_Radii(dbscanResults):
+    master_R = []
+    for scan in dbscanResults:
+        R = []
+        for cluster in scan:
+            x,y,t = np.transpose(cluster[0]) # Reformat input
+            centX,centY = np.mean(x), np.mean(y) # Compute Centroid
+            # Build list of radii from cluster centroid
+            r = np.sqrt(np.square(x-centX)+np.square(y-centY))
+            # Sort the list and choose the radius where the cumulative count is >95%
+            countIndex = int(math.ceil(0.95*np.shape(r)[0]-1)) 
+            clusterRadius = np.sort(r)[countIndex]   # choose the radius at this index 
+            R.append(clusterRadius)
+        master_R.append(R)
+    return master_R
 
 
 def Cluster_Sigs_3d_Annulus(dbscanResults, mcSims,inner=1.25,outer=2.0):
