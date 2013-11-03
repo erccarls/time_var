@@ -179,7 +179,7 @@ def __Cluster_Size(cluster_coords):
     clusterRadiusT = np.sort(dt)[countIndex]   # choose the radius at this index
     countIndexT = int(np.ceil(0.95*np.shape(r)[0]-1)) 
     
-    return (clusterRadius, clusterRadiusT, np.median(clusterRadius), np.median(dt), centX, centY, centT,sigX,sigY,sigT)
+    return (clusterRadius, clusterRadiusT, np.median(r), np.median(dt), centX, centY, centT,sigX,sigY,sigT)
 
 
                    
