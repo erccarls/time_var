@@ -15,7 +15,7 @@ import multiprocessing as mp
 from multiprocessing import pool
 from functools import partial
 import ClusterResult
-
+import scipy.linalg as la
 
 
 def DBSCAN_Compute_Clusters(mcSims, eps, timeScale, min_samples ,nCorePoints = 3, numAnalyze=0, sigMethod ='isotropic', BGDensity=0, TotalTime=48,inner=1.25,outer=2.0, fileout = '',numProcs = 1, plot=False):
@@ -81,19 +81,19 @@ def Mean_Significance(ClusterResults):
 
 def Mean_Radius(ClusterResults):
     """Given a set of ClusterResults, calculates the mean of the "mean Radius weighted by Members" """
-    return np.mean([np.ma.average(CR.SizeR, weights=CR.Members) for CR in ClusterResults])    
+    return np.mean([np.ma.average(CR.Size95X, weights=CR.Members) for CR in ClusterResults])    
 
 def Mean_SizeT(ClusterResults):
     """Given a set of ClusterResults, calculates the mean of the "mean temporal size weighted by Members" """
-    return np.mean([np.ma.average(CR.SizeT, weights=CR.Members) for CR in ClusterResults])        
+    return np.mean([np.ma.average(CR.Size95T, weights=CR.Members) for CR in ClusterResults])        
 
 def Mean_SizeSigR(ClusterResults):
-    """Given a set of ClusterResults, calculates the mean of the "stdev of radius from centroi weighted by Members" """
-    return np.mean([np.ma.average(CR.SizeSigR, weights=CR.Members) for CR in ClusterResults]) 
+    """Given a set of ClusterResults, calculates the mean of the "stdev of radius from centroid weighted by Members" """
+    return np.mean([np.ma.average(CR.MedR, weights=CR.Members) for CR in ClusterResults]) 
 
 def Mean_SizeSigT(ClusterResults):
     """Given a set of ClusterResults, calculates the mean of the "stdev temporal dist from centroid weighted by Members" """
-    return np.mean([np.ma.average(CR.SizeSigT, weights=CR.Members) for CR in ClusterResults])
+    return np.mean([np.ma.average(CR.MedT, weights=CR.Members) for CR in ClusterResults])
         
 def Mean_Members(ClusterResults):
     """Given a set of ClusterResults, calculates the mean of the "mean number of cluster members weighted by Members" """
@@ -140,15 +140,15 @@ def __Cluster_Properties_Thread(input,BGDensity,TotalTime, inner,outer,sigMethod
         CRSigsMethod = 'annulus'
         CRSigs   = np.array([DBSCAN.Compute_Cluster_Significance_3d_Annulus(CRCoords[cluster], np.transpose(sim), inner=inner, outer=outer) for cluster in range(len(clusters))])
     # Compute sizes and centroids
-    CRSizeR,CRSizeT,CRSizeSigR,CRSizeSigT,CRCentX,CRCentY,CRCentT,CRSigX,CRSigY,CRSigT = np.transpose([__Cluster_Size(CRCoords[cluster]) for cluster in range(len(clusters))])
+    CRSize95X, CRSize95Y, CRSize95T, CRPA, CRMedR, CRMedT, CRCentX,CRCentY,CRCentT,CRSig95X,CRSig95Y,CRSig95T = np.transpose([__Cluster_Size(CRCoords[cluster]) for cluster in range(len(clusters))])
     
     CRMembers = np.array([np.shape(CRCoords[cluster])[0] for cluster in range(len(clusters))]) # count the number of points in each cluster.
     # Input into cluster results instance
     CR = ClusterResult.ClusterResult(Labels=CRLabels, Coords=CRCoords, 
-                                     CentX=CRCentX, CentY=CRCentY, CentT=CRCentT, 
-                                     SigX=CRSigX,SigY=CRSigY,SigT=CRSigT, 
-                                     SizeR=CRSizeR, SizeT=CRSizeT, 
-                                     SizeSigR=CRSizeSigR, SizeSigT=CRSizeSigT,
+                                     CentX=CRCentX    , CentY=CRCentY    , CentT=CRCentT, 
+                                     Sig95X=CRSig95X  , Sig95Y=CRSig95Y  , Sig95T=CRSig95T, 
+                                     Size95X=CRSize95X, Size95Y=CRSize95Y, Size95T=CRSize95T, 
+                                     MedR=CRMedR      , MedT=CRMedT,
                                      Members=CRMembers, Sigs=CRSigs, 
                                      SigsMethod=CRSigsMethod, NumClusters=CRNumClusters)  # initialize new cluster results object
 
@@ -159,27 +159,67 @@ def __Get_Cluster_Coords(sim,labels, cluster_index):
     """Returns a set of coordinate triplets for cluster 'cluster_index' given input vectors [X (1xn),Y(1xn),T(1xn)] in sim, and a set of corresponding labels"""
     idx = np.where(labels==cluster_index)[0] # find indices of points which are in the given cluster
     return np.transpose(np.array(sim))[:][idx] # select out those points and return the transpose (which provides (x,y,t) triplets for each point 
-        
+
+
+
+
 def __Cluster_Size(cluster_coords):
-    """Returns sizeR (95% containment), sizeT (full containment), given a set of cluster coordinate triplets""" 
-    x,y,t = np.transpose(cluster_coords) # Reformat input
-    centX,centY,centT = np.mean(x), np.mean(y),np.mean(t) # Compute Centroid
-    sqrtn = np.sqrt(np.shape(x)[0])
-    sigX,sigY,sigT = np.std(x)/sqrtn, np.std(y)/sqrtn,np.std(t)/sqrtn
+    """Returns basic cluster properties, given a set of cluster coordinate triplets""" 
+    X,Y,T = np.transpose(cluster_coords)
+    CentX0,CentY0,CentT0 = np.mean(X),np.mean(Y), np.mean(T)
+    X, Y = X-CentX0, Y-CentY0 
     
-    sigR=np.sqrt(np.std(x)**2+np.std(y)**2)
+    # Singular Value Decomposition
+    U,S,V = la.svd((X,Y))
+    # Rotate to align x-coord to principle component
+    x = U[0][0]*X + U[0][1]*Y
+    y = U[1][0]*X + U[1][1]*Y
     
-    r = np.sqrt(np.square(x-centX)+np.square(y-centY))  # Build list of radii from cluster centroid
-    # Sort the list and choose the radius where the cumulative count is >95%
-    countIndex = int(np.ceil(0.95*np.shape(r)[0]-1)) 
-    clusterRadius = np.sort(r)[countIndex]   # choose the radius at this index
+    # Compute weighted average and stdev in rotated frame
+    weights = np.divide(1,np.sqrt(np.square(x)+np.square(y))) # weight by 1/r 
+    CentX, CentY = np.average(x,weights=weights), np.average(y,weights=weights)
+    SigX,SigY = np.sqrt(np.average(np.square(x-CentX), weights=weights)), np.sqrt(np.average(np.square(y-CentY), weights=weights))
+    # Find Position Angle
+    xref,yref = np.dot(U,[0,1])
+    theta = -np.rad2deg(np.arctan2(xref,yref))
+    POSANG = theta+90.
     
-    dt = np.abs(t-centT)
+    CentX ,CentY = np.dot(la.inv(U),(CentX,CentY)) #Translate the updated centroid into the original frame
+    CENTX,CENTY =  CentX+CentX0,CentY+CentY0          # Add this update to the old centroids
+    SIG95X,SIG95Y = 2*SigX/np.sqrt(np.shape(x)[0]),2*SigY/np.sqrt(np.shape(x)[0]) 
+    SIZE95X, SIZE95Y = 2*S/np.sqrt(len(X)) 
+    
+    r = np.sqrt(np.square(X-CENTX)+np.square(y-CENTY))  # Build list of radii from cluster centroid
+    SIG95T = np.std(T)/np.sqrt(np.shape(r)[0])
+    dt = np.abs(T-CentT0)
     countIndexT = int(np.ceil(0.95*np.shape(dt)[0]-1))
-    clusterRadiusT = np.sort(dt)[countIndex]   # choose the radius at this index
-    countIndexT = int(np.ceil(0.95*np.shape(r)[0]-1)) 
-    
-    return (clusterRadius, clusterRadiusT, np.median(r), np.median(dt), centX, centY, centT,sigX,sigY,sigT)
+    SIZE95T = np.sort(dt)[countIndexT]   # choose the radius at this index
+
+    return SIZE95X, SIZE95Y,SIZE95T, POSANG, np.median(r), np.median(dt), CENTX,CENTY,CentT0,SIG95X,SIG95Y,SIG95T
+
+#######################################
+# OLD VERSION        
+#######################################
+# def __Cluster_Size(cluster_coords):
+#     """Returns sizeR (95% containment), sizeT (full containment), given a set of cluster coordinate triplets""" 
+#     x,y,t = np.transpose(cluster_coords) # Reformat input
+#     centX,centY,centT = np.mean(x), np.mean(y),np.mean(t) # Compute Centroid
+#     sqrtn = np.sqrt(np.shape(x)[0])
+#     sigX,sigY,sigT = np.std(x)/sqrtn, np.std(y)/sqrtn,np.std(t)/sqrtn
+#     
+#     sigR=np.sqrt(np.std(x)**2+np.std(y)**2)
+#     
+#     r = np.sqrt(np.square(x-centX)+np.square(y-centY))  # Build list of radii from cluster centroid
+#     # Sort the list and choose the radius where the cumulative count is >95%
+#     countIndex = int(np.ceil(0.95*np.shape(r)[0]-1)) 
+#     clusterRadius = np.sort(r)[countIndex]   # choose the radius at this index
+#     
+#     dt = np.abs(t-centT)
+#     countIndexT = int(np.ceil(0.95*np.shape(dt)[0]-1))
+#     clusterRadiusT = np.sort(dt)[countIndex]   # choose the radius at this index
+#     countIndexT = int(np.ceil(0.95*np.shape(r)[0]-1)) 
+#     
+#     return (clusterRadius, clusterRadiusT, np.median(r), np.median(dt), centX, centY, centT,sigX,sigY,sigT)
 
 
                    
