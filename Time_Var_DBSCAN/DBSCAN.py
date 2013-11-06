@@ -7,7 +7,7 @@ import numpy as np
 import dbscan3d_indexed
 import math 
 
-def RunDBScan3D(X,eps,N_min,TimeScale,N_CorePoints =3 , plot=False):
+def RunDBScan3D(X,eps,N_min,TimeScale,N_CorePoints =3 , plot=False,indexing=True):
     """
     Runs DBSCAN3D on photon list, X, of coordinate triplets using parameters eps and n_samples defining the search radius and the minimum number of events.
     
@@ -26,7 +26,7 @@ def RunDBScan3D(X,eps,N_min,TimeScale,N_CorePoints =3 , plot=False):
     #===========================================================================
     # Compute DBSCAN
     #===========================================================================
-    db = dbscan3d_indexed.DBSCAN(eps, min_samples=N_min, timeScale=TimeScale).fit(X)
+    db = dbscan3d_indexed.DBSCAN(eps, min_samples=N_min, timeScale=TimeScale,indexing=indexing).fit(X)
     core_samples = db.core_sample_indices_ # Select only core points.
     labels = db.labels_                    # Assign Cluster Labels
     # Get the cluster labels for each core point
