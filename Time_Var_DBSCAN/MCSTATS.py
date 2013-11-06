@@ -111,7 +111,7 @@ def Mean_Clusters(ClusterResults,sig_cut=0.):
 #
 ####################################################################################################
 
-def __DBSCAN_THREAD(sim, eps, min_samples,timeScale,nCorePoints,indexing= None,plot=False,indexing=True):    
+def __DBSCAN_THREAD(sim, eps, min_samples,timeScale,nCorePoints,plot=False,indexing=True):    
         X = np.transpose([sim[0],sim[1],sim[2]])
         return DBSCAN.RunDBScan3D(X, eps, N_min=min_samples, TimeScale = timeScale, N_CorePoints=nCorePoints, plot=plot,indexing=indexing)      
 

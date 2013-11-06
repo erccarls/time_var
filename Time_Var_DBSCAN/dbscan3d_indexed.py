@@ -10,7 +10,7 @@ import numpy as np
 from sklearn.base import BaseEstimator, ClusterMixin
 from sklearn.metrics import pairwise_distances
 
-def dbscan3(X, eps, min_samples, timeScale=1, metric='euclidean'):
+def dbscan3(X, eps, min_samples, timeScale=1, metric='euclidean',indexing=False):
     """Perform DBSCAN clustering from vector array or distance matrix.
 
     Parameters
@@ -129,7 +129,7 @@ def dbscan3(X, eps, min_samples, timeScale=1, metric='euclidean'):
 
 
 
-def dbscan3_indexed(X, eps, min_samples, timeScale=1, metric='euclidean'):
+def dbscan3_indexed(X, eps, min_samples, timeScale=1, metric='euclidean',indexing=True):
     """Perform DBSCAN clustering from vector array or distance matrix.
 
     Parameters
@@ -183,9 +183,9 @@ def dbscan3_indexed(X, eps, min_samples, timeScale=1, metric='euclidean'):
         # anomalous behavior.
         startX, stopX = np.min(XX), np.max(XX) # widths
         startY, stopY = np.min(XY), np.max(XY)
-        GridSizeX, GridSizeY = int(np.ceil((stopX-startX)/eps)), (np.ceil((stopY-startY)/eps))
+        GridSizeX, GridSizeY = int(np.ceil((stopX-startX)/eps)), int((np.ceil((stopY-startY)/eps)))
         
-        Xidx, Yidx = np.int(np.floor(np.divide((XX-startX),eps))), np.int(np.floor(np.divide((XY-startY),eps))) # Grid indices for all points.
+        Xidx, Yidx = np.floor(np.divide((XX-startX),eps)).astype(int), np.floor(np.divide((XY-startY),eps)).astype(int) # Grid indices for all points.
         # Iterate through each grid element and add indices 
         Grid = np.empty(shape=(GridSizeX,GridSizeY),dtype=object)
         for i in range(GridSizeX):
