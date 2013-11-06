@@ -47,14 +47,15 @@ def DBSCAN_Compute_Clusters(mcSims, eps, timeScale, min_samples ,nCorePoints = 3
     # Define methods for mapping
     
     DBSCAN_PARTIAL = partial(__DBSCAN_THREAD,  eps=eps, min_samples=min_samples,timeScale=timeScale,nCorePoints = nCorePoints,plot=plot,indexing=indexing)
-    if numProcs>1:
-        p = pool.Pool(numProcs) # Allocate thread pool
-        dbscanResults = p.map(DBSCAN_PARTIAL, mcSims[:numAnalyze]) # Call mutithreaded map.
-        p.close()  # Kill pool after jobs complete.  required to free memory.
-        p.join()   # wait for jobs to finish.
-    else:
-        # Serial Version.  Only use for debugging
-        dbscanResults = map(DBSCAN_PARTIAL, mcSims[:numAnalyze])
+    #if numProcs>1:
+    #    p = pool.Pool(numProcs) # Allocate thread pool
+    #    dbscanResults = p.map(DBSCAN_PARTIAL, mcSims[:numAnalyze]) # Call mutithreaded map.
+    #    p.close()  # Kill pool after jobs complete.  required to free memory.
+    #    p.join()   # wait for jobs to finish.
+    #else:
+    #    # Serial Version.  Only use for debugging
+    #    dbscanResults = map(DBSCAN_PARTIAL, mcSims[:numAnalyze])
+    dbscanResults = map(DBSCAN_PARTIAL, mcSims[:numAnalyze])
     
     ################################################################
     # Compute cluster properties for each cluster in each simulation

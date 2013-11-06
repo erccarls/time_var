@@ -9,6 +9,9 @@ Author email:    erccarls@ucsc.edu
 import numpy as np
 from sklearn.base import BaseEstimator, ClusterMixin
 from sklearn.metrics import pairwise_distances
+import multiprocessing as mp
+from multiprocessing import pool
+from functools import partial
 
 def dbscan3(X, eps, min_samples, timeScale=1, metric='euclidean',indexing=False):
     """Perform DBSCAN clustering from vector array or distance matrix.
@@ -209,7 +212,13 @@ def dbscan3_indexed(X, eps, min_samples, timeScale=1, metric='euclidean',indexin
             idx = idx[np.where(tcut)[0]]
             return idx
         
-        neighborhoods = [epsQuery(i) for i in range(0,n)]
+        EPS_PARTIAL = partial(__epsQueryThread,  Xidx=Xidx,Yidx=Yidx,GridSizeX=GridSizeX,GridSizeY=GridSizeY,Grid=Grid,XT=XT,timeScale=timeScale,eps=eps)    
+        p = pool.Pool(mp.cpu_count()) # Allocate thread pool
+        neighborhoods = p.map(EPS_PARTIAL,range(0,n)) # Call mutithreaded map.
+        p.close()  # Kill pool after jobs complete.  required to free memory.
+        p.join()   # wait for jobs to finish.
+
+#        neighborhoods = [epsQuery(i) for i in range(0,n)] # serial version
         # Compute distances using numpy vector methods          
         neighborhoods = [(neighborhoods[i][where( square( XX[neighborhoods[i]] - XX[i]) + square(XY[neighborhoods[i]] - XY[i]) <= eps*eps)[0]]) if len(neighborhoods[i])>=min_samples else neighborhoods[i] for i in range(0,n)]
     #TODO: implement spherical refinement for real data
@@ -265,6 +274,22 @@ def dbscan3_indexed(X, eps, min_samples, timeScale=1, metric='euclidean',indexin
         label_num += 1
     #print "Core Samples", len(core_samples), " Distance Comps: ", ndist
     return core_samples, labels
+
+
+def __epsQueryThread(k,Xidx,Yidx,GridSizeX,GridSizeY,Grid,XT,timeScale,eps):
+    """ Returns the indicies of all points within a crude epsilon """  
+    i,j = Xidx[k],Yidx[k]
+    il,ih = i-1, i+2
+    jl,jh = j-1, j+2
+    if jl<0  : jl=0
+    if il<0  : il=0
+    if ih>=GridSizeX: ih=-1
+    if jh>=GridSizeY: jh=-1
+    idx = np.array([item for sublist in [item for sublist in Grid[il:ih,jl:jh] for item in sublist] for item in sublist])
+    tcut = np.logical_and(XT[idx] <= (XT[k]+eps*float(timeScale)),XT[idx] >= (XT[k]-eps*float(timeScale)))
+    idx = idx[np.where(tcut)[0]]
+    return idx
+
 
 class DBSCAN(BaseEstimator, ClusterMixin):
 #class DBSCAN(BaseEstimator):
