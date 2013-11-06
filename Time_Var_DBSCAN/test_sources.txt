@@ -1,0 +1,2 @@
+GalacticDiffuse_v05
+IsotropicDiffuse

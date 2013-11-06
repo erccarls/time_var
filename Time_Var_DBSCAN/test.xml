@@ -1,0 +1,24 @@
+<source_library title="CAP_Simple_Transient">
+
+
+<source name="GalacticDiffuse_v05">
+<!-- This is v05 of the diffuse emission model that is recommended by the Diffuse Group.
+Total photon flux from the map (#/m^2/s) = 8.296 over the whole
+energy range of the MapCube file (50 MeV-100 GeV) -->
+   <spectrum escale="MeV">
+     <SpectrumClass name="MapCube" params="8.296,$(FERMI_DIR)/refdata/fermi/galdiffuse/gll_iem_v05.fits"/>
+     <use_spectrum frame="galaxy"/>
+   </spectrum>
+</source>
+     <!-- This is the isotropic diffuse spectrum that is recommended by the
+          the diffuse group for P6V3 DIFFUSE class FRONT + BACK; integrated
+          flux below is 5.01 ph m^-2 s^-1 [Note units]  -->
+
+
+<source name="IsotropicDiffuse">
+   <spectrum escale="MeV">
+     <SpectrumClass name="FileSpectrumMap" params="flux=5.01,fitsFile=$(FERMI_DIR)/refdata/fermi/galdiffuse/isotropic_allsky.fits,specFile=$(FERMI_DIR)/refdata/fermi/galdiffuse/iso_p7v6source.txt,emin=39.3884,emax=403761"/>
+      <use_spectrum frame="galaxy"/>
+   </spectrum>
+ </source>
+ </source_library>

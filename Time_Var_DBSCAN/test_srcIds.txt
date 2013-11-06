@@ -1,0 +1,2 @@
+0  GalacticDiffuse_v05  2080072603  8537723
+1000  IsotropicDiffuse  1256198044  1210810

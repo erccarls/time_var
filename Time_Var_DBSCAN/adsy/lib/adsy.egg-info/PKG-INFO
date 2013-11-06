@@ -1,0 +1,37 @@
+Metadata-Version: 1.1
+Name: adsy
+Version: 0.1.0
+Summary: Adsy - Python tools
+Home-page: https://github.com/adfinis-sygroup/adsy-python
+Author: Jean-Louis Fuchs
+Author-email: ganwell@fangorn.ch
+License: Modified BSD
+Description: 
+        * ipython notebook display tools (display.py)
+          * display cursors and multidicts as tables
+          * wrap and pretty print other data
+        * ipython notebook hide input (display.py)
+          * nbconvert your ipython notebooks and hide the input
+          * useful when sending notebooks to non-programmers
+        * helper to formulate queries as list comprehenions (iterator.py)
+        * Helpful tools for ipython notebooks (contains everything above)
+          * Also contains a method to enable autoreload
+          * A helper for automatic git bisect
+        * tools to enhance the look of matplotlib charts (plotenhance.py)
+Keywords: adfinis-sygroup ipython matplotlib pandas
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Information Technology
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Topic :: Software Development :: Testing

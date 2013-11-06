@@ -1,0 +1,12 @@
+setup.py
+lib/adsy/__init__.py
+lib/adsy/bisect.py
+lib/adsy/display.py
+lib/adsy/ipython.py
+lib/adsy/iterator.py
+lib/adsy/plotenhance.py
+lib/adsy.egg-info/PKG-INFO
+lib/adsy.egg-info/SOURCES.txt
+lib/adsy.egg-info/dependency_links.txt
+lib/adsy.egg-info/requires.txt
+lib/adsy.egg-info/top_level.txt
