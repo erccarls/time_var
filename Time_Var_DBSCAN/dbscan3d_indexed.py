@@ -197,30 +197,17 @@ def dbscan3_indexed(X, eps, min_samples, timeScale=1, metric='euclidean',indexin
                 #find indicies 
                 Ytrue = np.where((Yidx[Xtrue]==j))[0]
                 Grid[i][j] = Xtrue[Ytrue]            
-    
-        def epsQuery(k):
-            """ Returns the indicies of all points within a crude epsilon """  
-            i,j = Xidx[k],Yidx[k]
-            il,ih = i-1, i+2
-            jl,jh = j-1, j+2
-            if jl<0  : jl=0
-            if il<0  : il=0
-            if ih>=GridSizeX: ih=-1
-            if jh>=GridSizeY: jh=-1
-            idx = np.array([item for sublist in [item for sublist in Grid[il:ih,jl:jh] for item in sublist] for item in sublist])
-            tcut = np.logical_and(XT[idx] <= (XT[k]+eps*float(timeScale)),XT[idx] >= (XT[k]-eps*float(timeScale)))
-            idx = idx[np.where(tcut)[0]]
-            return idx
-        
-        EPS_PARTIAL = partial(__epsQueryThread,  Xidx=Xidx,Yidx=Yidx,GridSizeX=GridSizeX,GridSizeY=GridSizeY,Grid=Grid,XT=XT,timeScale=timeScale,eps=eps)    
+  
         p = pool.Pool(mp.cpu_count()) # Allocate thread pool
+        EPS_PARTIAL = partial(__epsQueryThread,  Xidx=Xidx,Yidx=Yidx,GridSizeX=GridSizeX,GridSizeY=GridSizeY,Grid=Grid,XT=XT,XX=XX,XY=XY,timeScale=timeScale,eps=eps,min_samples=min_samples)    
         neighborhoods = p.map(EPS_PARTIAL,range(0,n)) # Call mutithreaded map.
         p.close()  # Kill pool after jobs complete.  required to free memory.
         p.join()   # wait for jobs to finish.
 
 #        neighborhoods = [epsQuery(i) for i in range(0,n)] # serial version
-        # Compute distances using numpy vector methods          
-        neighborhoods = [(neighborhoods[i][where( square( XX[neighborhoods[i]] - XX[i]) + square(XY[neighborhoods[i]] - XY[i]) <= eps*eps)[0]]) if len(neighborhoods[i])>=min_samples else neighborhoods[i] for i in range(0,n)]
+
+
+
     #TODO: implement spherical refinement for real data
     elif (metric=='spherical'):
         XX = np.deg2rad(XX)
@@ -240,10 +227,8 @@ def dbscan3_indexed(X, eps, min_samples, timeScale=1, metric='euclidean',indexin
     # From here the algorithm is essentially the same as sklearn
     #======================================================
     core_samples = [] # A list of all core samples found.
-    label_num = 0 # label_num is the label given to the new cluster
+    label_num = 0 # label_num is the label given to the new clust
 
-    # Look at all samples and determine if they are core.
-    # If they are then build a new cluster from them.
     for index in range(0,n):
         if labels[index] != -1 or len(neighborhoods[index]) < min_samples:
             # This point is already classified, or not enough for a core point.
@@ -275,8 +260,10 @@ def dbscan3_indexed(X, eps, min_samples, timeScale=1, metric='euclidean',indexin
     #print "Core Samples", len(core_samples), " Distance Comps: ", ndist
     return core_samples, labels
 
+def __SSThread(search, master):
+    return np.searchsorted(master,search)
 
-def __epsQueryThread(k,Xidx,Yidx,GridSizeX,GridSizeY,Grid,XT,timeScale,eps):
+def __epsQueryThread(k,Xidx,Yidx,GridSizeX,GridSizeY,Grid,XX,XY,XT,timeScale,eps,min_samples):
     """ Returns the indicies of all points within a crude epsilon """  
     i,j = Xidx[k],Yidx[k]
     il,ih = i-1, i+2
@@ -287,8 +274,9 @@ def __epsQueryThread(k,Xidx,Yidx,GridSizeX,GridSizeY,Grid,XT,timeScale,eps):
     if jh>=GridSizeY: jh=-1
     idx = np.array([item for sublist in [item for sublist in Grid[il:ih,jl:jh] for item in sublist] for item in sublist])
     tcut = np.logical_and(XT[idx] <= (XT[k]+eps*float(timeScale)),XT[idx] >= (XT[k]-eps*float(timeScale)))
-    idx = idx[np.where(tcut)[0]]
-    return idx
+    idx = idx[np.where(tcut)[0]] #original indices meeting tcut  This is the rough eps neighborhood
+    # Compute actual distances using numpy vector methods                
+    return idx[np.where( np.square( XX[idx] - XX[k]) + np.square(XY[idx] - XY[k]) <= eps*eps)[0]]
 
 
 class DBSCAN(BaseEstimator, ClusterMixin):

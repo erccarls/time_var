@@ -151,7 +151,7 @@ def __Cluster_Properties_Thread(input,BGDensity,TotalTime, inner,outer,sigMethod
                                      Size95X=CRSize95X, Size95Y=CRSize95Y, Size95T=CRSize95T, 
                                      MedR=CRMedR      , MedT=CRMedT,
                                      Members=CRMembers, Sigs=CRSigs, 
-                                     SigsMethod=CRSigsMethod, NumClusters=CRNumClusters)  # initialize new cluster results object
+                                     SigsMethod=CRSigsMethod, NumClusters=CRNumClusters,PA=CRPA)  # initialize new cluster results object
 
     return CR
 
@@ -190,7 +190,7 @@ def __Cluster_Size(cluster_coords):
     SIG95X,SIG95Y = 2*SigX/np.sqrt(np.shape(x)[0]),2*SigY/np.sqrt(np.shape(x)[0]) 
     SIZE95X, SIZE95Y = 2*S/np.sqrt(len(X)) 
     
-    r = np.sqrt(np.square(X-CENTX)+np.square(y-CENTY))  # Build list of radii from cluster centroid
+    r = np.sqrt(np.square(X-CentX)+np.square(Y-CentY))  # Build list of radii from cluster centroid
     SIG95T = np.std(T)/np.sqrt(np.shape(r)[0])
     dt = np.abs(T-CentT0)
     countIndexT = int(np.ceil(0.95*np.shape(dt)[0]-1))
