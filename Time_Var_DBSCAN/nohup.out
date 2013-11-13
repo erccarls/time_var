@@ -282,3 +282,803 @@ IOError: Stream is closed
 [NotebookApp] Connecting to: tcp://127.0.0.1:44463
 [NotebookApp] Connecting to: tcp://127.0.0.1:58153
 [NotebookApp] Connecting to: tcp://127.0.0.1:45767
+[NotebookApp] Kernel restarted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-1ebe6f51-ebb8-4b73-8fbf-57f510312935.json --profile nbserver
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+[NotebookApp] Kernel restarted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-1ebe6f51-ebb8-4b73-8fbf-57f510312935.json --profile nbserver
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+[NotebookApp] Kernel interrupted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Kernel restarted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-1ebe6f51-ebb8-4b73-8fbf-57f510312935.json --profile nbserver
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+[NotebookApp] Kernel interrupted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Kernel restarted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-1ebe6f51-ebb8-4b73-8fbf-57f510312935.json --profile nbserver
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+[NotebookApp] Kernel interrupted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Kernel interrupted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Kernel interrupted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Kernel restarted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-1ebe6f51-ebb8-4b73-8fbf-57f510312935.json --profile nbserver
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+[NotebookApp] Kernel interrupted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Kernel restarted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-1ebe6f51-ebb8-4b73-8fbf-57f510312935.json --profile nbserver
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+[NotebookApp] Kernel interrupted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Kernel restarted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-1ebe6f51-ebb8-4b73-8fbf-57f510312935.json --profile nbserver
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+[NotebookApp] Kernel interrupted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Kernel restarted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-1ebe6f51-ebb8-4b73-8fbf-57f510312935.json --profile nbserver
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+[NotebookApp] Kernel interrupted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Kernel restarted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-1ebe6f51-ebb8-4b73-8fbf-57f510312935.json --profile nbserver
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+[NotebookApp] Kernel interrupted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Kernel interrupted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Kernel restarted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-1ebe6f51-ebb8-4b73-8fbf-57f510312935.json --profile nbserver
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+[NotebookApp] Kernel interrupted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Kernel interrupted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Kernel restarted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-1ebe6f51-ebb8-4b73-8fbf-57f510312935.json --profile nbserver
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+[NotebookApp] Kernel restarted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-1ebe6f51-ebb8-4b73-8fbf-57f510312935.json --profile nbserver
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+[NotebookApp] Kernel interrupted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Kernel restarted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-1ebe6f51-ebb8-4b73-8fbf-57f510312935.json --profile nbserver
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+[NotebookApp] Kernel interrupted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Kernel restarted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-1ebe6f51-ebb8-4b73-8fbf-57f510312935.json --profile nbserver
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+[NotebookApp] Kernel interrupted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Kernel restarted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-1ebe6f51-ebb8-4b73-8fbf-57f510312935.json --profile nbserver
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+[NotebookApp] Kernel interrupted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Kernel restarted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-1ebe6f51-ebb8-4b73-8fbf-57f510312935.json --profile nbserver
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+[NotebookApp] Kernel interrupted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Kernel restarted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-1ebe6f51-ebb8-4b73-8fbf-57f510312935.json --profile nbserver
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+ERROR:root:Uncaught exception GET /clusters?_=1383834439505 (67.180.132.24)
+HTTPRequest(protocol='https', host='planck.ucsc.edu:9999', method='GET', uri='/clusters?_=1383834439505', version='HTTP/1.1', remote_ip='67.180.132.24', body='', headers={'Accept-Language': 'en-US,en;q=0.8', 'Accept-Encoding': 'gzip,deflate,sdch', 'X-Requested-With': 'XMLHttpRequest', 'Host': 'planck.ucsc.edu:9999', 'Accept': 'application/json, text/javascript, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.114 Safari/537.36', 'Connection': 'keep-alive', 'Referer': 'https://planck.ucsc.edu:9999/', 'Cookie': 'SESSb63bd23ac08f9631758f27b309955d5d=vg4ng887rgij0enh8js0rb20o1; SESSION_LANGUAGE=eng; III_EXPT_FILE=aa28296; III_SESSION_ID=ddb50eca48b7657a66b66d16756ed8ac; ezproxy=uDCqnCCYaTgN956; ev1=clustering%20algorithms; s_cc=true; s_sq=worldcatucsc%3D%2526pid%253DDetailed%252520Record%2526pidt%253D1%2526oid%253Dhttp%25253A//ucsc.worldcat.org.oca.ucsc.edu/oclc/299046773%25253Fpage%25253Dframe%252526url%25253Dhttp%2525253A%2525252F%2525252Fuclibs.org%2525252FPID%2525252F%2526ot%253DA; ais-prod-dmz-1-1610-PORTAL-PSJSESSIONID=RzT2RkLK2ppphJ63DrnNmCZnnVY3nhG4!-1535794739; https%3a%2f%2fmy.ucsc.edu%2fpsp%2fep9prd%2femployee%2fempl%2frefresh=list:%20%3Ftab%3Dremoteunifieddashboard%7C%3Frp%3Dremoteunifieddashboard%7C; ais-prod-dmz-1-1810-PORTAL-PSJSESSIONID=72VzRkLJDG9hCyryTywNzpL529Grl05R!111426214; ais-prod-dmz-3-1610-PORTAL-PSJSESSIONID=LyQ1RkfGpXkDmbQ293hvlpQmdqG2pvKy!358309597; PS_LOGINLIST=-1; ExpirePage=; PS_TOKENEXPIRE=-1; PS_TOKEN=; _ga=GA1.2.1297896672.1365198158; __utma=61369709.392417706.1365293769.1374700725.1376373760.13; __utmc=61369709; __utmz=61369709.1369019105.11.3.utmcsr=people.ucsc.edu|utmccn=(referral)|utmcmd=referral|utmcct=/~erccarls/; wp-settings-1=editor%3Dtinymce%26libraryContent%3Dbrowse; wp-settings-time-1=1377564226; __utma=69683791.1297896672.1365198158.1382480532.1382933077.11; __utmc=69683791; __utmz=69683791.1382933077.11.10.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided); wordpress_test_cookie=WP+Cookie+check; wordpress_logged_in_3cecfc15c6eeed1dcbe8837b73a2d923=carlson%7C1383105963%7C70772c6d57d7b296b85d83ee9fdc519a; username=ZTEwY2U1YzktOTgwMi00NTg3LTg2NjMtMmM0NDZlOTQyNzcy|1383795207|24bc9e0cd00a93c80dccb3a8068c78765333cae9'})
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 954, in _execute
+    getattr(self, self.request.method.lower())(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 1667, in wrapper
+    return method(self, *args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/handlers.py", line 683, in get
+    self.finish(jsonapi.dumps(cm.list_profiles()))
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 91, in list_profiles
+    self.update_profiles()
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 80, in update_profiles
+    for profile in list_profiles_in(path):
+  File "/usr/lib/python2.7/dist-packages/IPython/core/profileapp.py", line 99, in list_profiles_in
+    files = os.listdir(path)
+OSError: [Errno 2] No such file or directory: '(unreachable)/git/time_var/Time_Var_DBSCAN'
+ERROR:root:500 GET /clusters?_=1383834439505 (67.180.132.24) 3.39ms
+[NotebookApp] Kernel interrupted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Kernel restarted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-1ebe6f51-ebb8-4b73-8fbf-57f510312935.json --profile nbserver
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+[NotebookApp] Kernel restarted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-1ebe6f51-ebb8-4b73-8fbf-57f510312935.json --profile nbserver
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+[NotebookApp] Kernel restarted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-1ebe6f51-ebb8-4b73-8fbf-57f510312935.json --profile nbserver
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+ERROR:root:Uncaught exception GET /clusters?_=1383835308147 (67.180.132.24)
+HTTPRequest(protocol='https', host='planck.ucsc.edu:9999', method='GET', uri='/clusters?_=1383835308147', version='HTTP/1.1', remote_ip='67.180.132.24', body='', headers={'Accept-Language': 'en-US,en;q=0.8', 'Accept-Encoding': 'gzip,deflate,sdch', 'X-Requested-With': 'XMLHttpRequest', 'Host': 'planck.ucsc.edu:9999', 'Accept': 'application/json, text/javascript, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.114 Safari/537.36', 'Connection': 'keep-alive', 'Referer': 'https://planck.ucsc.edu:9999/', 'Cookie': 'SESSb63bd23ac08f9631758f27b309955d5d=vg4ng887rgij0enh8js0rb20o1; SESSION_LANGUAGE=eng; III_EXPT_FILE=aa28296; III_SESSION_ID=ddb50eca48b7657a66b66d16756ed8ac; ezproxy=uDCqnCCYaTgN956; ev1=clustering%20algorithms; s_cc=true; s_sq=worldcatucsc%3D%2526pid%253DDetailed%252520Record%2526pidt%253D1%2526oid%253Dhttp%25253A//ucsc.worldcat.org.oca.ucsc.edu/oclc/299046773%25253Fpage%25253Dframe%252526url%25253Dhttp%2525253A%2525252F%2525252Fuclibs.org%2525252FPID%2525252F%2526ot%253DA; ais-prod-dmz-1-1610-PORTAL-PSJSESSIONID=RzT2RkLK2ppphJ63DrnNmCZnnVY3nhG4!-1535794739; https%3a%2f%2fmy.ucsc.edu%2fpsp%2fep9prd%2femployee%2fempl%2frefresh=list:%20%3Ftab%3Dremoteunifieddashboard%7C%3Frp%3Dremoteunifieddashboard%7C; ais-prod-dmz-1-1810-PORTAL-PSJSESSIONID=72VzRkLJDG9hCyryTywNzpL529Grl05R!111426214; ais-prod-dmz-3-1610-PORTAL-PSJSESSIONID=LyQ1RkfGpXkDmbQ293hvlpQmdqG2pvKy!358309597; PS_LOGINLIST=-1; ExpirePage=; PS_TOKENEXPIRE=-1; PS_TOKEN=; _ga=GA1.2.1297896672.1365198158; __utma=61369709.392417706.1365293769.1374700725.1376373760.13; __utmc=61369709; __utmz=61369709.1369019105.11.3.utmcsr=people.ucsc.edu|utmccn=(referral)|utmcmd=referral|utmcct=/~erccarls/; wp-settings-1=editor%3Dtinymce%26libraryContent%3Dbrowse; wp-settings-time-1=1377564226; __utma=69683791.1297896672.1365198158.1382480532.1382933077.11; __utmc=69683791; __utmz=69683791.1382933077.11.10.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided); wordpress_test_cookie=WP+Cookie+check; wordpress_logged_in_3cecfc15c6eeed1dcbe8837b73a2d923=carlson%7C1383105963%7C70772c6d57d7b296b85d83ee9fdc519a; username=ZTEwY2U1YzktOTgwMi00NTg3LTg2NjMtMmM0NDZlOTQyNzcy|1383795207|24bc9e0cd00a93c80dccb3a8068c78765333cae9'})
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 954, in _execute
+    getattr(self, self.request.method.lower())(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 1667, in wrapper
+    return method(self, *args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/handlers.py", line 683, in get
+    self.finish(jsonapi.dumps(cm.list_profiles()))
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 91, in list_profiles
+    self.update_profiles()
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 80, in update_profiles
+    for profile in list_profiles_in(path):
+  File "/usr/lib/python2.7/dist-packages/IPython/core/profileapp.py", line 99, in list_profiles_in
+    files = os.listdir(path)
+OSError: [Errno 2] No such file or directory: '(unreachable)/git/time_var/Time_Var_DBSCAN'
+ERROR:root:500 GET /clusters?_=1383835308147 (67.180.132.24) 4.69ms
+[NotebookApp] Kernel restarted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-1ebe6f51-ebb8-4b73-8fbf-57f510312935.json --profile nbserver
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+[NotebookApp] Kernel restarted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-1ebe6f51-ebb8-4b73-8fbf-57f510312935.json --profile nbserver
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+[NotebookApp] Kernel restarted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-1ebe6f51-ebb8-4b73-8fbf-57f510312935.json --profile nbserver
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+[NotebookApp] Kernel restarted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-1ebe6f51-ebb8-4b73-8fbf-57f510312935.json --profile nbserver
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+ERROR:root:Exception in I/O handler for fd 3
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/ioloop.py", line 330, in start
+    self._handlers[fd](fd, events)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 319, in accept_handler
+    callback(connection, address)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 199, in _handle_connection
+    **self.ssl_options)
+  File "/usr/lib/python2.7/ssl.py", line 381, in wrap_socket
+    ciphers=ciphers)
+  File "/usr/lib/python2.7/ssl.py", line 141, in __init__
+    ciphers)
+SSLError: [Errno 336265218] _ssl.c:351: error:140B0002:SSL routines:SSL_CTX_use_PrivateKey_file:system lib
+ERROR:root:Exception in I/O handler for fd 3
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/ioloop.py", line 330, in start
+    self._handlers[fd](fd, events)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 319, in accept_handler
+    callback(connection, address)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 199, in _handle_connection
+    **self.ssl_options)
+  File "/usr/lib/python2.7/ssl.py", line 381, in wrap_socket
+    ciphers=ciphers)
+  File "/usr/lib/python2.7/ssl.py", line 141, in __init__
+    ciphers)
+SSLError: [Errno 336265218] _ssl.c:351: error:140B0002:SSL routines:SSL_CTX_use_PrivateKey_file:system lib
+ERROR:root:Exception in I/O handler for fd 3
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/ioloop.py", line 330, in start
+    self._handlers[fd](fd, events)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 319, in accept_handler
+    callback(connection, address)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 199, in _handle_connection
+    **self.ssl_options)
+  File "/usr/lib/python2.7/ssl.py", line 381, in wrap_socket
+    ciphers=ciphers)
+  File "/usr/lib/python2.7/ssl.py", line 141, in __init__
+    ciphers)
+SSLError: [Errno 336265218] _ssl.c:351: error:140B0002:SSL routines:SSL_CTX_use_PrivateKey_file:system lib
+ERROR:root:Exception in I/O handler for fd 3
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/ioloop.py", line 330, in start
+    self._handlers[fd](fd, events)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 319, in accept_handler
+    callback(connection, address)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 199, in _handle_connection
+    **self.ssl_options)
+  File "/usr/lib/python2.7/ssl.py", line 381, in wrap_socket
+    ciphers=ciphers)
+  File "/usr/lib/python2.7/ssl.py", line 141, in __init__
+    ciphers)
+SSLError: [Errno 336265218] _ssl.c:351: error:140B0002:SSL routines:SSL_CTX_use_PrivateKey_file:system lib
+ERROR:root:Exception in I/O handler for fd 3
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/ioloop.py", line 330, in start
+    self._handlers[fd](fd, events)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 319, in accept_handler
+    callback(connection, address)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 199, in _handle_connection
+    **self.ssl_options)
+  File "/usr/lib/python2.7/ssl.py", line 381, in wrap_socket
+    ciphers=ciphers)
+  File "/usr/lib/python2.7/ssl.py", line 141, in __init__
+    ciphers)
+SSLError: [Errno 336265218] _ssl.c:351: error:140B0002:SSL routines:SSL_CTX_use_PrivateKey_file:system lib
+ERROR:root:Exception in I/O handler for fd 3
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/ioloop.py", line 330, in start
+    self._handlers[fd](fd, events)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 319, in accept_handler
+    callback(connection, address)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 199, in _handle_connection
+    **self.ssl_options)
+  File "/usr/lib/python2.7/ssl.py", line 381, in wrap_socket
+    ciphers=ciphers)
+  File "/usr/lib/python2.7/ssl.py", line 141, in __init__
+    ciphers)
+SSLError: [Errno 336265218] _ssl.c:351: error:140B0002:SSL routines:SSL_CTX_use_PrivateKey_file:system lib
+ERROR:root:Exception in I/O handler for fd 3
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/ioloop.py", line 330, in start
+    self._handlers[fd](fd, events)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 319, in accept_handler
+    callback(connection, address)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 199, in _handle_connection
+    **self.ssl_options)
+  File "/usr/lib/python2.7/ssl.py", line 381, in wrap_socket
+    ciphers=ciphers)
+  File "/usr/lib/python2.7/ssl.py", line 141, in __init__
+    ciphers)
+SSLError: [Errno 336265218] _ssl.c:351: error:140B0002:SSL routines:SSL_CTX_use_PrivateKey_file:system lib
+ERROR:root:Exception in I/O handler for fd 3
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/ioloop.py", line 330, in start
+    self._handlers[fd](fd, events)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 319, in accept_handler
+    callback(connection, address)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 199, in _handle_connection
+    **self.ssl_options)
+  File "/usr/lib/python2.7/ssl.py", line 381, in wrap_socket
+    ciphers=ciphers)
+  File "/usr/lib/python2.7/ssl.py", line 141, in __init__
+    ciphers)
+SSLError: [Errno 336265218] _ssl.c:351: error:140B0002:SSL routines:SSL_CTX_use_PrivateKey_file:system lib
+ERROR:root:Exception in I/O handler for fd 3
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/ioloop.py", line 330, in start
+    self._handlers[fd](fd, events)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 319, in accept_handler
+    callback(connection, address)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 199, in _handle_connection
+    **self.ssl_options)
+  File "/usr/lib/python2.7/ssl.py", line 381, in wrap_socket
+    ciphers=ciphers)
+  File "/usr/lib/python2.7/ssl.py", line 141, in __init__
+    ciphers)
+SSLError: [Errno 336265218] _ssl.c:351: error:140B0002:SSL routines:SSL_CTX_use_PrivateKey_file:system lib
+ERROR:root:Exception in I/O handler for fd 3
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/ioloop.py", line 330, in start
+    self._handlers[fd](fd, events)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 319, in accept_handler
+    callback(connection, address)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 199, in _handle_connection
+    **self.ssl_options)
+  File "/usr/lib/python2.7/ssl.py", line 381, in wrap_socket
+    ciphers=ciphers)
+  File "/usr/lib/python2.7/ssl.py", line 141, in __init__
+    ciphers)
+SSLError: [Errno 336265218] _ssl.c:351: error:140B0002:SSL routines:SSL_CTX_use_PrivateKey_file:system lib
+ERROR:root:Exception in I/O handler for fd 3
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/ioloop.py", line 330, in start
+    self._handlers[fd](fd, events)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 319, in accept_handler
+    callback(connection, address)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 199, in _handle_connection
+    **self.ssl_options)
+  File "/usr/lib/python2.7/ssl.py", line 381, in wrap_socket
+    ciphers=ciphers)
+  File "/usr/lib/python2.7/ssl.py", line 141, in __init__
+    ciphers)
+SSLError: [Errno 336265218] _ssl.c:351: error:140B0002:SSL routines:SSL_CTX_use_PrivateKey_file:system lib
+ERROR:root:Exception in I/O handler for fd 3
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/ioloop.py", line 330, in start
+    self._handlers[fd](fd, events)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 319, in accept_handler
+    callback(connection, address)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 199, in _handle_connection
+    **self.ssl_options)
+  File "/usr/lib/python2.7/ssl.py", line 381, in wrap_socket
+    ciphers=ciphers)
+  File "/usr/lib/python2.7/ssl.py", line 141, in __init__
+    ciphers)
+SSLError: [Errno 336265218] _ssl.c:351: error:140B0002:SSL routines:SSL_CTX_use_PrivateKey_file:system lib
+ERROR:root:Exception in I/O handler for fd 3
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/ioloop.py", line 330, in start
+    self._handlers[fd](fd, events)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 319, in accept_handler
+    callback(connection, address)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 199, in _handle_connection
+    **self.ssl_options)
+  File "/usr/lib/python2.7/ssl.py", line 381, in wrap_socket
+    ciphers=ciphers)
+  File "/usr/lib/python2.7/ssl.py", line 141, in __init__
+    ciphers)
+SSLError: [Errno 336265218] _ssl.c:351: error:140B0002:SSL routines:SSL_CTX_use_PrivateKey_file:system lib
+ERROR:root:Exception in I/O handler for fd 3
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/ioloop.py", line 330, in start
+    self._handlers[fd](fd, events)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 319, in accept_handler
+    callback(connection, address)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 199, in _handle_connection
+    **self.ssl_options)
+  File "/usr/lib/python2.7/ssl.py", line 381, in wrap_socket
+    ciphers=ciphers)
+  File "/usr/lib/python2.7/ssl.py", line 141, in __init__
+    ciphers)
+SSLError: [Errno 336265218] _ssl.c:351: error:140B0002:SSL routines:SSL_CTX_use_PrivateKey_file:system lib
+ERROR:root:Exception in I/O handler for fd 3
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/ioloop.py", line 330, in start
+    self._handlers[fd](fd, events)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 319, in accept_handler
+    callback(connection, address)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 199, in _handle_connection
+    **self.ssl_options)
+  File "/usr/lib/python2.7/ssl.py", line 381, in wrap_socket
+    ciphers=ciphers)
+  File "/usr/lib/python2.7/ssl.py", line 141, in __init__
+    ciphers)
+SSLError: [Errno 336265218] _ssl.c:351: error:140B0002:SSL routines:SSL_CTX_use_PrivateKey_file:system lib
+ERROR:root:Exception in I/O handler for fd 3
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/ioloop.py", line 330, in start
+    self._handlers[fd](fd, events)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 319, in accept_handler
+    callback(connection, address)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 199, in _handle_connection
+    **self.ssl_options)
+  File "/usr/lib/python2.7/ssl.py", line 381, in wrap_socket
+    ciphers=ciphers)
+  File "/usr/lib/python2.7/ssl.py", line 141, in __init__
+    ciphers)
+SSLError: [Errno 336265218] _ssl.c:351: error:140B0002:SSL routines:SSL_CTX_use_PrivateKey_file:system lib
+ERROR:root:Exception in I/O handler for fd 3
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/ioloop.py", line 330, in start
+    self._handlers[fd](fd, events)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 319, in accept_handler
+    callback(connection, address)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 199, in _handle_connection
+    **self.ssl_options)
+  File "/usr/lib/python2.7/ssl.py", line 381, in wrap_socket
+    ciphers=ciphers)
+  File "/usr/lib/python2.7/ssl.py", line 141, in __init__
+    ciphers)
+SSLError: [Errno 336265218] _ssl.c:351: error:140B0002:SSL routines:SSL_CTX_use_PrivateKey_file:system lib
+ERROR:root:Exception in I/O handler for fd 3
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/ioloop.py", line 330, in start
+    self._handlers[fd](fd, events)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 319, in accept_handler
+    callback(connection, address)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 199, in _handle_connection
+    **self.ssl_options)
+  File "/usr/lib/python2.7/ssl.py", line 381, in wrap_socket
+    ciphers=ciphers)
+  File "/usr/lib/python2.7/ssl.py", line 141, in __init__
+    ciphers)
+SSLError: [Errno 336265218] _ssl.c:351: error:140B0002:SSL routines:SSL_CTX_use_PrivateKey_file:system lib
+ERROR:root:Exception in I/O handler for fd 3
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/ioloop.py", line 330, in start
+    self._handlers[fd](fd, events)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 319, in accept_handler
+    callback(connection, address)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 199, in _handle_connection
+    **self.ssl_options)
+  File "/usr/lib/python2.7/ssl.py", line 381, in wrap_socket
+    ciphers=ciphers)
+  File "/usr/lib/python2.7/ssl.py", line 141, in __init__
+    ciphers)
+SSLError: [Errno 336265218] _ssl.c:351: error:140B0002:SSL routines:SSL_CTX_use_PrivateKey_file:system lib
+ERROR:root:Exception in I/O handler for fd 3
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/ioloop.py", line 330, in start
+    self._handlers[fd](fd, events)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 319, in accept_handler
+    callback(connection, address)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 199, in _handle_connection
+    **self.ssl_options)
+  File "/usr/lib/python2.7/ssl.py", line 381, in wrap_socket
+    ciphers=ciphers)
+  File "/usr/lib/python2.7/ssl.py", line 141, in __init__
+    ciphers)
+SSLError: [Errno 336265218] _ssl.c:351: error:140B0002:SSL routines:SSL_CTX_use_PrivateKey_file:system lib
+ERROR:root:Exception in I/O handler for fd 3
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/ioloop.py", line 330, in start
+    self._handlers[fd](fd, events)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 319, in accept_handler
+    callback(connection, address)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 199, in _handle_connection
+    **self.ssl_options)
+  File "/usr/lib/python2.7/ssl.py", line 381, in wrap_socket
+    ciphers=ciphers)
+  File "/usr/lib/python2.7/ssl.py", line 141, in __init__
+    ciphers)
+SSLError: [Errno 336265218] _ssl.c:351: error:140B0002:SSL routines:SSL_CTX_use_PrivateKey_file:system lib
+ERROR:root:Exception in I/O handler for fd 3
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/ioloop.py", line 330, in start
+    self._handlers[fd](fd, events)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 319, in accept_handler
+    callback(connection, address)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 199, in _handle_connection
+    **self.ssl_options)
+  File "/usr/lib/python2.7/ssl.py", line 381, in wrap_socket
+    ciphers=ciphers)
+  File "/usr/lib/python2.7/ssl.py", line 141, in __init__
+    ciphers)
+SSLError: [Errno 336265218] _ssl.c:351: error:140B0002:SSL routines:SSL_CTX_use_PrivateKey_file:system lib
+ERROR:root:Exception in I/O handler for fd 3
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/ioloop.py", line 330, in start
+    self._handlers[fd](fd, events)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 319, in accept_handler
+    callback(connection, address)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 199, in _handle_connection
+    **self.ssl_options)
+  File "/usr/lib/python2.7/ssl.py", line 381, in wrap_socket
+    ciphers=ciphers)
+  File "/usr/lib/python2.7/ssl.py", line 141, in __init__
+    ciphers)
+SSLError: [Errno 336265218] _ssl.c:351: error:140B0002:SSL routines:SSL_CTX_use_PrivateKey_file:system lib
+ERROR:root:Exception in I/O handler for fd 3
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/ioloop.py", line 330, in start
+    self._handlers[fd](fd, events)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 319, in accept_handler
+    callback(connection, address)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 199, in _handle_connection
+    **self.ssl_options)
+  File "/usr/lib/python2.7/ssl.py", line 381, in wrap_socket
+    ciphers=ciphers)
+  File "/usr/lib/python2.7/ssl.py", line 141, in __init__
+    ciphers)
+SSLError: [Errno 336265218] _ssl.c:351: error:140B0002:SSL routines:SSL_CTX_use_PrivateKey_file:system lib
+ERROR:root:Exception in I/O handler for fd 3
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/ioloop.py", line 330, in start
+    self._handlers[fd](fd, events)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 319, in accept_handler
+    callback(connection, address)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 199, in _handle_connection
+    **self.ssl_options)
+  File "/usr/lib/python2.7/ssl.py", line 381, in wrap_socket
+    ciphers=ciphers)
+  File "/usr/lib/python2.7/ssl.py", line 141, in __init__
+    ciphers)
+SSLError: [Errno 336265218] _ssl.c:351: error:140B0002:SSL routines:SSL_CTX_use_PrivateKey_file:system lib
+ERROR:root:Exception in I/O handler for fd 3
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/ioloop.py", line 330, in start
+    self._handlers[fd](fd, events)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 319, in accept_handler
+    callback(connection, address)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 199, in _handle_connection
+    **self.ssl_options)
+  File "/usr/lib/python2.7/ssl.py", line 381, in wrap_socket
+    ciphers=ciphers)
+  File "/usr/lib/python2.7/ssl.py", line 141, in __init__
+    ciphers)
+SSLError: [Errno 336265218] _ssl.c:351: error:140B0002:SSL routines:SSL_CTX_use_PrivateKey_file:system lib
+ERROR:root:Exception in I/O handler for fd 3
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/ioloop.py", line 330, in start
+    self._handlers[fd](fd, events)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 319, in accept_handler
+    callback(connection, address)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 199, in _handle_connection
+    **self.ssl_options)
+  File "/usr/lib/python2.7/ssl.py", line 381, in wrap_socket
+    ciphers=ciphers)
+  File "/usr/lib/python2.7/ssl.py", line 141, in __init__
+    ciphers)
+SSLError: [Errno 336265218] _ssl.c:351: error:140B0002:SSL routines:SSL_CTX_use_PrivateKey_file:system lib
+ERROR:root:Exception in I/O handler for fd 3
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/ioloop.py", line 330, in start
+    self._handlers[fd](fd, events)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 319, in accept_handler
+    callback(connection, address)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 199, in _handle_connection
+    **self.ssl_options)
+  File "/usr/lib/python2.7/ssl.py", line 381, in wrap_socket
+    ciphers=ciphers)
+  File "/usr/lib/python2.7/ssl.py", line 141, in __init__
+    ciphers)
+SSLError: [Errno 336265218] _ssl.c:351: error:140B0002:SSL routines:SSL_CTX_use_PrivateKey_file:system lib
+ERROR:root:Exception in I/O handler for fd 3
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/ioloop.py", line 330, in start
+    self._handlers[fd](fd, events)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 319, in accept_handler
+    callback(connection, address)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 199, in _handle_connection
+    **self.ssl_options)
+  File "/usr/lib/python2.7/ssl.py", line 381, in wrap_socket
+    ciphers=ciphers)
+  File "/usr/lib/python2.7/ssl.py", line 141, in __init__
+    ciphers)
+SSLError: [Errno 336265218] _ssl.c:351: error:140B0002:SSL routines:SSL_CTX_use_PrivateKey_file:system lib
+ERROR:root:Exception in I/O handler for fd 3
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/ioloop.py", line 330, in start
+    self._handlers[fd](fd, events)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 319, in accept_handler
+    callback(connection, address)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 199, in _handle_connection
+    **self.ssl_options)
+  File "/usr/lib/python2.7/ssl.py", line 381, in wrap_socket
+    ciphers=ciphers)
+  File "/usr/lib/python2.7/ssl.py", line 141, in __init__
+    ciphers)
+SSLError: [Errno 336265218] _ssl.c:351: error:140B0002:SSL routines:SSL_CTX_use_PrivateKey_file:system lib
+ERROR:root:Exception in I/O handler for fd 3
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/ioloop.py", line 330, in start
+    self._handlers[fd](fd, events)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 319, in accept_handler
+    callback(connection, address)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 199, in _handle_connection
+    **self.ssl_options)
+  File "/usr/lib/python2.7/ssl.py", line 381, in wrap_socket
+    ciphers=ciphers)
+  File "/usr/lib/python2.7/ssl.py", line 141, in __init__
+    ciphers)
+SSLError: [Errno 336265218] _ssl.c:351: error:140B0002:SSL routines:SSL_CTX_use_PrivateKey_file:system lib
+ERROR:root:Exception in I/O handler for fd 3
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/ioloop.py", line 330, in start
+    self._handlers[fd](fd, events)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 319, in accept_handler
+    callback(connection, address)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 199, in _handle_connection
+    **self.ssl_options)
+  File "/usr/lib/python2.7/ssl.py", line 381, in wrap_socket
+    ciphers=ciphers)
+  File "/usr/lib/python2.7/ssl.py", line 141, in __init__
+    ciphers)
+SSLError: [Errno 336265218] _ssl.c:351: error:140B0002:SSL routines:SSL_CTX_use_PrivateKey_file:system lib
+ERROR:root:Exception in I/O handler for fd 3
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/ioloop.py", line 330, in start
+    self._handlers[fd](fd, events)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 319, in accept_handler
+    callback(connection, address)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 199, in _handle_connection
+    **self.ssl_options)
+  File "/usr/lib/python2.7/ssl.py", line 381, in wrap_socket
+    ciphers=ciphers)
+  File "/usr/lib/python2.7/ssl.py", line 141, in __init__
+    ciphers)
+SSLError: [Errno 336265218] _ssl.c:351: error:140B0002:SSL routines:SSL_CTX_use_PrivateKey_file:system lib
+ERROR:root:Exception in I/O handler for fd 3
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/ioloop.py", line 330, in start
+    self._handlers[fd](fd, events)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 319, in accept_handler
+    callback(connection, address)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 199, in _handle_connection
+    **self.ssl_options)
+  File "/usr/lib/python2.7/ssl.py", line 381, in wrap_socket
+    ciphers=ciphers)
+  File "/usr/lib/python2.7/ssl.py", line 141, in __init__
+    ciphers)
+SSLError: [Errno 336265218] _ssl.c:351: error:140B0002:SSL routines:SSL_CTX_use_PrivateKey_file:system lib
+ERROR:root:Exception in I/O handler for fd 3
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/ioloop.py", line 330, in start
+    self._handlers[fd](fd, events)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 319, in accept_handler
+    callback(connection, address)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 199, in _handle_connection
+    **self.ssl_options)
+  File "/usr/lib/python2.7/ssl.py", line 381, in wrap_socket
+    ciphers=ciphers)
+  File "/usr/lib/python2.7/ssl.py", line 141, in __init__
+    ciphers)
+SSLError: [Errno 336265218] _ssl.c:351: error:140B0002:SSL routines:SSL_CTX_use_PrivateKey_file:system lib
+ERROR:root:Exception in I/O handler for fd 3
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/ioloop.py", line 330, in start
+    self._handlers[fd](fd, events)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 319, in accept_handler
+    callback(connection, address)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 199, in _handle_connection
+    **self.ssl_options)
+  File "/usr/lib/python2.7/ssl.py", line 381, in wrap_socket
+    ciphers=ciphers)
+  File "/usr/lib/python2.7/ssl.py", line 141, in __init__
+    ciphers)
+SSLError: [Errno 336265218] _ssl.c:351: error:140B0002:SSL routines:SSL_CTX_use_PrivateKey_file:system lib
+ERROR:root:Exception in I/O handler for fd 3
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/ioloop.py", line 330, in start
+    self._handlers[fd](fd, events)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 319, in accept_handler
+    callback(connection, address)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 199, in _handle_connection
+    **self.ssl_options)
+  File "/usr/lib/python2.7/ssl.py", line 381, in wrap_socket
+    ciphers=ciphers)
+  File "/usr/lib/python2.7/ssl.py", line 141, in __init__
+    ciphers)
+SSLError: [Errno 336265218] _ssl.c:351: error:140B0002:SSL routines:SSL_CTX_use_PrivateKey_file:system lib
+ERROR:root:Exception in I/O handler for fd 3
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/ioloop.py", line 330, in start
+    self._handlers[fd](fd, events)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 319, in accept_handler
+    callback(connection, address)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 199, in _handle_connection
+    **self.ssl_options)
+  File "/usr/lib/python2.7/ssl.py", line 381, in wrap_socket
+    ciphers=ciphers)
+  File "/usr/lib/python2.7/ssl.py", line 141, in __init__
+    ciphers)
+SSLError: [Errno 336265218] _ssl.c:351: error:140B0002:SSL routines:SSL_CTX_use_PrivateKey_file:system lib
+ERROR:root:Exception in I/O handler for fd 3
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/ioloop.py", line 330, in start
+    self._handlers[fd](fd, events)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 319, in accept_handler
+    callback(connection, address)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 199, in _handle_connection
+    **self.ssl_options)
+  File "/usr/lib/python2.7/ssl.py", line 381, in wrap_socket
+    ciphers=ciphers)
+  File "/usr/lib/python2.7/ssl.py", line 141, in __init__
+    ciphers)
+SSLError: [Errno 336265218] _ssl.c:351: error:140B0002:SSL routines:SSL_CTX_use_PrivateKey_file:system lib
+ERROR:root:Exception in I/O handler for fd 3
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/ioloop.py", line 330, in start
+    self._handlers[fd](fd, events)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 319, in accept_handler
+    callback(connection, address)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 199, in _handle_connection
+    **self.ssl_options)
+  File "/usr/lib/python2.7/ssl.py", line 381, in wrap_socket
+    ciphers=ciphers)
+  File "/usr/lib/python2.7/ssl.py", line 141, in __init__
+    ciphers)
+SSLError: [Errno 336265218] _ssl.c:351: error:140B0002:SSL routines:SSL_CTX_use_PrivateKey_file:system lib
+ERROR:root:Exception in I/O handler for fd 3
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/ioloop.py", line 330, in start
+    self._handlers[fd](fd, events)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 319, in accept_handler
+    callback(connection, address)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 199, in _handle_connection
+    **self.ssl_options)
+  File "/usr/lib/python2.7/ssl.py", line 381, in wrap_socket
+    ciphers=ciphers)
+  File "/usr/lib/python2.7/ssl.py", line 141, in __init__
+    ciphers)
+SSLError: [Errno 336265218] _ssl.c:351: error:140B0002:SSL routines:SSL_CTX_use_PrivateKey_file:system lib
+ERROR:root:Exception in I/O handler for fd 3
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/ioloop.py", line 330, in start
+    self._handlers[fd](fd, events)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 319, in accept_handler
+    callback(connection, address)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 199, in _handle_connection
+    **self.ssl_options)
+  File "/usr/lib/python2.7/ssl.py", line 381, in wrap_socket
+    ciphers=ciphers)
+  File "/usr/lib/python2.7/ssl.py", line 141, in __init__
+    ciphers)
+SSLError: [Errno 336265218] _ssl.c:351: error:140B0002:SSL routines:SSL_CTX_use_PrivateKey_file:system lib
+ERROR:root:Exception in I/O handler for fd 3
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/ioloop.py", line 330, in start
+    self._handlers[fd](fd, events)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 319, in accept_handler
+    callback(connection, address)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 199, in _handle_connection
+    **self.ssl_options)
+  File "/usr/lib/python2.7/ssl.py", line 381, in wrap_socket
+    ciphers=ciphers)
+  File "/usr/lib/python2.7/ssl.py", line 141, in __init__
+    ciphers)
+SSLError: [Errno 336265218] _ssl.c:351: error:140B0002:SSL routines:SSL_CTX_use_PrivateKey_file:system lib
+ERROR:root:Exception in I/O handler for fd 3
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/ioloop.py", line 330, in start
+    self._handlers[fd](fd, events)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 319, in accept_handler
+    callback(connection, address)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 199, in _handle_connection
+    **self.ssl_options)
+  File "/usr/lib/python2.7/ssl.py", line 381, in wrap_socket
+    ciphers=ciphers)
+  File "/usr/lib/python2.7/ssl.py", line 141, in __init__
+    ciphers)
+SSLError: [Errno 336265218] _ssl.c:351: error:140B0002:SSL routines:SSL_CTX_use_PrivateKey_file:system lib
+ERROR:root:Exception in I/O handler for fd 3
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/ioloop.py", line 330, in start
+    self._handlers[fd](fd, events)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 319, in accept_handler
+    callback(connection, address)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 199, in _handle_connection
+    **self.ssl_options)
+  File "/usr/lib/python2.7/ssl.py", line 381, in wrap_socket
+    ciphers=ciphers)
+  File "/usr/lib/python2.7/ssl.py", line 141, in __init__
+    ciphers)
+SSLError: [Errno 336265218] _ssl.c:351: error:140B0002:SSL routines:SSL_CTX_use_PrivateKey_file:system lib
+ERROR:root:Exception in I/O handler for fd 3
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/ioloop.py", line 330, in start
+    self._handlers[fd](fd, events)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 319, in accept_handler
+    callback(connection, address)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 199, in _handle_connection
+    **self.ssl_options)
+  File "/usr/lib/python2.7/ssl.py", line 381, in wrap_socket
+    ciphers=ciphers)
+  File "/usr/lib/python2.7/ssl.py", line 141, in __init__
+    ciphers)
+SSLError: [Errno 336265218] _ssl.c:351: error:140B0002:SSL routines:SSL_CTX_use_PrivateKey_file:system lib
+[NotebookApp] Using existing profile dir: u'/home/carlson/.config/ipython/profile_nbserver'
+[NotebookApp] Serving notebooks from /home/carlson/git/time_var/Time_Var_DBSCAN
+[NotebookApp] The port 9999 is already in use, trying another random port.
+[NotebookApp] The IPython Notebook is running at: https://[all ip addresses on your system]:10000/
+[NotebookApp] Use Control-C to stop this server and shut down all kernels.

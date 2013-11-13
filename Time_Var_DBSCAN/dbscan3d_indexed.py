@@ -12,6 +12,7 @@ from sklearn.metrics import pairwise_distances
 import multiprocessing as mp
 from multiprocessing import pool
 from functools import partial
+import itertools
 
 def dbscan3(X, eps, min_samples, timeScale=1, metric='euclidean',indexing=False):
     """Perform DBSCAN clustering from vector array or distance matrix.
@@ -198,11 +199,12 @@ def dbscan3_indexed(X, eps, min_samples, timeScale=1, metric='euclidean',indexin
                 Ytrue = np.where((Yidx[Xtrue]==j))[0]
                 Grid[i][j] = Xtrue[Ytrue]            
   
-        p = pool.Pool(mp.cpu_count()) # Allocate thread pool
+        #p = pool.Pool(mp.cpu_count()) # Allocate thread pool
         EPS_PARTIAL = partial(__epsQueryThread,  Xidx=Xidx,Yidx=Yidx,GridSizeX=GridSizeX,GridSizeY=GridSizeY,Grid=Grid,XT=XT,XX=XX,XY=XY,timeScale=timeScale,eps=eps,min_samples=min_samples)    
-        neighborhoods = p.map(EPS_PARTIAL,range(0,n)) # Call mutithreaded map.
-        p.close()  # Kill pool after jobs complete.  required to free memory.
-        p.join()   # wait for jobs to finish.
+        #neighborhoods = p.map(EPS_PARTIAL,range(0,n)) # Call mutithreaded map.
+        neighborhoods = map(EPS_PARTIAL,range(0,n)) # Call mutithreaded map.
+        #p.close()  # Kill pool after jobs complete.  required to free memory.
+        #p.join()   # wait for jobs to finish.
 
 #        neighborhoods = [epsQuery(i) for i in range(0,n)] # serial version
 
@@ -228,6 +230,41 @@ def dbscan3_indexed(X, eps, min_samples, timeScale=1, metric='euclidean',indexin
     #======================================================
     core_samples = [] # A list of all core samples found.
     label_num = 0 # label_num is the label given to the new clust
+
+    if True==False:
+        samples = np.array([len(nhood) for nhood in neighborhoods]) # count in each eps neighborhoods
+        core_samples= np.where(samples>=min_samples)[0]             # Find where this is greater than threshold
+        
+        # Now we want the core n_hoods in terms of core_sample indices.
+        SSThread = partial(__SSThread,core_samples=core_samples)
+        #p = pool.Pool(mp.cpu_count())
+        #core_nhoods = p.map(SSThread,neighborhoods) # this is a list of neighboring core points in core_samples indices.
+        core_nhoods = map(SSThread,neighborhoods) # this is a list of neighboring core points in core_samples indices.
+        #p.close()
+        #p.join()
+        
+        core_labels = -np.ones(len(core_samples)) # keeps track of cluster assignment
+        core_status = np.zeros(len(core_samples)) # keeps track of cluster expansion: 0/1/2 <-> unhandled/pending/added
+        chain = itertools.chain
+        while 0 in core_status:
+            idx = np.where(core_labels==-1)[0][0] # select first unassigned index 
+            core_labels[core_nhoods[idx]]=label_num # assign a cluster label
+            core_status[core_nhoods[idx]]=1         # flag as pending add
+            core_status[idx] = 2
+            core_labels[idx] = label_num
+            while 1 in core_status:   
+                idx = np.where(core_status==1)[0] # Find pending points
+                core_labels[idx]=label_num        # label the new points 
+                nhoods = np.fromiter(chain.from_iterable([core_nhoods[i] for i in idx]), dtype='int')
+                #for i in idx: core_status[nhoods[i][np.where(core_status[nhoods[i]]==0)[0]] ]=1
+                core_status[nhoods[np.where(core_status[nhoods]==0)[0]] ]=1
+                core_status[idx]=2                # flag them as added
+                
+            label_num+=1
+            
+        labels[core_samples]=core_labels
+        return core_samples, labels
+        
 
     for index in range(0,n):
         if labels[index] != -1 or len(neighborhoods[index]) < min_samples:
@@ -260,8 +297,9 @@ def dbscan3_indexed(X, eps, min_samples, timeScale=1, metric='euclidean',indexin
     #print "Core Samples", len(core_samples), " Distance Comps: ", ndist
     return core_samples, labels
 
-def __SSThread(search, master):
-    return np.searchsorted(master,search)
+def __SSThread(nhood, core_samples):
+    intersection = np.intersect1d(core_samples,nhood,assume_unique=True)
+    return np.searchsorted(core_samples,intersection)
 
 def __epsQueryThread(k,Xidx,Yidx,GridSizeX,GridSizeY,Grid,XX,XY,XT,timeScale,eps,min_samples):
     """ Returns the indicies of all points within a crude epsilon """  
@@ -272,12 +310,19 @@ def __epsQueryThread(k,Xidx,Yidx,GridSizeX,GridSizeY,Grid,XX,XY,XT,timeScale,eps
     if il<0  : il=0
     if ih>=GridSizeX: ih=-1
     if jh>=GridSizeY: jh=-1
-    idx = np.array([item for sublist in [item for sublist in Grid[il:ih,jl:jh] for item in sublist] for item in sublist])
-    tcut = np.logical_and(XT[idx] <= (XT[k]+eps*float(timeScale)),XT[idx] >= (XT[k]-eps*float(timeScale)))
-    idx = idx[np.where(tcut)[0]] #original indices meeting tcut  This is the rough eps neighborhood
-    # Compute actual distances using numpy vector methods                
-    return idx[np.where( np.square( XX[idx] - XX[k]) + np.square(XY[idx] - XY[k]) <= eps*eps)[0]]
-
+    idx = np.array([item for sublist in [item for sublist2 in Grid[il:ih,jl:jh] for item in sublist2] for item in sublist])
+    if idx !=[]:
+        tcut = np.logical_and(XT[idx] <= (XT[k]+eps*float(timeScale)),XT[idx] >= (XT[k]-eps*float(timeScale)))
+        tcut = np.where(tcut==True)[0]
+        if tcut!=[]:
+            try:
+                idx = idx[tcut] #original indices meeting tcut  This is the rough eps neighborhood
+            except:
+                print 'Error with idx', idx                    
+            # Compute actual distances using numpy vector methods                
+            return idx[np.where( np.square( XX[idx] - XX[k]) + np.square(XY[idx] - XY[k]) <= eps*eps)[0]]
+        else: return np.array([])
+    else: return np.array([])
 
 class DBSCAN(BaseEstimator, ClusterMixin):
 #class DBSCAN(BaseEstimator):
