@@ -1082,3 +1082,1135 @@ SSLError: [Errno 336265218] _ssl.c:351: error:140B0002:SSL routines:SSL_CTX_use_
 [NotebookApp] The port 9999 is already in use, trying another random port.
 [NotebookApp] The IPython Notebook is running at: https://[all ip addresses on your system]:10000/
 [NotebookApp] Use Control-C to stop this server and shut down all kernels.
+[NotebookApp] received signal 15, stopping
+[NotebookApp] Shutting down kernels
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 LTg2NjMtMmM0NDZlOTQyNzcy|1383795207|24bc9e0cd00a93c80dccb3a8068c78765333cae9'})
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 954, in _execute
+    getattr(self, self.request.method.lower())(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 1667, in wrapper
+    return method(self, *args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/handlers.py", line 683, in get
+    self.finish(jsonapi.dumps(cm.list_profiles()))
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 91, in list_profiles
+    self.update_profiles()
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 80, in update_profiles
+    for profile in list_profiles_in(path):
+  File "/usr/lib/python2.7/dist-packages/IPython/core/profileapp.py", line 99, in list_profiles_in
+    files = os.listdir(path)
+OSError: [Errno 2] No such file or directory: '(unreachable)/git/time_var/Time_Var_DBSCAN'
+ERROR:root:500 GET /clusters?_=1384297495686 (67.180.132.24) 4.58ms
+[NotebookApp] Using existing kernel: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+WARNING:root:Read error on 11: [Errno 104] Connection reset by peer
+[NotebookApp] Kernel interrupted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+ERROR:root:Uncaught exception GET /clusters?_=1384298487947 (67.180.132.24)
+HTTPRequest(protocol='https', host='planck.ucsc.edu:9999', method='GET', uri='/clusters?_=1384298487947', version='HTTP/1.1', remote_ip='67.180.132.24', body='', headers={'Accept-Language': 'en-US,en;q=0.8', 'Accept-Encoding': 'gzip,deflate,sdch', 'X-Requested-With': 'XMLHttpRequest', 'Host': 'planck.ucsc.edu:9999', 'Accept': 'application/json, text/javascript, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.114 Safari/537.36', 'Connection': 'keep-alive', 'Referer': 'https://planck.ucsc.edu:9999/', 'Cookie': 'SESSb63bd23ac08f9631758f27b309955d5d=vg4ng887rgij0enh8js0rb20o1; SESSION_LANGUAGE=eng; III_EXPT_FILE=aa28296; III_SESSION_ID=ddb50eca48b7657a66b66d16756ed8ac; ezproxy=uDCqnCCYaTgN956; ev1=clustering%20algorithms; s_cc=true; s_sq=worldcatucsc%3D%2526pid%253DDetailed%252520Record%2526pidt%253D1%2526oid%253Dhttp%25253A//ucsc.worldcat.org.oca.ucsc.edu/oclc/299046773%25253Fpage%25253Dframe%252526url%25253Dhttp%2525253A%2525252F%2525252Fuclibs.org%2525252FPID%2525252F%2526ot%253DA; ais-prod-dmz-1-1610-PORTAL-PSJSESSIONID=RzT2RkLK2ppphJ63DrnNmCZnnVY3nhG4!-1535794739; https%3a%2f%2fmy.ucsc.edu%2fpsp%2fep9prd%2femployee%2fempl%2frefresh=list:%20%3Ftab%3Dremoteunifieddashboard%7C%3Frp%3Dremoteunifieddashboard%7C; ais-prod-dmz-1-1810-PORTAL-PSJSESSIONID=72VzRkLJDG9hCyryTywNzpL529Grl05R!111426214; ais-prod-dmz-3-1610-PORTAL-PSJSESSIONID=LyQ1RkfGpXkDmbQ293hvlpQmdqG2pvKy!358309597; PS_LOGINLIST=-1; ExpirePage=; PS_TOKENEXPIRE=-1; PS_TOKEN=; _ga=GA1.2.1297896672.1365198158; __utma=61369709.392417706.1365293769.1374700725.1376373760.13; __utmc=61369709; __utmz=61369709.1369019105.11.3.utmcsr=people.ucsc.edu|utmccn=(referral)|utmcmd=referral|utmcct=/~erccarls/; wp-settings-1=editor%3Dtinymce%26libraryContent%3Dbrowse; wp-settings-time-1=1377564226; __utma=69683791.1297896672.1365198158.1382480532.1382933077.11; __utmc=69683791; __utmz=69683791.1382933077.11.10.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided); wordpress_test_cookie=WP+Cookie+check; wordpress_logged_in_3cecfc15c6eeed1dcbe8837b73a2d923=carlson%7C1383105963%7C70772c6d57d7b296b85d83ee9fdc519a; username=ZTEwY2U1YzktOTgwMi00NTg3LTg2NjMtMmM0NDZlOTQyNzcy|1383795207|24bc9e0cd00a93c80dccb3a8068c78765333cae9'})
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 954, in _execute
+    getattr(self, self.request.method.lower())(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 1667, in wrapper
+    return method(self, *args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/handlers.py", line 683, in get
+    self.finish(jsonapi.dumps(cm.list_profiles()))
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 91, in list_profiles
+    self.update_profiles()
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 80, in update_profiles
+    for profile in list_profiles_in(path):
+  File "/usr/lib/python2.7/dist-packages/IPython/core/profileapp.py", line 99, in list_profiles_in
+    files = os.listdir(path)
+OSError: [Errno 2] No such file or directory: '(unreachable)/git/time_var/Time_Var_DBSCAN'
+ERROR:root:500 GET /clusters?_=1384298487947 (67.180.132.24) 4.45ms
+[NotebookApp] Using existing kernel: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+[NotebookApp] Kernel interrupted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Kernel interrupted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+ERROR:root:Uncaught exception GET /clusters?_=1384302704979 (67.180.132.24)
+HTTPRequest(protocol='https', host='planck.ucsc.edu:9999', method='GET', uri='/clusters?_=1384302704979', version='HTTP/1.1', remote_ip='67.180.132.24', body='', headers={'Accept-Language': 'en-US,en;q=0.8', 'Accept-Encoding': 'gzip,deflate,sdch', 'X-Requested-With': 'XMLHttpRequest', 'Host': 'planck.ucsc.edu:9999', 'Accept': 'application/json, text/javascript, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.114 Safari/537.36', 'Connection': 'keep-alive', 'Referer': 'https://planck.ucsc.edu:9999/', 'Cookie': 'SESSb63bd23ac08f9631758f27b309955d5d=vg4ng887rgij0enh8js0rb20o1; SESSION_LANGUAGE=eng; III_EXPT_FILE=aa28296; III_SESSION_ID=ddb50eca48b7657a66b66d16756ed8ac; ezproxy=uDCqnCCYaTgN956; ev1=clustering%20algorithms; s_cc=true; s_sq=worldcatucsc%3D%2526pid%253DDetailed%252520Record%2526pidt%253D1%2526oid%253Dhttp%25253A//ucsc.worldcat.org.oca.ucsc.edu/oclc/299046773%25253Fpage%25253Dframe%252526url%25253Dhttp%2525253A%2525252F%2525252Fuclibs.org%2525252FPID%2525252F%2526ot%253DA; ais-prod-dmz-1-1610-PORTAL-PSJSESSIONID=RzT2RkLK2ppphJ63DrnNmCZnnVY3nhG4!-1535794739; https%3a%2f%2fmy.ucsc.edu%2fpsp%2fep9prd%2femployee%2fempl%2frefresh=list:%20%3Ftab%3Dremoteunifieddashboard%7C%3Frp%3Dremoteunifieddashboard%7C; ais-prod-dmz-1-1810-PORTAL-PSJSESSIONID=72VzRkLJDG9hCyryTywNzpL529Grl05R!111426214; ais-prod-dmz-3-1610-PORTAL-PSJSESSIONID=LyQ1RkfGpXkDmbQ293hvlpQmdqG2pvKy!358309597; PS_LOGINLIST=-1; ExpirePage=; PS_TOKENEXPIRE=-1; PS_TOKEN=; _ga=GA1.2.1297896672.1365198158; __utma=61369709.392417706.1365293769.1374700725.1376373760.13; __utmc=61369709; __utmz=61369709.1369019105.11.3.utmcsr=people.ucsc.edu|utmccn=(referral)|utmcmd=referral|utmcct=/~erccarls/; wp-settings-1=editor%3Dtinymce%26libraryContent%3Dbrowse; wp-settings-time-1=1377564226; __utma=69683791.1297896672.1365198158.1382480532.1382933077.11; __utmc=69683791; __utmz=69683791.1382933077.11.10.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided); wordpress_test_cookie=WP+Cookie+check; wordpress_logged_in_3cecfc15c6eeed1dcbe8837b73a2d923=carlson%7C1383105963%7C70772c6d57d7b296b85d83ee9fdc519a; username=ZTEwY2U1YzktOTgwMi00NTg3LTg2NjMtMmM0NDZlOTQyNzcy|1383795207|24bc9e0cd00a93c80dccb3a8068c78765333cae9'})
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 954, in _execute
+    getattr(self, self.request.method.lower())(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 1667, in wrapper
+    return method(self, *args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/handlers.py", line 683, in get
+    self.finish(jsonapi.dumps(cm.list_profiles()))
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 91, in list_profiles
+    self.update_profiles()
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 80, in update_profiles
+    for profile in list_profiles_in(path):
+  File "/usr/lib/python2.7/dist-packages/IPython/core/profileapp.py", line 99, in list_profiles_in
+    files = os.listdir(path)
+OSError: [Errno 2] No such file or directory: '(unreachable)/git/time_var/Time_Var_DBSCAN'
+ERROR:root:500 GET /clusters?_=1384302704979 (67.180.132.24) 4.60ms
+ERROR:root:Uncaught exception GET /clusters?_=1384302706095 (67.180.132.24)
+HTTPRequest(protocol='https', host='planck.ucsc.edu:9999', method='GET', uri='/clusters?_=1384302706095', version='HTTP/1.1', remote_ip='67.180.132.24', body='', headers={'Accept-Language': 'en-US,en;q=0.8', 'Accept-Encoding': 'gzip,deflate,sdch', 'X-Requested-With': 'XMLHttpRequest', 'Host': 'planck.ucsc.edu:9999', 'Accept': 'application/json, text/javascript, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.114 Safari/537.36', 'Connection': 'keep-alive', 'Referer': 'https://planck.ucsc.edu:9999/', 'Cookie': 'SESSb63bd23ac08f9631758f27b309955d5d=vg4ng887rgij0enh8js0rb20o1; SESSION_LANGUAGE=eng; III_EXPT_FILE=aa28296; III_SESSION_ID=ddb50eca48b7657a66b66d16756ed8ac; ezproxy=uDCqnCCYaTgN956; ev1=clustering%20algorithms; s_cc=true; s_sq=worldcatucsc%3D%2526pid%253DDetailed%252520Record%2526pidt%253D1%2526oid%253Dhttp%25253A//ucsc.worldcat.org.oca.ucsc.edu/oclc/299046773%25253Fpage%25253Dframe%252526url%25253Dhttp%2525253A%2525252F%2525252Fuclibs.org%2525252FPID%2525252F%2526ot%253DA; ais-prod-dmz-1-1610-PORTAL-PSJSESSIONID=RzT2RkLK2ppphJ63DrnNmCZnnVY3nhG4!-1535794739; https%3a%2f%2fmy.ucsc.edu%2fpsp%2fep9prd%2femployee%2fempl%2frefresh=list:%20%3Ftab%3Dremoteunifieddashboard%7C%3Frp%3Dremoteunifieddashboard%7C; ais-prod-dmz-1-1810-PORTAL-PSJSESSIONID=72VzRkLJDG9hCyryTywNzpL529Grl05R!111426214; ais-prod-dmz-3-1610-PORTAL-PSJSESSIONID=LyQ1RkfGpXkDmbQ293hvlpQmdqG2pvKy!358309597; PS_LOGINLIST=-1; ExpirePage=; PS_TOKENEXPIRE=-1; PS_TOKEN=; _ga=GA1.2.1297896672.1365198158; __utma=61369709.392417706.1365293769.1374700725.1376373760.13; __utmc=61369709; __utmz=61369709.1369019105.11.3.utmcsr=people.ucsc.edu|utmccn=(referral)|utmcmd=referral|utmcct=/~erccarls/; wp-settings-1=editor%3Dtinymce%26libraryContent%3Dbrowse; wp-settings-time-1=1377564226; __utma=69683791.1297896672.1365198158.1382480532.1382933077.11; __utmc=69683791; __utmz=69683791.1382933077.11.10.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided); wordpress_test_cookie=WP+Cookie+check; wordpress_logged_in_3cecfc15c6eeed1dcbe8837b73a2d923=carlson%7C1383105963%7C70772c6d57d7b296b85d83ee9fdc519a; username=ZTEwY2U1YzktOTgwMi00NTg3LTg2NjMtMmM0NDZlOTQyNzcy|1383795207|24bc9e0cd00a93c80dccb3a8068c78765333cae9'})
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 954, in _execute
+    getattr(self, self.request.method.lower())(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 1667, in wrapper
+    return method(self, *args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/handlers.py", line 683, in get
+    self.finish(jsonapi.dumps(cm.list_profiles()))
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 91, in list_profiles
+    self.update_profiles()
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 80, in update_profiles
+    for profile in list_profiles_in(path):
+  File "/usr/lib/python2.7/dist-packages/IPython/core/profileapp.py", line 99, in list_profiles_in
+    files = os.listdir(path)
+OSError: [Errno 2] No such file or directory: '(unreachable)/git/time_var/Time_Var_DBSCAN'
+ERROR:root:500 GET /clusters?_=1384302706095 (67.180.132.24) 4.22ms
+ERROR:root:Uncaught exception GET /clusters?_=1384305654589 (67.180.132.24)
+HTTPRequest(protocol='https', host='planck.ucsc.edu:9999', method='GET', uri='/clusters?_=1384305654589', version='HTTP/1.1', remote_ip='67.180.132.24', body='', headers={'Accept-Language': 'en-US,en;q=0.8', 'Accept-Encoding': 'gzip,deflate,sdch', 'X-Requested-With': 'XMLHttpRequest', 'Host': 'planck.ucsc.edu:9999', 'Accept': 'application/json, text/javascript, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.114 Safari/537.36', 'Connection': 'keep-alive', 'Referer': 'https://planck.ucsc.edu:9999/', 'Cookie': 'SESSb63bd23ac08f9631758f27b309955d5d=vg4ng887rgij0enh8js0rb20o1; SESSION_LANGUAGE=eng; III_EXPT_FILE=aa28296; III_SESSION_ID=ddb50eca48b7657a66b66d16756ed8ac; ezproxy=uDCqnCCYaTgN956; ev1=clustering%20algorithms; s_cc=true; s_sq=worldcatucsc%3D%2526pid%253DDetailed%252520Record%2526pidt%253D1%2526oid%253Dhttp%25253A//ucsc.worldcat.org.oca.ucsc.edu/oclc/299046773%25253Fpage%25253Dframe%252526url%25253Dhttp%2525253A%2525252F%2525252Fuclibs.org%2525252FPID%2525252F%2526ot%253DA; ais-prod-dmz-1-1610-PORTAL-PSJSESSIONID=RzT2RkLK2ppphJ63DrnNmCZnnVY3nhG4!-1535794739; https%3a%2f%2fmy.ucsc.edu%2fpsp%2fep9prd%2femployee%2fempl%2frefresh=list:%20%3Ftab%3Dremoteunifieddashboard%7C%3Frp%3Dremoteunifieddashboard%7C; ais-prod-dmz-1-1810-PORTAL-PSJSESSIONID=72VzRkLJDG9hCyryTywNzpL529Grl05R!111426214; ais-prod-dmz-3-1610-PORTAL-PSJSESSIONID=LyQ1RkfGpXkDmbQ293hvlpQmdqG2pvKy!358309597; PS_LOGINLIST=-1; ExpirePage=; PS_TOKENEXPIRE=-1; PS_TOKEN=; _ga=GA1.2.1297896672.1365198158; __utma=61369709.392417706.1365293769.1374700725.1376373760.13; __utmc=61369709; __utmz=61369709.1369019105.11.3.utmcsr=people.ucsc.edu|utmccn=(referral)|utmcmd=referral|utmcct=/~erccarls/; wp-settings-1=editor%3Dtinymce%26libraryContent%3Dbrowse; wp-settings-time-1=1377564226; __utma=69683791.1297896672.1365198158.1382480532.1382933077.11; __utmc=69683791; __utmz=69683791.1382933077.11.10.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided); wordpress_test_cookie=WP+Cookie+check; wordpress_logged_in_3cecfc15c6eeed1dcbe8837b73a2d923=carlson%7C1383105963%7C70772c6d57d7b296b85d83ee9fdc519a; username=ZTEwY2U1YzktOTgwMi00NTg3LTg2NjMtMmM0NDZlOTQyNzcy|1383795207|24bc9e0cd00a93c80dccb3a8068c78765333cae9'})
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 954, in _execute
+    getattr(self, self.request.method.lower())(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 1667, in wrapper
+    return method(self, *args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/handlers.py", line 683, in get
+    self.finish(jsonapi.dumps(cm.list_profiles()))
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 91, in list_profiles
+    self.update_profiles()
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 80, in update_profiles
+    for profile in list_profiles_in(path):
+  File "/usr/lib/python2.7/dist-packages/IPython/core/profileapp.py", line 99, in list_profiles_in
+    files = os.listdir(path)
+OSError: [Errno 2] No such file or directory: '(unreachable)/git/time_var/Time_Var_DBSCAN'
+ERROR:root:500 GET /clusters?_=1384305654589 (67.180.132.24) 4.47ms
+[NotebookApp] Kernel started: b17d13fb-425e-446a-9a6c-d6b65e54f271
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-b17d13fb-425e-446a-9a6c-d6b65e54f271.json --profile nbserver
+[NotebookApp] Connecting to: tcp://127.0.0.1:42629
+[NotebookApp] Connecting to: tcp://127.0.0.1:46855
+[NotebookApp] Connecting to: tcp://127.0.0.1:36186
+[NotebookApp] Kernel restarted: b17d13fb-425e-446a-9a6c-d6b65e54f271
+[NotebookApp] Connecting to: tcp://127.0.0.1:42629
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-b17d13fb-425e-446a-9a6c-d6b65e54f271.json --profile nbserver
+[NotebookApp] Connecting to: tcp://127.0.0.1:46855
+[NotebookApp] Connecting to: tcp://127.0.0.1:36186
+[NotebookApp] Kernel restarted: b17d13fb-425e-446a-9a6c-d6b65e54f271
+[NotebookApp] Connecting to: tcp://127.0.0.1:42629
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-b17d13fb-425e-446a-9a6c-d6b65e54f271.json --profile nbserver
+[NotebookApp] Connecting to: tcp://127.0.0.1:46855
+[NotebookApp] Connecting to: tcp://127.0.0.1:36186
+[NotebookApp] Kernel restarted: b17d13fb-425e-446a-9a6c-d6b65e54f271
+[NotebookApp] Connecting to: tcp://127.0.0.1:42629
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-b17d13fb-425e-446a-9a6c-d6b65e54f271.json --profile nbserver
+[NotebookApp] Connecting to: tcp://127.0.0.1:46855
+[NotebookApp] Connecting to: tcp://127.0.0.1:36186
+[NotebookApp] Using existing kernel: b17d13fb-425e-446a-9a6c-d6b65e54f271
+ERROR:root:Uncaught exception GET /clusters?_=1384331657705 (67.180.132.24)
+HTTPRequest(protocol='https', host='planck.ucsc.edu:9999', method='GET', uri='/clusters?_=1384331657705', version='HTTP/1.1', remote_ip='67.180.132.24', body='', headers={'Accept-Language': 'en-US,en;q=0.8', 'Accept-Encoding': 'gzip,deflate,sdch', 'X-Requested-With': 'XMLHttpRequest', 'Host': 'planck.ucsc.edu:9999', 'Accept': 'application/json, text/javascript, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.114 Safari/537.36', 'Connection': 'keep-alive', 'Referer': 'https://planck.ucsc.edu:9999/', 'Cookie': 'SESSb63bd23ac08f9631758f27b309955d5d=vg4ng887rgij0enh8js0rb20o1; SESSION_LANGUAGE=eng; III_EXPT_FILE=aa28296; III_SESSION_ID=ddb50eca48b7657a66b66d16756ed8ac; ezproxy=uDCqnCCYaTgN956; ev1=clustering%20algorithms; s_cc=true; s_sq=worldcatucsc%3D%2526pid%253DDetailed%252520Record%2526pidt%253D1%2526oid%253Dhttp%25253A//ucsc.worldcat.org.oca.ucsc.edu/oclc/299046773%25253Fpage%25253Dframe%252526url%25253Dhttp%2525253A%2525252F%2525252Fuclibs.org%2525252FPID%2525252F%2526ot%253DA; ais-prod-dmz-1-1610-PORTAL-PSJSESSIONID=RzT2RkLK2ppphJ63DrnNmCZnnVY3nhG4!-1535794739; https%3a%2f%2fmy.ucsc.edu%2fpsp%2fep9prd%2femployee%2fempl%2frefresh=list:%20%3Ftab%3Dremoteunifieddashboard%7C%3Frp%3Dremoteunifieddashboard%7C; ais-prod-dmz-1-1810-PORTAL-PSJSESSIONID=72VzRkLJDG9hCyryTywNzpL529Grl05R!111426214; ais-prod-dmz-3-1610-PORTAL-PSJSESSIONID=LyQ1RkfGpXkDmbQ293hvlpQmdqG2pvKy!358309597; PS_LOGINLIST=-1; ExpirePage=; PS_TOKENEXPIRE=-1; PS_TOKEN=; _ga=GA1.2.1297896672.1365198158; __utma=61369709.392417706.1365293769.1374700725.1376373760.13; __utmc=61369709; __utmz=61369709.1369019105.11.3.utmcsr=people.ucsc.edu|utmccn=(referral)|utmcmd=referral|utmcct=/~erccarls/; wp-settings-1=editor%3Dtinymce%26libraryContent%3Dbrowse; wp-settings-time-1=1377564226; __utma=69683791.1297896672.1365198158.1382480532.1382933077.11; __utmc=69683791; __utmz=69683791.1382933077.11.10.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided); wordpress_test_cookie=WP+Cookie+check; wordpress_logged_in_3cecfc15c6eeed1dcbe8837b73a2d923=carlson%7C1383105963%7C70772c6d57d7b296b85d83ee9fdc519a; username=ZTEwY2U1YzktOTgwMi00NTg3LTg2NjMtMmM0NDZlOTQyNzcy|1383795207|24bc9e0cd00a93c80dccb3a8068c78765333cae9'})
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 954, in _execute
+    getattr(self, self.request.method.lower())(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 1667, in wrapper
+    return method(self, *args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/handlers.py", line 683, in get
+    self.finish(jsonapi.dumps(cm.list_profiles()))
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 91, in list_profiles
+    self.update_profiles()
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 80, in update_profiles
+    for profile in list_profiles_in(path):
+  File "/usr/lib/python2.7/dist-packages/IPython/core/profileapp.py", line 99, in list_profiles_in
+    files = os.listdir(path)
+OSError: [Errno 2] No such file or directory: '(unreachable)/git/time_var/Time_Var_DBSCAN'
+ERROR:root:500 GET /clusters?_=1384331657705 (67.180.132.24) 1.74ms
+[NotebookApp] Connecting to: tcp://127.0.0.1:42629
+[NotebookApp] Connecting to: tcp://127.0.0.1:46855
+[NotebookApp] Connecting to: tcp://127.0.0.1:36186
+[NotebookApp] Kernel restarted: b17d13fb-425e-446a-9a6c-d6b65e54f271
+[NotebookApp] Connecting to: tcp://127.0.0.1:42629
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-b17d13fb-425e-446a-9a6c-d6b65e54f271.json --profile nbserver
+[NotebookApp] Connecting to: tcp://127.0.0.1:46855
+[NotebookApp] Connecting to: tcp://127.0.0.1:36186
+WARNING:root:Read error on 38: [Errno 104] Connection reset by peer
+[NotebookApp] Using existing kernel: b17d13fb-425e-446a-9a6c-d6b65e54f271
+[NotebookApp] Connecting to: tcp://127.0.0.1:42629
+[NotebookApp] Connecting to: tcp://127.0.0.1:46855
+[NotebookApp] Connecting to: tcp://127.0.0.1:36186
+WARNING:root:Read error on 40: [Errno 104] Connection reset by peer
+ERROR:root:Uncaught exception GET /clusters?_=1384332022159 (67.180.132.24)
+HTTPRequest(protocol='https', host='planck.ucsc.edu:9999', method='GET', uri='/clusters?_=1384332022159', version='HTTP/1.1', remote_ip='67.180.132.24', body='', headers={'Accept-Language': 'en-US,en;q=0.8', 'Accept-Encoding': 'gzip,deflate,sdch', 'X-Requested-With': 'XMLHttpRequest', 'Host': 'planck.ucsc.edu:9999', 'Accept': 'application/json, text/javascript, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.114 Safari/537.36', 'Connection': 'keep-alive', 'Referer': 'https://planck.ucsc.edu:9999/', 'Cookie': 'SESSb63bd23ac08f9631758f27b309955d5d=vg4ng887rgij0enh8js0rb20o1; SESSION_LANGUAGE=eng; III_EXPT_FILE=aa28296; III_SESSION_ID=ddb50eca48b7657a66b66d16756ed8ac; ezproxy=uDCqnCCYaTgN956; ev1=clustering%20algorithms; s_cc=true; s_sq=worldcatucsc%3D%2526pid%253DDetailed%252520Record%2526pidt%253D1%2526oid%253Dhttp%25253A//ucsc.worldcat.org.oca.ucsc.edu/oclc/299046773%25253Fpage%25253Dframe%252526url%25253Dhttp%2525253A%2525252F%2525252Fuclibs.org%2525252FPID%2525252F%2526ot%253DA; ais-prod-dmz-1-1610-PORTAL-PSJSESSIONID=RzT2RkLK2ppphJ63DrnNmCZnnVY3nhG4!-1535794739; https%3a%2f%2fmy.ucsc.edu%2fpsp%2fep9prd%2femployee%2fempl%2frefresh=list:%20%3Ftab%3Dremoteunifieddashboard%7C%3Frp%3Dremoteunifieddashboard%7C; ais-prod-dmz-1-1810-PORTAL-PSJSESSIONID=72VzRkLJDG9hCyryTywNzpL529Grl05R!111426214; ais-prod-dmz-3-1610-PORTAL-PSJSESSIONID=LyQ1RkfGpXkDmbQ293hvlpQmdqG2pvKy!358309597; PS_LOGINLIST=-1; ExpirePage=; PS_TOKENEXPIRE=-1; PS_TOKEN=; _ga=GA1.2.1297896672.1365198158; __utma=61369709.392417706.1365293769.1374700725.1376373760.13; __utmc=61369709; __utmz=61369709.1369019105.11.3.utmcsr=people.ucsc.edu|utmccn=(referral)|utmcmd=referral|utmcct=/~erccarls/; wp-settings-1=editor%3Dtinymce%26libraryContent%3Dbrowse; wp-settings-time-1=1377564226; __utma=69683791.1297896672.1365198158.1382480532.1382933077.11; __utmc=69683791; __utmz=69683791.1382933077.11.10.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided); wordpress_test_cookie=WP+Cookie+check; wordpress_logged_in_3cecfc15c6eeed1dcbe8837b73a2d923=carlson%7C1383105963%7C70772c6d57d7b296b85d83ee9fdc519a; username=ZTEwY2U1YzktOTgwMi00NTg3LTg2NjMtMmM0NDZlOTQyNzcy|1383795207|24bc9e0cd00a93c80dccb3a8068c78765333cae9'})
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 954, in _execute
+    getattr(self, self.request.method.lower())(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 1667, in wrapper
+    return method(self, *args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/handlers.py", line 683, in get
+    self.finish(jsonapi.dumps(cm.list_profiles()))
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 91, in list_profiles
+    self.update_profiles()
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 80, in update_profiles
+    for profile in list_profiles_in(path):
+  File "/usr/lib/python2.7/dist-packages/IPython/core/profileapp.py", line 99, in list_profiles_in
+    files = os.listdir(path)
+OSError: [Errno 2] No such file or directory: '(unreachable)/git/time_var/Time_Var_DBSCAN'
+ERROR:root:500 GET /clusters?_=1384332022159 (67.180.132.24) 1.52ms
+[NotebookApp] Using existing kernel: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+ERROR:root:Uncaught exception GET /clusters?_=1384332027321 (67.180.132.24)
+HTTPRequest(protocol='https', host='planck.ucsc.edu:9999', method='GET', uri='/clusters?_=1384332027321', version='HTTP/1.1', remote_ip='67.180.132.24', body='', headers={'Accept-Language': 'en-US,en;q=0.8', 'Accept-Encoding': 'gzip,deflate,sdch', 'X-Requested-With': 'XMLHttpRequest', 'Host': 'planck.ucsc.edu:9999', 'Accept': 'application/json, text/javascript, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.114 Safari/537.36', 'Connection': 'keep-alive', 'Referer': 'https://planck.ucsc.edu:9999/', 'Cookie': 'SESSb63bd23ac08f9631758f27b309955d5d=vg4ng887rgij0enh8js0rb20o1; SESSION_LANGUAGE=eng; III_EXPT_FILE=aa28296; III_SESSION_ID=ddb50eca48b7657a66b66d16756ed8ac; ezproxy=uDCqnCCYaTgN956; ev1=clustering%20algorithms; s_cc=true; s_sq=worldcatucsc%3D%2526pid%253DDetailed%252520Record%2526pidt%253D1%2526oid%253Dhttp%25253A//ucsc.worldcat.org.oca.ucsc.edu/oclc/299046773%25253Fpage%25253Dframe%252526url%25253Dhttp%2525253A%2525252F%2525252Fuclibs.org%2525252FPID%2525252F%2526ot%253DA; ais-prod-dmz-1-1610-PORTAL-PSJSESSIONID=RzT2RkLK2ppphJ63DrnNmCZnnVY3nhG4!-1535794739; https%3a%2f%2fmy.ucsc.edu%2fpsp%2fep9prd%2femployee%2fempl%2frefresh=list:%20%3Ftab%3Dremoteunifieddashboard%7C%3Frp%3Dremoteunifieddashboard%7C; ais-prod-dmz-1-1810-PORTAL-PSJSESSIONID=72VzRkLJDG9hCyryTywNzpL529Grl05R!111426214; ais-prod-dmz-3-1610-PORTAL-PSJSESSIONID=LyQ1RkfGpXkDmbQ293hvlpQmdqG2pvKy!358309597; PS_LOGINLIST=-1; ExpirePage=; PS_TOKENEXPIRE=-1; PS_TOKEN=; _ga=GA1.2.1297896672.1365198158; __utma=61369709.392417706.1365293769.1374700725.1376373760.13; __utmc=61369709; __utmz=61369709.1369019105.11.3.utmcsr=people.ucsc.edu|utmccn=(referral)|utmcmd=referral|utmcct=/~erccarls/; wp-settings-1=editor%3Dtinymce%26libraryContent%3Dbrowse; wp-settings-time-1=1377564226; __utma=69683791.1297896672.1365198158.1382480532.1382933077.11; __utmc=69683791; __utmz=69683791.1382933077.11.10.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided); wordpress_test_cookie=WP+Cookie+check; wordpress_logged_in_3cecfc15c6eeed1dcbe8837b73a2d923=carlson%7C1383105963%7C70772c6d57d7b296b85d83ee9fdc519a; username=ZTEwY2U1YzktOTgwMi00NTg3LTg2NjMtMmM0NDZlOTQyNzcy|1383795207|24bc9e0cd00a93c80dccb3a8068c78765333cae9'})
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 954, in _execute
+    getattr(self, self.request.method.lower())(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 1667, in wrapper
+    return method(self, *args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/handlers.py", line 683, in get
+    self.finish(jsonapi.dumps(cm.list_profiles()))
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 91, in list_profiles
+    self.update_profiles()
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 80, in update_profiles
+    for profile in list_profiles_in(path):
+  File "/usr/lib/python2.7/dist-packages/IPython/core/profileapp.py", line 99, in list_profiles_in
+    files = os.listdir(path)
+OSError: [Errno 2] No such file or directory: '(unreachable)/git/time_var/Time_Var_DBSCAN'
+ERROR:root:500 GET /clusters?_=1384332027321 (67.180.132.24) 1.40ms
+[NotebookApp] Using existing kernel: b17d13fb-425e-446a-9a6c-d6b65e54f271
+[NotebookApp] Connecting to: tcp://127.0.0.1:42629
+[NotebookApp] Connecting to: tcp://127.0.0.1:46855
+[NotebookApp] Connecting to: tcp://127.0.0.1:36186
+[NotebookApp] Kernel restarted: b17d13fb-425e-446a-9a6c-d6b65e54f271
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-b17d13fb-425e-446a-9a6c-d6b65e54f271.json --profile nbserver
+[NotebookApp] Connecting to: tcp://127.0.0.1:42629
+[NotebookApp] Connecting to: tcp://127.0.0.1:46855
+[NotebookApp] Connecting to: tcp://127.0.0.1:36186
+[NotebookApp] Kernel restarted: b17d13fb-425e-446a-9a6c-d6b65e54f271
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-b17d13fb-425e-446a-9a6c-d6b65e54f271.json --profile nbserver
+[NotebookApp] Connecting to: tcp://127.0.0.1:42629
+[NotebookApp] Connecting to: tcp://127.0.0.1:46855
+[NotebookApp] Connecting to: tcp://127.0.0.1:36186
+[NotebookApp] Kernel restarted: b17d13fb-425e-446a-9a6c-d6b65e54f271
+[NotebookApp] Connecting to: tcp://127.0.0.1:42629
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-b17d13fb-425e-446a-9a6c-d6b65e54f271.json --profile nbserver
+[NotebookApp] Connecting to: tcp://127.0.0.1:46855
+[NotebookApp] Connecting to: tcp://127.0.0.1:36186
+ERROR:root:Uncaught exception GET /clusters?_=1384332564058 (67.180.132.24)
+HTTPRequest(protocol='https', host='planck.ucsc.edu:9999', method='GET', uri='/clusters?_=1384332564058', version='HTTP/1.1', remote_ip='67.180.132.24', body='', headers={'Accept-Language': 'en-US,en;q=0.8', 'Accept-Encoding': 'gzip,deflate,sdch', 'X-Requested-With': 'XMLHttpRequest', 'Host': 'planck.ucsc.edu:9999', 'Accept': 'application/json, text/javascript, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.114 Safari/537.36', 'Connection': 'keep-alive', 'Referer': 'https://planck.ucsc.edu:9999/', 'Cookie': 'SESSb63bd23ac08f9631758f27b309955d5d=vg4ng887rgij0enh8js0rb20o1; SESSION_LANGUAGE=eng; III_EXPT_FILE=aa28296; III_SESSION_ID=ddb50eca48b7657a66b66d16756ed8ac; ezproxy=uDCqnCCYaTgN956; ev1=clustering%20algorithms; s_cc=true; s_sq=worldcatucsc%3D%2526pid%253DDetailed%252520Record%2526pidt%253D1%2526oid%253Dhttp%25253A//ucsc.worldcat.org.oca.ucsc.edu/oclc/299046773%25253Fpage%25253Dframe%252526url%25253Dhttp%2525253A%2525252F%2525252Fuclibs.org%2525252FPID%2525252F%2526ot%253DA; ais-prod-dmz-1-1610-PORTAL-PSJSESSIONID=RzT2RkLK2ppphJ63DrnNmCZnnVY3nhG4!-1535794739; https%3a%2f%2fmy.ucsc.edu%2fpsp%2fep9prd%2femployee%2fempl%2frefresh=list:%20%3Ftab%3Dremoteunifieddashboard%7C%3Frp%3Dremoteunifieddashboard%7C; ais-prod-dmz-1-1810-PORTAL-PSJSESSIONID=72VzRkLJDG9hCyryTywNzpL529Grl05R!111426214; ais-prod-dmz-3-1610-PORTAL-PSJSESSIONID=LyQ1RkfGpXkDmbQ293hvlpQmdqG2pvKy!358309597; PS_LOGINLIST=-1; ExpirePage=; PS_TOKENEXPIRE=-1; PS_TOKEN=; _ga=GA1.2.1297896672.1365198158; __utma=61369709.392417706.1365293769.1374700725.1376373760.13; __utmc=61369709; __utmz=61369709.1369019105.11.3.utmcsr=people.ucsc.edu|utmccn=(referral)|utmcmd=referral|utmcct=/~erccarls/; wp-settings-1=editor%3Dtinymce%26libraryContent%3Dbrowse; wp-settings-time-1=1377564226; __utma=69683791.1297896672.1365198158.1382480532.1382933077.11; __utmc=69683791; __utmz=69683791.1382933077.11.10.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided); wordpress_test_cookie=WP+Cookie+check; wordpress_logged_in_3cecfc15c6eeed1dcbe8837b73a2d923=carlson%7C1383105963%7C70772c6d57d7b296b85d83ee9fdc519a; username=ZTEwY2U1YzktOTgwMi00NTg3LTg2NjMtMmM0NDZlOTQyNzcy|1383795207|24bc9e0cd00a93c80dccb3a8068c78765333cae9'})
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 954, in _execute
+    getattr(self, self.request.method.lower())(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 1667, in wrapper
+    return method(self, *args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/handlers.py", line 683, in get
+    self.finish(jsonapi.dumps(cm.list_profiles()))
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 91, in list_profiles
+    self.update_profiles()
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 80, in update_profiles
+    for profile in list_profiles_in(path):
+  File "/usr/lib/python2.7/dist-packages/IPython/core/profileapp.py", line 99, in list_profiles_in
+    files = os.listdir(path)
+OSError: [Errno 2] No such file or directory: '(unreachable)/git/time_var/Time_Var_DBSCAN'
+ERROR:root:500 GET /clusters?_=1384332564058 (67.180.132.24) 4.79ms
+[NotebookApp] Using existing kernel: b17d13fb-425e-446a-9a6c-d6b65e54f271
+[NotebookApp] Connecting to: tcp://127.0.0.1:42629
+[NotebookApp] Connecting to: tcp://127.0.0.1:46855
+[NotebookApp] Connecting to: tcp://127.0.0.1:36186
+ERROR:root:Uncaught exception GET /clusters?_=1384333533754 (67.180.132.24)
+HTTPRequest(protocol='https', host='planck.ucsc.edu:9999', method='GET', uri='/clusters?_=1384333533754', version='HTTP/1.1', remote_ip='67.180.132.24', body='', headers={'Accept-Language': 'en-US,en;q=0.8', 'Accept-Encoding': 'gzip,deflate,sdch', 'X-Requested-With': 'XMLHttpRequest', 'Host': 'planck.ucsc.edu:9999', 'Accept': 'application/json, text/javascript, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.114 Safari/537.36', 'Connection': 'keep-alive', 'Referer': 'https://planck.ucsc.edu:9999/', 'Cookie': 'SESSb63bd23ac08f9631758f27b309955d5d=vg4ng887rgij0enh8js0rb20o1; SESSION_LANGUAGE=eng; III_EXPT_FILE=aa28296; III_SESSION_ID=ddb50eca48b7657a66b66d16756ed8ac; ezproxy=uDCqnCCYaTgN956; ev1=clustering%20algorithms; s_cc=true; s_sq=worldcatucsc%3D%2526pid%253DDetailed%252520Record%2526pidt%253D1%2526oid%253Dhttp%25253A//ucsc.worldcat.org.oca.ucsc.edu/oclc/299046773%25253Fpage%25253Dframe%252526url%25253Dhttp%2525253A%2525252F%2525252Fuclibs.org%2525252FPID%2525252F%2526ot%253DA; ais-prod-dmz-1-1610-PORTAL-PSJSESSIONID=RzT2RkLK2ppphJ63DrnNmCZnnVY3nhG4!-1535794739; https%3a%2f%2fmy.ucsc.edu%2fpsp%2fep9prd%2femployee%2fempl%2frefresh=list:%20%3Ftab%3Dremoteunifieddashboard%7C%3Frp%3Dremoteunifieddashboard%7C; ais-prod-dmz-1-1810-PORTAL-PSJSESSIONID=72VzRkLJDG9hCyryTywNzpL529Grl05R!111426214; ais-prod-dmz-3-1610-PORTAL-PSJSESSIONID=LyQ1RkfGpXkDmbQ293hvlpQmdqG2pvKy!358309597; PS_LOGINLIST=-1; ExpirePage=; PS_TOKENEXPIRE=-1; PS_TOKEN=; _ga=GA1.2.1297896672.1365198158; __utma=61369709.392417706.1365293769.1374700725.1376373760.13; __utmc=61369709; __utmz=61369709.1369019105.11.3.utmcsr=people.ucsc.edu|utmccn=(referral)|utmcmd=referral|utmcct=/~erccarls/; wp-settings-1=editor%3Dtinymce%26libraryContent%3Dbrowse; wp-settings-time-1=1377564226; __utma=69683791.1297896672.1365198158.1382480532.1382933077.11; __utmc=69683791; __utmz=69683791.1382933077.11.10.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided); wordpress_test_cookie=WP+Cookie+check; wordpress_logged_in_3cecfc15c6eeed1dcbe8837b73a2d923=carlson%7C1383105963%7C70772c6d57d7b296b85d83ee9fdc519a; username=ZTEwY2U1YzktOTgwMi00NTg3LTg2NjMtMmM0NDZlOTQyNzcy|1383795207|24bc9e0cd00a93c80dccb3a8068c78765333cae9'})
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 954, in _execute
+    getattr(self, self.request.method.lower())(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 1667, in wrapper
+    return method(self, *args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/handlers.py", line 683, in get
+    self.finish(jsonapi.dumps(cm.list_profiles()))
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 91, in list_profiles
+    self.update_profiles()
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 80, in update_profiles
+    for profile in list_profiles_in(path):
+  File "/usr/lib/python2.7/dist-packages/IPython/core/profileapp.py", line 99, in list_profiles_in
+    files = os.listdir(path)
+OSError: [Errno 2] No such file or directory: '(unreachable)/git/time_var/Time_Var_DBSCAN'
+ERROR:root:500 GET /clusters?_=1384333533754 (67.180.132.24) 4.36ms
+ERROR:root:Uncaught exception GET /clusters?_=1384345109998 (67.180.132.24)
+HTTPRequest(protocol='https', host='planck.ucsc.edu:9999', method='GET', uri='/clusters?_=1384345109998', version='HTTP/1.1', remote_ip='67.180.132.24', body='', headers={'Accept-Language': 'en-US,en;q=0.8', 'Accept-Encoding': 'gzip,deflate,sdch', 'Host': 'planck.ucsc.edu:9999', 'Accept': 'application/json, text/javascript, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.101 Safari/537.36', 'Connection': 'keep-alive', 'X-Requested-With': 'XMLHttpRequest', 'Cache-Control': 'max-age=0', 'Referer': 'https://planck.ucsc.edu:9999/', 'Cookie': '__utma=69683791.1129012907.1382651064.1382651064.1382651064.1; __utmz=69683791.1382651064.1.1.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided); username=MzZiNDUxOGYtZmNkYS00NmE3LWEyYjEtMWNmZGU4Mzk1ZTQz|1384345112|b0a657771fdd352d160bf1920652e9eb836978af'})
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 954, in _execute
+    getattr(self, self.request.method.lower())(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 1667, in wrapper
+    return method(self, *args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/handlers.py", line 683, in get
+    self.finish(jsonapi.dumps(cm.list_profiles()))
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 91, in list_profiles
+    self.update_profiles()
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 80, in update_profiles
+    for profile in list_profiles_in(path):
+  File "/usr/lib/python2.7/dist-packages/IPython/core/profileapp.py", line 99, in list_profiles_in
+    files = os.listdir(path)
+OSError: [Errno 2] No such file or directory: '(unreachable)/git/time_var/Time_Var_DBSCAN'
+ERROR:root:500 GET /clusters?_=1384345109998 (67.180.132.24) 4.81ms
+[NotebookApp] Kernel started: 20ff1cee-c0ca-48a6-8d04-24774597bf49
+[NotebookApp] Connecting to: tcp://127.0.0.1:54746
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-20ff1cee-c0ca-48a6-8d04-24774597bf49.json --profile nbserver
+[NotebookApp] Connecting to: tcp://127.0.0.1:58728
+[NotebookApp] Connecting to: tcp://127.0.0.1:50035
+ERROR:root:Uncaught exception GET /clusters?_=1384345131513 (67.180.132.24)
+HTTPRequest(protocol='https', host='planck.ucsc.edu:9999', method='GET', uri='/clusters?_=1384345131513', version='HTTP/1.1', remote_ip='67.180.132.24', body='', headers={'Accept-Language': 'en-US,en;q=0.8', 'Accept-Encoding': 'gzip,deflate,sdch', 'X-Requested-With': 'XMLHttpRequest', 'Host': 'planck.ucsc.edu:9999', 'Accept': 'application/json, text/javascript, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.101 Safari/537.36', 'Connection': 'keep-alive', 'Referer': 'https://planck.ucsc.edu:9999/', 'Cookie': '__utma=69683791.1129012907.1382651064.1382651064.1382651064.1; __utmz=69683791.1382651064.1.1.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided); username=MzZiNDUxOGYtZmNkYS00NmE3LWEyYjEtMWNmZGU4Mzk1ZTQz|1384345112|b0a657771fdd352d160bf1920652e9eb836978af'})
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 954, in _execute
+    getattr(self, self.request.method.lower())(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 1667, in wrapper
+    return method(self, *args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/handlers.py", line 683, in get
+    self.finish(jsonapi.dumps(cm.list_profiles()))
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 91, in list_profiles
+    self.update_profiles()
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 80, in update_profiles
+    for profile in list_profiles_in(path):
+  File "/usr/lib/python2.7/dist-packages/IPython/core/profileapp.py", line 99, in list_profiles_in
+    files = os.listdir(path)
+OSError: [Errno 2] No such file or directory: '(unreachable)/git/time_var/Time_Var_DBSCAN'
+ERROR:root:500 GET /clusters?_=1384345131513 (67.180.132.24) 3.93ms
+[NotebookApp] Using existing kernel: b17d13fb-425e-446a-9a6c-d6b65e54f271
+ERROR:root:Uncaught exception GET /clusters?_=1384347273416 (67.180.132.24)
+HTTPRequest(protocol='https', host='planck.ucsc.edu:9999', method='GET', uri='/clusters?_=1384347273416', version='HTTP/1.1', remote_ip='67.180.132.24', body='', headers={'Accept-Language': 'en-US,en;q=0.8', 'Accept-Encoding': 'gzip,deflate,sdch', 'X-Requested-With': 'XMLHttpRequest', 'Host': 'planck.ucsc.edu:9999', 'Accept': 'application/json, text/javascript, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.114 Safari/537.36', 'Connection': 'keep-alive', 'Referer': 'https://planck.ucsc.edu:9999/', 'Cookie': 'SESSb63bd23ac08f9631758f27b309955d5d=vg4ng887rgij0enh8js0rb20o1; SESSION_LANGUAGE=eng; III_EXPT_FILE=aa28296; III_SESSION_ID=ddb50eca48b7657a66b66d16756ed8ac; ezproxy=uDCqnCCYaTgN956; ev1=clustering%20algorithms; s_cc=true; s_sq=worldcatucsc%3D%2526pid%253DDetailed%252520Record%2526pidt%253D1%2526oid%253Dhttp%25253A//ucsc.worldcat.org.oca.ucsc.edu/oclc/299046773%25253Fpage%25253Dframe%252526url%25253Dhttp%2525253A%2525252F%2525252Fuclibs.org%2525252FPID%2525252F%2526ot%253DA; ais-prod-dmz-1-1610-PORTAL-PSJSESSIONID=RzT2RkLK2ppphJ63DrnNmCZnnVY3nhG4!-1535794739; https%3a%2f%2fmy.ucsc.edu%2fpsp%2fep9prd%2femployee%2fempl%2frefresh=list:%20%3Ftab%3Dremoteunifieddashboard%7C%3Frp%3Dremoteunifieddashboard%7C; ais-prod-dmz-1-1810-PORTAL-PSJSESSIONID=72VzRkLJDG9hCyryTywNzpL529Grl05R!111426214; ais-prod-dmz-3-1610-PORTAL-PSJSESSIONID=LyQ1RkfGpXkDmbQ293hvlpQmdqG2pvKy!358309597; PS_LOGINLIST=-1; ExpirePage=; PS_TOKENEXPIRE=-1; PS_TOKEN=; _ga=GA1.2.1297896672.1365198158; __utma=61369709.392417706.1365293769.1374700725.1376373760.13; __utmc=61369709; __utmz=61369709.1369019105.11.3.utmcsr=people.ucsc.edu|utmccn=(referral)|utmcmd=referral|utmcct=/~erccarls/; wp-settings-1=editor%3Dtinymce%26libraryContent%3Dbrowse; wp-settings-time-1=1377564226; __utma=69683791.1297896672.1365198158.1382480532.1382933077.11; __utmc=69683791; __utmz=69683791.1382933077.11.10.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided); wordpress_test_cookie=WP+Cookie+check; wordpress_logged_in_3cecfc15c6eeed1dcbe8837b73a2d923=carlson%7C1383105963%7C70772c6d57d7b296b85d83ee9fdc519a; username=ZTEwY2U1YzktOTgwMi00NTg3LTg2NjMtMmM0NDZlOTQyNzcy|1383795207|24bc9e0cd00a93c80dccb3a8068c78765333cae9'})
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 954, in _execute
+    getattr(self, self.request.method.lower())(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 1667, in wrapper
+    return method(self, *args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/handlers.py", line 683, in get
+    self.finish(jsonapi.dumps(cm.list_profiles()))
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 91, in list_profiles
+    self.update_profiles()
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 80, in update_profiles
+    for profile in list_profiles_in(path):
+  File "/usr/lib/python2.7/dist-packages/IPython/core/profileapp.py", line 99, in list_profiles_in
+    files = os.listdir(path)
+OSError: [Errno 2] No such file or directory: '(unreachable)/git/time_var/Time_Var_DBSCAN'
+ERROR:root:500 GET /clusters?_=1384347273416 (67.180.132.24) 4.68ms
+[NotebookApp] Using existing kernel: 20ff1cee-c0ca-48a6-8d04-24774597bf49
+[NotebookApp] Connecting to: tcp://127.0.0.1:54746
+[NotebookApp] Connecting to: tcp://127.0.0.1:58728
+[NotebookApp] Connecting to: tcp://127.0.0.1:50035
+ERROR:root:Uncaught exception GET /clusters?_=1384347280201 (67.180.132.24)
+HTTPRequest(protocol='https', host='planck.ucsc.edu:9999', method='GET', uri='/clusters?_=1384347280201', version='HTTP/1.1', remote_ip='67.180.132.24', body='', headers={'Accept-Language': 'en-US,en;q=0.8', 'Accept-Encoding': 'gzip,deflate,sdch', 'X-Requested-With': 'XMLHttpRequest', 'Host': 'planck.ucsc.edu:9999', 'Accept': 'application/json, text/javascript, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.114 Safari/537.36', 'Connection': 'keep-alive', 'Referer': 'https://planck.ucsc.edu:9999/', 'Cookie': 'SESSb63bd23ac08f9631758f27b309955d5d=vg4ng887rgij0enh8js0rb20o1; SESSION_LANGUAGE=eng; III_EXPT_FILE=aa28296; III_SESSION_ID=ddb50eca48b7657a66b66d16756ed8ac; ezproxy=uDCqnCCYaTgN956; ev1=clustering%20algorithms; s_cc=true; s_sq=worldcatucsc%3D%2526pid%253DDetailed%252520Record%2526pidt%253D1%2526oid%253Dhttp%25253A//ucsc.worldcat.org.oca.ucsc.edu/oclc/299046773%25253Fpage%25253Dframe%252526url%25253Dhttp%2525253A%2525252F%2525252Fuclibs.org%2525252FPID%2525252F%2526ot%253DA; ais-prod-dmz-1-1610-PORTAL-PSJSESSIONID=RzT2RkLK2ppphJ63DrnNmCZnnVY3nhG4!-1535794739; https%3a%2f%2fmy.ucsc.edu%2fpsp%2fep9prd%2femployee%2fempl%2frefresh=list:%20%3Ftab%3Dremoteunifieddashboard%7C%3Frp%3Dremoteunifieddashboard%7C; ais-prod-dmz-1-1810-PORTAL-PSJSESSIONID=72VzRkLJDG9hCyryTywNzpL529Grl05R!111426214; ais-prod-dmz-3-1610-PORTAL-PSJSESSIONID=LyQ1RkfGpXkDmbQ293hvlpQmdqG2pvKy!358309597; PS_LOGINLIST=-1; ExpirePage=; PS_TOKENEXPIRE=-1; PS_TOKEN=; _ga=GA1.2.1297896672.1365198158; __utma=61369709.392417706.1365293769.1374700725.1376373760.13; __utmc=61369709; __utmz=61369709.1369019105.11.3.utmcsr=people.ucsc.edu|utmccn=(referral)|utmcmd=referral|utmcct=/~erccarls/; wp-settings-1=editor%3Dtinymce%26libraryContent%3Dbrowse; wp-settings-time-1=1377564226; __utma=69683791.1297896672.1365198158.1382480532.1382933077.11; __utmc=69683791; __utmz=69683791.1382933077.11.10.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided); wordpress_test_cookie=WP+Cookie+check; wordpress_logged_in_3cecfc15c6eeed1dcbe8837b73a2d923=carlson%7C1383105963%7C70772c6d57d7b296b85d83ee9fdc519a; username=ZTEwY2U1YzktOTgwMi00NTg3LTg2NjMtMmM0NDZlOTQyNzcy|1383795207|24bc9e0cd00a93c80dccb3a8068c78765333cae9'})
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 954, in _execute
+    getattr(self, self.request.method.lower())(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 1667, in wrapper
+    return method(self, *args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/handlers.py", line 683, in get
+    self.finish(jsonapi.dumps(cm.list_profiles()))
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 91, in list_profiles
+    self.update_profiles()
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 80, in update_profiles
+    for profile in list_profiles_in(path):
+  File "/usr/lib/python2.7/dist-packages/IPython/core/profileapp.py", line 99, in list_profiles_in
+    files = os.listdir(path)
+OSError: [Errno 2] No such file or directory: '(unreachable)/git/time_var/Time_Var_DBSCAN'
+ERROR:root:500 GET /clusters?_=1384347280201 (67.180.132.24) 4.30ms
+[NotebookApp] Using existing kernel: b17d13fb-425e-446a-9a6c-d6b65e54f271
+WARNING:root:Couldn't authenticate WebSocket connection
+ERROR:root:Uncaught exception GET /clusters?_=1384347285611 (67.180.132.24)
+HTTPRequest(protocol='https', host='planck.ucsc.edu:9999', method='GET', uri='/clusters?_=1384347285611', version='HTTP/1.1', remote_ip='67.180.132.24', body='', headers={'Accept-Language': 'en-US,en;q=0.8', 'Accept-Encoding': 'gzip,deflate,sdch', 'X-Requested-With': 'XMLHttpRequest', 'Host': 'planck.ucsc.edu:9999', 'Accept': 'application/json, text/javascript, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.114 Safari/537.36', 'Connection': 'keep-alive', 'Referer': 'https://planck.ucsc.edu:9999/', 'Cookie': 'SESSb63bd23ac08f9631758f27b309955d5d=vg4ng887rgij0enh8js0rb20o1; SESSION_LANGUAGE=eng; III_EXPT_FILE=aa28296; III_SESSION_ID=ddb50eca48b7657a66b66d16756ed8ac; ezproxy=uDCqnCCYaTgN956; ev1=clustering%20algorithms; s_cc=true; s_sq=worldcatucsc%3D%2526pid%253DDetailed%252520Record%2526pidt%253D1%2526oid%253Dhttp%25253A//ucsc.worldcat.org.oca.ucsc.edu/oclc/299046773%25253Fpage%25253Dframe%252526url%25253Dhttp%2525253A%2525252F%2525252Fuclibs.org%2525252FPID%2525252F%2526ot%253DA; ais-prod-dmz-1-1610-PORTAL-PSJSESSIONID=RzT2RkLK2ppphJ63DrnNmCZnnVY3nhG4!-1535794739; https%3a%2f%2fmy.ucsc.edu%2fpsp%2fep9prd%2femployee%2fempl%2frefresh=list:%20%3Ftab%3Dremoteunifieddashboard%7C%3Frp%3Dremoteunifieddashboard%7C; ais-prod-dmz-1-1810-PORTAL-PSJSESSIONID=72VzRkLJDG9hCyryTywNzpL529Grl05R!111426214; ais-prod-dmz-3-1610-PORTAL-PSJSESSIONID=LyQ1RkfGpXkDmbQ293hvlpQmdqG2pvKy!358309597; PS_LOGINLIST=-1; ExpirePage=; PS_TOKENEXPIRE=-1; PS_TOKEN=; _ga=GA1.2.1297896672.1365198158; __utma=61369709.392417706.1365293769.1374700725.1376373760.13; __utmc=61369709; __utmz=61369709.1369019105.11.3.utmcsr=people.ucsc.edu|utmccn=(referral)|utmcmd=referral|utmcct=/~erccarls/; wp-settings-1=editor%3Dtinymce%26libraryContent%3Dbrowse; wp-settings-time-1=1377564226; __utma=69683791.1297896672.1365198158.1382480532.1382933077.11; __utmc=69683791; __utmz=69683791.1382933077.11.10.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided); wordpress_test_cookie=WP+Cookie+check; wordpress_logged_in_3cecfc15c6eeed1dcbe8837b73a2d923=carlson%7C1383105963%7C70772c6d57d7b296b85d83ee9fdc519a; username=ZTEwY2U1YzktOTgwMi00NTg3LTg2NjMtMmM0NDZlOTQyNzcy|1383795207|24bc9e0cd00a93c80dccb3a8068c78765333cae9'})
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 954, in _execute
+    getattr(self, self.request.method.lower())(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 1667, in wrapper
+    return method(self, *args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/handlers.py", line 683, in get
+    self.finish(jsonapi.dumps(cm.list_profiles()))
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 91, in list_profiles
+    self.update_profiles()
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 80, in update_profiles
+    for profile in list_profiles_in(path):
+  File "/usr/lib/python2.7/dist-packages/IPython/core/profileapp.py", line 99, in list_profiles_in
+    files = os.listdir(path)
+OSError: [Errno 2] No such file or directory: '(unreachable)/git/time_var/Time_Var_DBSCAN'
+ERROR:root:500 GET /clusters?_=1384347285611 (67.180.132.24) 4.36ms
+[NotebookApp] Using existing kernel: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+ERROR:root:Uncaught exception GET /clusters?_=1384347846259 (67.180.132.24)
+HTTPRequest(protocol='https', host='planck.ucsc.edu:9999', method='GET', uri='/clusters?_=1384347846259', version='HTTP/1.1', remote_ip='67.180.132.24', body='', headers={'Accept-Language': 'en-US,en;q=0.8', 'Accept-Encoding': 'gzip,deflate,sdch', 'X-Requested-With': 'XMLHttpRequest', 'Host': 'planck.ucsc.edu:9999', 'Accept': 'application/json, text/javascript, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.114 Safari/537.36', 'Connection': 'keep-alive', 'Referer': 'https://planck.ucsc.edu:9999/', 'Cookie': 'SESSb63bd23ac08f9631758f27b309955d5d=vg4ng887rgij0enh8js0rb20o1; SESSION_LANGUAGE=eng; III_EXPT_FILE=aa28296; III_SESSION_ID=ddb50eca48b7657a66b66d16756ed8ac; ezproxy=uDCqnCCYaTgN956; ev1=clustering%20algorithms; s_cc=true; s_sq=worldcatucsc%3D%2526pid%253DDetailed%252520Record%2526pidt%253D1%2526oid%253Dhttp%25253A//ucsc.worldcat.org.oca.ucsc.edu/oclc/299046773%25253Fpage%25253Dframe%252526url%25253Dhttp%2525253A%2525252F%2525252Fuclibs.org%2525252FPID%2525252F%2526ot%253DA; ais-prod-dmz-1-1610-PORTAL-PSJSESSIONID=RzT2RkLK2ppphJ63DrnNmCZnnVY3nhG4!-1535794739; https%3a%2f%2fmy.ucsc.edu%2fpsp%2fep9prd%2femployee%2fempl%2frefresh=list:%20%3Ftab%3Dremoteunifieddashboard%7C%3Frp%3Dremoteunifieddashboard%7C; ais-prod-dmz-1-1810-PORTAL-PSJSESSIONID=72VzRkLJDG9hCyryTywNzpL529Grl05R!111426214; ais-prod-dmz-3-1610-PORTAL-PSJSESSIONID=LyQ1RkfGpXkDmbQ293hvlpQmdqG2pvKy!358309597; PS_LOGINLIST=-1; ExpirePage=; PS_TOKENEXPIRE=-1; PS_TOKEN=; _ga=GA1.2.1297896672.1365198158; __utma=61369709.392417706.1365293769.1374700725.1376373760.13; __utmc=61369709; __utmz=61369709.1369019105.11.3.utmcsr=people.ucsc.edu|utmccn=(referral)|utmcmd=referral|utmcct=/~erccarls/; wp-settings-1=editor%3Dtinymce%26libraryContent%3Dbrowse; wp-settings-time-1=1377564226; __utma=69683791.1297896672.1365198158.1382480532.1382933077.11; __utmc=69683791; __utmz=69683791.1382933077.11.10.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided); wordpress_test_cookie=WP+Cookie+check; wordpress_logged_in_3cecfc15c6eeed1dcbe8837b73a2d923=carlson%7C1383105963%7C70772c6d57d7b296b85d83ee9fdc519a; username=ZTEwY2U1YzktOTgwMi00NTg3LTg2NjMtMmM0NDZlOTQyNzcy|1383795207|24bc9e0cd00a93c80dccb3a8068c78765333cae9'})
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 954, in _execute
+    getattr(self, self.request.method.lower())(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 1667, in wrapper
+    return method(self, *args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/handlers.py", line 683, in get
+    self.finish(jsonapi.dumps(cm.list_profiles()))
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 91, in list_profiles
+    self.update_profiles()
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 80, in update_profiles
+    for profile in list_profiles_in(path):
+  File "/usr/lib/python2.7/dist-packages/IPython/core/profileapp.py", line 99, in list_profiles_in
+    files = os.listdir(path)
+OSError: [Errno 2] No such file or directory: '(unreachable)/git/time_var/Time_Var_DBSCAN'
+ERROR:root:500 GET /clusters?_=1384347846259 (67.180.132.24) 4.45ms
+[NotebookApp] Kernel restarted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-1ebe6f51-ebb8-4b73-8fbf-57f510312935.json --profile nbserver
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+[NotebookApp] Kernel restarted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-1ebe6f51-ebb8-4b73-8fbf-57f510312935.json --profile nbserver
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+[NotebookApp] Kernel restarted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+ERROR:root:Uncaught exception, closing connection.
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/zmqstream.py", line 365, in _run_callback
+    callback(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/handlers.py", line 399, in _on_zmq_reply
+    self.write_message(msg)
+  File "/usr/lib/python2.7/dist-packages/tornado/websocket.py", line 99, in write_message
+    self.ws_connection.write_message(message)
+  File "/usr/lib/python2.7/dist-packages/tornado/websocket.py", line 413, in write_message
+    self._write_frame(True, opcode, message)
+  File "/usr/lib/python2.7/dist-packages/tornado/websocket.py", line 400, in _write_frame
+    self.stream.write(frame)
+  File "/usr/lib/python2.7/dist-packages/tornado/iostream.py", line 204, in write
+    self._check_closed()
+  File "/usr/lib/python2.7/dist-packages/tornado/iostream.py", line 493, in _check_closed
+    raise IOError("Stream is closed")
+IOError: Stream is closed
+ERROR:root:Uncaught exception, closing connection.
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/zmqstream.py", line 391, in _handle_events
+    self._handle_recv()
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/zmqstream.py", line 424, in _handle_recv
+    self._run_callback(callback, msg)
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/zmqstream.py", line 365, in _run_callback
+    callback(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/handlers.py", line 399, in _on_zmq_reply
+    self.write_message(msg)
+  File "/usr/lib/python2.7/dist-packages/tornado/websocket.py", line 99, in write_message
+    self.ws_connection.write_message(message)
+  File "/usr/lib/python2.7/dist-packages/tornado/websocket.py", line 413, in write_message
+    self._write_frame(True, opcode, message)
+  File "/usr/lib/python2.7/dist-packages/tornado/websocket.py", line 400, in _write_frame
+    self.stream.write(frame)
+  File "/usr/lib/python2.7/dist-packages/tornado/iostream.py", line 204, in write
+    self._check_closed()
+  File "/usr/lib/python2.7/dist-packages/tornado/iostream.py", line 493, in _check_closed
+    raise IOError("Stream is closed")
+IOError: Stream is closed
+ERROR:root:Exception in I/O handler for fd <zmq.core.socket.Socket object at 0x42f9e30>
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/ioloop.py", line 330, in start
+    self._handlers[fd](fd, events)
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/zmqstream.py", line 391, in _handle_events
+    self._handle_recv()
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/zmqstream.py", line 424, in _handle_recv
+    self._run_callback(callback, msg)
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/zmqstream.py", line 365, in _run_callback
+    callback(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/handlers.py", line 399, in _on_zmq_reply
+    self.write_message(msg)
+  File "/usr/lib/python2.7/dist-packages/tornado/websocket.py", line 99, in write_message
+    self.ws_connection.write_message(message)
+  File "/usr/lib/python2.7/dist-packages/tornado/websocket.py", line 413, in write_message
+    self._write_frame(True, opcode, message)
+  File "/usr/lib/python2.7/dist-packages/tornado/websocket.py", line 400, in _write_frame
+    self.stream.write(frame)
+  File "/usr/lib/python2.7/dist-packages/tornado/iostream.py", line 204, in write
+    self._check_closed()
+  File "/usr/lib/python2.7/dist-packages/tornado/iostream.py", line 493, in _check_closed
+    raise IOError("Stream is closed")
+IOError: Stream is closed
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-1ebe6f51-ebb8-4b73-8fbf-57f510312935.json --profile nbserver
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+[NotebookApp] Kernel restarted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-1ebe6f51-ebb8-4b73-8fbf-57f510312935.json --profile nbserver
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+[NotebookApp] Kernel restarted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-1ebe6f51-ebb8-4b73-8fbf-57f510312935.json --profile nbserver
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+[NotebookApp] Kernel restarted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-1ebe6f51-ebb8-4b73-8fbf-57f510312935.json --profile nbserver
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+[NotebookApp] Kernel restarted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-1ebe6f51-ebb8-4b73-8fbf-57f510312935.json --profile nbserver
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+[NotebookApp] Kernel restarted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-1ebe6f51-ebb8-4b73-8fbf-57f510312935.json --profile nbserver
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+[NotebookApp] Kernel interrupted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Kernel restarted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-1ebe6f51-ebb8-4b73-8fbf-57f510312935.json --profile nbserver
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+[NotebookApp] Kernel restarted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-1ebe6f51-ebb8-4b73-8fbf-57f510312935.json --profile nbserver
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+[NotebookApp] Kernel restarted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+ERROR:root:Uncaught exception, closing connection.
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/zmqstream.py", line 365, in _run_callback
+    callback(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/handlers.py", line 399, in _on_zmq_reply
+    self.write_message(msg)
+  File "/usr/lib/python2.7/dist-packages/tornado/websocket.py", line 99, in write_message
+    self.ws_connection.write_message(message)
+  File "/usr/lib/python2.7/dist-packages/tornado/websocket.py", line 413, in write_message
+    self._write_frame(True, opcode, message)
+  File "/usr/lib/python2.7/dist-packages/tornado/websocket.py", line 400, in _write_frame
+    self.stream.write(frame)
+  File "/usr/lib/python2.7/dist-packages/tornado/iostream.py", line 204, in write
+    self._check_closed()
+  File "/usr/lib/python2.7/dist-packages/tornado/iostream.py", line 493, in _check_closed
+    raise IOError("Stream is closed")
+IOError: Stream is closed
+ERROR:root:Uncaught exception, closing connection.
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/zmqstream.py", line 391, in _handle_events
+    self._handle_recv()
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/zmqstream.py", line 424, in _handle_recv
+    self._run_callback(callback, msg)
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/zmqstream.py", line 365, in _run_callback
+    callback(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/handlers.py", line 399, in _on_zmq_reply
+    self.write_message(msg)
+  File "/usr/lib/python2.7/dist-packages/tornado/websocket.py", line 99, in write_message
+    self.ws_connection.write_message(message)
+  File "/usr/lib/python2.7/dist-packages/tornado/websocket.py", line 413, in write_message
+    self._write_frame(True, opcode, message)
+  File "/usr/lib/python2.7/dist-packages/tornado/websocket.py", line 400, in _write_frame
+    self.stream.write(frame)
+  File "/usr/lib/python2.7/dist-packages/tornado/iostream.py", line 204, in write
+    self._check_closed()
+  File "/usr/lib/python2.7/dist-packages/tornado/iostream.py", line 493, in _check_closed
+    raise IOError("Stream is closed")
+IOError: Stream is closed
+ERROR:root:Exception in I/O handler for fd <zmq.core.socket.Socket object at 0x42f9d70>
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/ioloop.py", line 330, in start
+    self._handlers[fd](fd, events)
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/zmqstream.py", line 391, in _handle_events
+    self._handle_recv()
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/zmqstream.py", line 424, in _handle_recv
+    self._run_callback(callback, msg)
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/zmqstream.py", line 365, in _run_callback
+    callback(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/handlers.py", line 399, in _on_zmq_reply
+    self.write_message(msg)
+  File "/usr/lib/python2.7/dist-packages/tornado/websocket.py", line 99, in write_message
+    self.ws_connection.write_message(message)
+  File "/usr/lib/python2.7/dist-packages/tornado/websocket.py", line 413, in write_message
+    self._write_frame(True, opcode, message)
+  File "/usr/lib/python2.7/dist-packages/tornado/websocket.py", line 400, in _write_frame
+    self.stream.write(frame)
+  File "/usr/lib/python2.7/dist-packages/tornado/iostream.py", line 204, in write
+    self._check_closed()
+  File "/usr/lib/python2.7/dist-packages/tornado/iostream.py", line 493, in _check_closed
+    raise IOError("Stream is closed")
+IOError: Stream is closed
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-1ebe6f51-ebb8-4b73-8fbf-57f510312935.json --profile nbserver
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+[NotebookApp] Kernel restarted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+ERROR:root:Uncaught exception, closing connection.
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/zmqstream.py", line 365, in _run_callback
+    callback(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/handlers.py", line 399, in _on_zmq_reply
+    self.write_message(msg)
+  File "/usr/lib/python2.7/dist-packages/tornado/websocket.py", line 99, in write_message
+    self.ws_connection.write_message(message)
+  File "/usr/lib/python2.7/dist-packages/tornado/websocket.py", line 413, in write_message
+    self._write_frame(True, opcode, message)
+  File "/usr/lib/python2.7/dist-packages/tornado/websocket.py", line 400, in _write_frame
+    self.stream.write(frame)
+  File "/usr/lib/python2.7/dist-packages/tornado/iostream.py", line 204, in write
+    self._check_closed()
+  File "/usr/lib/python2.7/dist-packages/tornado/iostream.py", line 493, in _check_closed
+    raise IOError("Stream is closed")
+IOError: Stream is closed
+ERROR:root:Uncaught exception, closing connection.
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/zmqstream.py", line 391, in _handle_events
+    self._handle_recv()
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/zmqstream.py", line 424, in _handle_recv
+    self._run_callback(callback, msg)
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/zmqstream.py", line 365, in _run_callback
+    callback(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/handlers.py", line 399, in _on_zmq_reply
+    self.write_message(msg)
+  File "/usr/lib/python2.7/dist-packages/tornado/websocket.py", line 99, in write_message
+    self.ws_connection.write_message(message)
+  File "/usr/lib/python2.7/dist-packages/tornado/websocket.py", line 413, in write_message
+    self._write_frame(True, opcode, message)
+  File "/usr/lib/python2.7/dist-packages/tornado/websocket.py", line 400, in _write_frame
+    self.stream.write(frame)
+  File "/usr/lib/python2.7/dist-packages/tornado/iostream.py", line 204, in write
+    self._check_closed()
+  File "/usr/lib/python2.7/dist-packages/tornado/iostream.py", line 493, in _check_closed
+    raise IOError("Stream is closed")
+IOError: Stream is closed
+ERROR:root:Exception in I/O handler for fd <zmq.core.socket.Socket object at 0x44b94d0>
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/ioloop.py", line 330, in start
+    self._handlers[fd](fd, events)
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/zmqstream.py", line 391, in _handle_events
+    self._handle_recv()
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/zmqstream.py", line 424, in _handle_recv
+    self._run_callback(callback, msg)
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/zmqstream.py", line 365, in _run_callback
+    callback(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/handlers.py", line 399, in _on_zmq_reply
+    self.write_message(msg)
+  File "/usr/lib/python2.7/dist-packages/tornado/websocket.py", line 99, in write_message
+    self.ws_connection.write_message(message)
+  File "/usr/lib/python2.7/dist-packages/tornado/websocket.py", line 413, in write_message
+    self._write_frame(True, opcode, message)
+  File "/usr/lib/python2.7/dist-packages/tornado/websocket.py", line 400, in _write_frame
+    self.stream.write(frame)
+  File "/usr/lib/python2.7/dist-packages/tornado/iostream.py", line 204, in write
+    self._check_closed()
+  File "/usr/lib/python2.7/dist-packages/tornado/iostream.py", line 493, in _check_closed
+    raise IOError("Stream is closed")
+IOError: Stream is closed
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-1ebe6f51-ebb8-4b73-8fbf-57f510312935.json --profile nbserver
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+[NotebookApp] Kernel restarted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-1ebe6f51-ebb8-4b73-8fbf-57f510312935.json --profile nbserver
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+[NotebookApp] Kernel restarted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-1ebe6f51-ebb8-4b73-8fbf-57f510312935.json --profile nbserver
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+[NotebookApp] Kernel restarted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-1ebe6f51-ebb8-4b73-8fbf-57f510312935.json --profile nbserver
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+[NotebookApp] Kernel interrupted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+ERROR:root:Uncaught exception GET /clusters?_=1384349931505 (67.180.132.24)
+HTTPRequest(protocol='https', host='planck.ucsc.edu:9999', method='GET', uri='/clusters?_=1384349931505', version='HTTP/1.1', remote_ip='67.180.132.24', body='', headers={'Accept-Language': 'en-US,en;q=0.8', 'Accept-Encoding': 'gzip,deflate,sdch', 'X-Requested-With': 'XMLHttpRequest', 'Host': 'planck.ucsc.edu:9999', 'Accept': 'application/json, text/javascript, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.114 Safari/537.36', 'Connection': 'keep-alive', 'Referer': 'https://planck.ucsc.edu:9999/', 'Cookie': 'SESSb63bd23ac08f9631758f27b309955d5d=vg4ng887rgij0enh8js0rb20o1; SESSION_LANGUAGE=eng; III_EXPT_FILE=aa28296; III_SESSION_ID=ddb50eca48b7657a66b66d16756ed8ac; ezproxy=uDCqnCCYaTgN956; ev1=clustering%20algorithms; s_cc=true; s_sq=worldcatucsc%3D%2526pid%253DDetailed%252520Record%2526pidt%253D1%2526oid%253Dhttp%25253A//ucsc.worldcat.org.oca.ucsc.edu/oclc/299046773%25253Fpage%25253Dframe%252526url%25253Dhttp%2525253A%2525252F%2525252Fuclibs.org%2525252FPID%2525252F%2526ot%253DA; ais-prod-dmz-1-1610-PORTAL-PSJSESSIONID=RzT2RkLK2ppphJ63DrnNmCZnnVY3nhG4!-1535794739; https%3a%2f%2fmy.ucsc.edu%2fpsp%2fep9prd%2femployee%2fempl%2frefresh=list:%20%3Ftab%3Dremoteunifieddashboard%7C%3Frp%3Dremoteunifieddashboard%7C; ais-prod-dmz-1-1810-PORTAL-PSJSESSIONID=72VzRkLJDG9hCyryTywNzpL529Grl05R!111426214; ais-prod-dmz-3-1610-PORTAL-PSJSESSIONID=LyQ1RkfGpXkDmbQ293hvlpQmdqG2pvKy!358309597; PS_LOGINLIST=-1; ExpirePage=; PS_TOKENEXPIRE=-1; PS_TOKEN=; _ga=GA1.2.1297896672.1365198158; __utma=61369709.392417706.1365293769.1374700725.1376373760.13; __utmc=61369709; __utmz=61369709.1369019105.11.3.utmcsr=people.ucsc.edu|utmccn=(referral)|utmcmd=referral|utmcct=/~erccarls/; wp-settings-1=editor%3Dtinymce%26libraryContent%3Dbrowse; wp-settings-time-1=1377564226; __utma=69683791.1297896672.1365198158.1382480532.1382933077.11; __utmc=69683791; __utmz=69683791.1382933077.11.10.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided); wordpress_test_cookie=WP+Cookie+check; wordpress_logged_in_3cecfc15c6eeed1dcbe8837b73a2d923=carlson%7C1383105963%7C70772c6d57d7b296b85d83ee9fdc519a; username=ZTEwY2U1YzktOTgwMi00NTg3LTg2NjMtMmM0NDZlOTQyNzcy|1383795207|24bc9e0cd00a93c80dccb3a8068c78765333cae9'})
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 954, in _execute
+    getattr(self, self.request.method.lower())(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 1667, in wrapper
+    return method(self, *args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/handlers.py", line 683, in get
+    self.finish(jsonapi.dumps(cm.list_profiles()))
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 91, in list_profiles
+    self.update_profiles()
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 80, in update_profiles
+    for profile in list_profiles_in(path):
+  File "/usr/lib/python2.7/dist-packages/IPython/core/profileapp.py", line 99, in list_profiles_in
+    files = os.listdir(path)
+OSError: [Errno 2] No such file or directory: '(unreachable)/git/time_var/Time_Var_DBSCAN'
+ERROR:root:500 GET /clusters?_=1384349931505 (67.180.132.24) 5.37ms
+ERROR:root:Uncaught exception GET /clusters?_=1384349935065 (67.180.132.24)
+HTTPRequest(protocol='https', host='planck.ucsc.edu:9999', method='GET', uri='/clusters?_=1384349935065', version='HTTP/1.1', remote_ip='67.180.132.24', body='', headers={'Accept-Language': 'en-US,en;q=0.8', 'Accept-Encoding': 'gzip,deflate,sdch', 'X-Requested-With': 'XMLHttpRequest', 'Host': 'planck.ucsc.edu:9999', 'Accept': 'application/json, text/javascript, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.114 Safari/537.36', 'Connection': 'keep-alive', 'Referer': 'https://planck.ucsc.edu:9999/', 'Cookie': 'SESSb63bd23ac08f9631758f27b309955d5d=vg4ng887rgij0enh8js0rb20o1; SESSION_LANGUAGE=eng; III_EXPT_FILE=aa28296; III_SESSION_ID=ddb50eca48b7657a66b66d16756ed8ac; ezproxy=uDCqnCCYaTgN956; ev1=clustering%20algorithms; s_cc=true; s_sq=worldcatucsc%3D%2526pid%253DDetailed%252520Record%2526pidt%253D1%2526oid%253Dhttp%25253A//ucsc.worldcat.org.oca.ucsc.edu/oclc/299046773%25253Fpage%25253Dframe%252526url%25253Dhttp%2525253A%2525252F%2525252Fuclibs.org%2525252FPID%2525252F%2526ot%253DA; ais-prod-dmz-1-1610-PORTAL-PSJSESSIONID=RzT2RkLK2ppphJ63DrnNmCZnnVY3nhG4!-1535794739; https%3a%2f%2fmy.ucsc.edu%2fpsp%2fep9prd%2femployee%2fempl%2frefresh=list:%20%3Ftab%3Dremoteunifieddashboard%7C%3Frp%3Dremoteunifieddashboard%7C; ais-prod-dmz-1-1810-PORTAL-PSJSESSIONID=72VzRkLJDG9hCyryTywNzpL529Grl05R!111426214; ais-prod-dmz-3-1610-PORTAL-PSJSESSIONID=LyQ1RkfGpXkDmbQ293hvlpQmdqG2pvKy!358309597; PS_LOGINLIST=-1; ExpirePage=; PS_TOKENEXPIRE=-1; PS_TOKEN=; _ga=GA1.2.1297896672.1365198158; __utma=61369709.392417706.1365293769.1374700725.1376373760.13; __utmc=61369709; __utmz=61369709.1369019105.11.3.utmcsr=people.ucsc.edu|utmccn=(referral)|utmcmd=referral|utmcct=/~erccarls/; wp-settings-1=editor%3Dtinymce%26libraryContent%3Dbrowse; wp-settings-time-1=1377564226; __utma=69683791.1297896672.1365198158.1382480532.1382933077.11; __utmc=69683791; __utmz=69683791.1382933077.11.10.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided); wordpress_test_cookie=WP+Cookie+check; wordpress_logged_in_3cecfc15c6eeed1dcbe8837b73a2d923=carlson%7C1383105963%7C70772c6d57d7b296b85d83ee9fdc519a; username=ZTEwY2U1YzktOTgwMi00NTg3LTg2NjMtMmM0NDZlOTQyNzcy|1383795207|24bc9e0cd00a93c80dccb3a8068c78765333cae9'})
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 954, in _execute
+    getattr(self, self.request.method.lower())(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 1667, in wrapper
+    return method(self, *args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/handlers.py", line 683, in get
+    self.finish(jsonapi.dumps(cm.list_profiles()))
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 91, in list_profiles
+    self.update_profiles()
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 80, in update_profiles
+    for profile in list_profiles_in(path):
+  File "/usr/lib/python2.7/dist-packages/IPython/core/profileapp.py", line 99, in list_profiles_in
+    files = os.listdir(path)
+OSError: [Errno 2] No such file or directory: '(unreachable)/git/time_var/Time_Var_DBSCAN'
+ERROR:root:500 GET /clusters?_=1384349935065 (67.180.132.24) 4.29ms
+[NotebookApp] Using existing kernel: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+ERROR:root:Uncaught exception GET /clusters?_=1384349938796 (67.180.132.24)
+HTTPRequest(protocol='https', host='planck.ucsc.edu:9999', method='GET', uri='/clusters?_=1384349938796', version='HTTP/1.1', remote_ip='67.180.132.24', body='', headers={'Accept-Language': 'en-US,en;q=0.8', 'Accept-Encoding': 'gzip,deflate,sdch', 'X-Requested-With': 'XMLHttpRequest', 'Host': 'planck.ucsc.edu:9999', 'Accept': 'application/json, text/javascript, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.114 Safari/537.36', 'Connection': 'keep-alive', 'Referer': 'https://planck.ucsc.edu:9999/', 'Cookie': 'SESSb63bd23ac08f9631758f27b309955d5d=vg4ng887rgij0enh8js0rb20o1; SESSION_LANGUAGE=eng; III_EXPT_FILE=aa28296; III_SESSION_ID=ddb50eca48b7657a66b66d16756ed8ac; ezproxy=uDCqnCCYaTgN956; ev1=clustering%20algorithms; s_cc=true; s_sq=worldcatucsc%3D%2526pid%253DDetailed%252520Record%2526pidt%253D1%2526oid%253Dhttp%25253A//ucsc.worldcat.org.oca.ucsc.edu/oclc/299046773%25253Fpage%25253Dframe%252526url%25253Dhttp%2525253A%2525252F%2525252Fuclibs.org%2525252FPID%2525252F%2526ot%253DA; ais-prod-dmz-1-1610-PORTAL-PSJSESSIONID=RzT2RkLK2ppphJ63DrnNmCZnnVY3nhG4!-1535794739; https%3a%2f%2fmy.ucsc.edu%2fpsp%2fep9prd%2femployee%2fempl%2frefresh=list:%20%3Ftab%3Dremoteunifieddashboard%7C%3Frp%3Dremoteunifieddashboard%7C; ais-prod-dmz-1-1810-PORTAL-PSJSESSIONID=72VzRkLJDG9hCyryTywNzpL529Grl05R!111426214; ais-prod-dmz-3-1610-PORTAL-PSJSESSIONID=LyQ1RkfGpXkDmbQ293hvlpQmdqG2pvKy!358309597; PS_LOGINLIST=-1; ExpirePage=; PS_TOKENEXPIRE=-1; PS_TOKEN=; _ga=GA1.2.1297896672.1365198158; __utma=61369709.392417706.1365293769.1374700725.1376373760.13; __utmc=61369709; __utmz=61369709.1369019105.11.3.utmcsr=people.ucsc.edu|utmccn=(referral)|utmcmd=referral|utmcct=/~erccarls/; wp-settings-1=editor%3Dtinymce%26libraryContent%3Dbrowse; wp-settings-time-1=1377564226; __utma=69683791.1297896672.1365198158.1382480532.1382933077.11; __utmc=69683791; __utmz=69683791.1382933077.11.10.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided); wordpress_test_cookie=WP+Cookie+check; wordpress_logged_in_3cecfc15c6eeed1dcbe8837b73a2d923=carlson%7C1383105963%7C70772c6d57d7b296b85d83ee9fdc519a; username=ZTEwY2U1YzktOTgwMi00NTg3LTg2NjMtMmM0NDZlOTQyNzcy|1383795207|24bc9e0cd00a93c80dccb3a8068c78765333cae9'})
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 954, in _execute
+    getattr(self, self.request.method.lower())(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 1667, in wrapper
+    return method(self, *args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/handlers.py", line 683, in get
+    self.finish(jsonapi.dumps(cm.list_profiles()))
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 91, in list_profiles
+    self.update_profiles()
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 80, in update_profiles
+    for profile in list_profiles_in(path):
+  File "/usr/lib/python2.7/dist-packages/IPython/core/profileapp.py", line 99, in list_profiles_in
+    files = os.listdir(path)
+OSError: [Errno 2] No such file or directory: '(unreachable)/git/time_var/Time_Var_DBSCAN'
+ERROR:root:500 GET /clusters?_=1384349938796 (67.180.132.24) 4.40ms
+[NotebookApp] Kernel restarted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-1ebe6f51-ebb8-4b73-8fbf-57f510312935.json --profile nbserver
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+ERROR:root:Uncaught exception GET /clusters?_=1384350386489 (67.180.132.24)
+HTTPRequest(protocol='https', host='planck.ucsc.edu:9999', method='GET', uri='/clusters?_=1384350386489', version='HTTP/1.1', remote_ip='67.180.132.24', body='', headers={'Accept-Language': 'en-US,en;q=0.8', 'Accept-Encoding': 'gzip,deflate,sdch', 'X-Requested-With': 'XMLHttpRequest', 'Host': 'planck.ucsc.edu:9999', 'Accept': 'application/json, text/javascript, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.114 Safari/537.36', 'Connection': 'keep-alive', 'Referer': 'https://planck.ucsc.edu:9999/', 'Cookie': 'SESSb63bd23ac08f9631758f27b309955d5d=vg4ng887rgij0enh8js0rb20o1; SESSION_LANGUAGE=eng; III_EXPT_FILE=aa28296; III_SESSION_ID=ddb50eca48b7657a66b66d16756ed8ac; ezproxy=uDCqnCCYaTgN956; ev1=clustering%20algorithms; s_cc=true; s_sq=worldcatucsc%3D%2526pid%253DDetailed%252520Record%2526pidt%253D1%2526oid%253Dhttp%25253A//ucsc.worldcat.org.oca.ucsc.edu/oclc/299046773%25253Fpage%25253Dframe%252526url%25253Dhttp%2525253A%2525252F%2525252Fuclibs.org%2525252FPID%2525252F%2526ot%253DA; ais-prod-dmz-1-1610-PORTAL-PSJSESSIONID=RzT2RkLK2ppphJ63DrnNmCZnnVY3nhG4!-1535794739; https%3a%2f%2fmy.ucsc.edu%2fpsp%2fep9prd%2femployee%2fempl%2frefresh=list:%20%3Ftab%3Dremoteunifieddashboard%7C%3Frp%3Dremoteunifieddashboard%7C; ais-prod-dmz-1-1810-PORTAL-PSJSESSIONID=72VzRkLJDG9hCyryTywNzpL529Grl05R!111426214; ais-prod-dmz-3-1610-PORTAL-PSJSESSIONID=LyQ1RkfGpXkDmbQ293hvlpQmdqG2pvKy!358309597; PS_LOGINLIST=-1; ExpirePage=; PS_TOKENEXPIRE=-1; PS_TOKEN=; _ga=GA1.2.1297896672.1365198158; __utma=61369709.392417706.1365293769.1374700725.1376373760.13; __utmc=61369709; __utmz=61369709.1369019105.11.3.utmcsr=people.ucsc.edu|utmccn=(referral)|utmcmd=referral|utmcct=/~erccarls/; wp-settings-1=editor%3Dtinymce%26libraryContent%3Dbrowse; wp-settings-time-1=1377564226; __utma=69683791.1297896672.1365198158.1382480532.1382933077.11; __utmc=69683791; __utmz=69683791.1382933077.11.10.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided); wordpress_test_cookie=WP+Cookie+check; wordpress_logged_in_3cecfc15c6eeed1dcbe8837b73a2d923=carlson%7C1383105963%7C70772c6d57d7b296b85d83ee9fdc519a; username=ZTEwY2U1YzktOTgwMi00NTg3LTg2NjMtMmM0NDZlOTQyNzcy|1383795207|24bc9e0cd00a93c80dccb3a8068c78765333cae9'})
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 954, in _execute
+    getattr(self, self.request.method.lower())(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 1667, in wrapper
+    return method(self, *args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/handlers.py", line 683, in get
+    self.finish(jsonapi.dumps(cm.list_profiles()))
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 91, in list_profiles
+    self.update_profiles()
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 80, in update_profiles
+    for profile in list_profiles_in(path):
+  File "/usr/lib/python2.7/dist-packages/IPython/core/profileapp.py", line 99, in list_profiles_in
+    files = os.listdir(path)
+OSError: [Errno 2] No such file or directory: '(unreachable)/git/time_var/Time_Var_DBSCAN'
+ERROR:root:500 GET /clusters?_=1384350386489 (67.180.132.24) 4.80ms
+[NotebookApp] Kernel restarted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-1ebe6f51-ebb8-4b73-8fbf-57f510312935.json --profile nbserver
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+ERROR:root:Exception in I/O handler for fd 3
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/zmq/eventloop/ioloop.py", line 330, in start
+    self._handlers[fd](fd, events)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 319, in accept_handler
+    callback(connection, address)
+  File "/usr/lib/python2.7/dist-packages/tornado/netutil.py", line 199, in _handle_connection
+    **self.ssl_options)
+  File "/usr/lib/python2.7/ssl.py", line 381, in wrap_socket
+    ciphers=ciphers)
+  File "/usr/lib/python2.7/ssl.py", line 141, in __init__
+    ciphers)
+SSLError: [Errno 336265218] _ssl.c:351: error:140B0002:SSL routines:SSL_CTX_use_PrivateKey_file:system lib
+WARNING:root:Invalid cookie signature 'OTk5ZDI5ZTAtNTA2NS00MGQ2LWFmZDktN2ZmMmE5MDU5ZDdk|1383166477|8b9b2fcc9bb9337231986ad6cdb91e8c12697450'
+ERROR:root:Uncaught exception GET /clusters?_=1384380900323 (127.0.0.1)
+HTTPRequest(protocol='https', host='127.0.0.1:9999', method='GET', uri='/clusters?_=1384380900323', version='HTTP/1.1', remote_ip='127.0.0.1', body='', headers={'Accept-Language': 'en-US,en;q=0.8', 'Accept-Encoding': 'gzip,deflate,sdch', 'Host': '127.0.0.1:9999', 'Accept': 'application/json, text/javascript, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.48 Safari/537.36', 'Connection': 'keep-alive', 'X-Requested-With': 'XMLHttpRequest', 'Cache-Control': 'max-age=0', 'Referer': 'https://127.0.0.1:9999/', 'Cookie': '__utma=96992031.1660114223.1375996760.1375996760.1375996760.1; __utmc=96992031; __utmz=96992031.1375996760.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); username=MDFhNjI4M2UtZjljNy00ZGFlLTg4MjktOWI5YTU2OTY3MjAz|1384380900|89a1eda9cdb4041c85dc0fa40eee94d2449bb494'})
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 954, in _execute
+    getattr(self, self.request.method.lower())(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 1667, in wrapper
+    return method(self, *args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/handlers.py", line 683, in get
+    self.finish(jsonapi.dumps(cm.list_profiles()))
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 91, in list_profiles
+    self.update_profiles()
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 80, in update_profiles
+    for profile in list_profiles_in(path):
+  File "/usr/lib/python2.7/dist-packages/IPython/core/profileapp.py", line 99, in list_profiles_in
+    files = os.listdir(path)
+OSError: [Errno 2] No such file or directory: '(unreachable)/git/time_var/Time_Var_DBSCAN'
+ERROR:root:500 GET /clusters?_=1384380900323 (127.0.0.1) 2.11ms
+ERROR:root:Uncaught exception GET /clusters?_=1384380935501 (127.0.0.1)
+HTTPRequest(protocol='https', host='127.0.0.1:9999', method='GET', uri='/clusters?_=1384380935501', version='HTTP/1.1', remote_ip='127.0.0.1', body='', headers={'Accept-Language': 'en-US,en;q=0.8', 'Accept-Encoding': 'gzip,deflate,sdch', 'X-Requested-With': 'XMLHttpRequest', 'Host': '127.0.0.1:9999', 'Accept': 'application/json, text/javascript, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.48 Safari/537.36', 'Connection': 'keep-alive', 'Referer': 'https://127.0.0.1:9999/', 'Cookie': '__utma=96992031.1660114223.1375996760.1375996760.1375996760.1; __utmc=96992031; __utmz=96992031.1375996760.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); username=MDFhNjI4M2UtZjljNy00ZGFlLTg4MjktOWI5YTU2OTY3MjAz|1384380900|89a1eda9cdb4041c85dc0fa40eee94d2449bb494'})
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 954, in _execute
+    getattr(self, self.request.method.lower())(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 1667, in wrapper
+    return method(self, *args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/handlers.py", line 683, in get
+    self.finish(jsonapi.dumps(cm.list_profiles()))
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 91, in list_profiles
+    self.update_profiles()
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 80, in update_profiles
+    for profile in list_profiles_in(path):
+  File "/usr/lib/python2.7/dist-packages/IPython/core/profileapp.py", line 99, in list_profiles_in
+    files = os.listdir(path)
+OSError: [Errno 2] No such file or directory: '(unreachable)/git/time_var/Time_Var_DBSCAN'
+ERROR:root:500 GET /clusters?_=1384380935501 (127.0.0.1) 3.67ms
+ERROR:root:Uncaught exception GET /clusters?_=1384381128452 (127.0.0.1)
+HTTPRequest(protocol='https', host='127.0.0.1:9999', method='GET', uri='/clusters?_=1384381128452', version='HTTP/1.1', remote_ip='127.0.0.1', body='', headers={'Accept-Language': 'en-US,en;q=0.8', 'Accept-Encoding': 'gzip,deflate,sdch', 'X-Requested-With': 'XMLHttpRequest', 'Host': '127.0.0.1:9999', 'Accept': 'application/json, text/javascript, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.48 Safari/537.36', 'Connection': 'keep-alive', 'Referer': 'https://127.0.0.1:9999/', 'Cookie': '__utma=96992031.1660114223.1375996760.1375996760.1375996760.1; __utmc=96992031; __utmz=96992031.1375996760.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); username=MDFhNjI4M2UtZjljNy00ZGFlLTg4MjktOWI5YTU2OTY3MjAz|1384380900|89a1eda9cdb4041c85dc0fa40eee94d2449bb494'})
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 954, in _execute
+    getattr(self, self.request.method.lower())(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 1667, in wrapper
+    return method(self, *args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/handlers.py", line 683, in get
+    self.finish(jsonapi.dumps(cm.list_profiles()))
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 91, in list_profiles
+    self.update_profiles()
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 80, in update_profiles
+    for profile in list_profiles_in(path):
+  File "/usr/lib/python2.7/dist-packages/IPython/core/profileapp.py", line 99, in list_profiles_in
+    files = os.listdir(path)
+OSError: [Errno 2] No such file or directory: '(unreachable)/git/time_var/Time_Var_DBSCAN'
+ERROR:root:500 GET /clusters?_=1384381128452 (127.0.0.1) 1.68ms
+[NotebookApp] Using existing kernel: b17d13fb-425e-446a-9a6c-d6b65e54f271
+[NotebookApp] Connecting to: tcp://127.0.0.1:42629
+[NotebookApp] Connecting to: tcp://127.0.0.1:46855
+[NotebookApp] Connecting to: tcp://127.0.0.1:36186
+ERROR:root:Uncaught exception GET /clusters?_=1384381145878 (127.0.0.1)
+HTTPRequest(protocol='https', host='127.0.0.1:9999', method='GET', uri='/clusters?_=1384381145878', version='HTTP/1.1', remote_ip='127.0.0.1', body='', headers={'Accept-Language': 'en-US,en;q=0.8', 'Accept-Encoding': 'gzip,deflate,sdch', 'X-Requested-With': 'XMLHttpRequest', 'Host': '127.0.0.1:9999', 'Accept': 'application/json, text/javascript, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.48 Safari/537.36', 'Connection': 'keep-alive', 'Referer': 'https://127.0.0.1:9999/', 'Cookie': '__utma=96992031.1660114223.1375996760.1375996760.1375996760.1; __utmc=96992031; __utmz=96992031.1375996760.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); username=MDFhNjI4M2UtZjljNy00ZGFlLTg4MjktOWI5YTU2OTY3MjAz|1384380900|89a1eda9cdb4041c85dc0fa40eee94d2449bb494'})
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 954, in _execute
+    getattr(self, self.request.method.lower())(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 1667, in wrapper
+    return method(self, *args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/handlers.py", line 683, in get
+    self.finish(jsonapi.dumps(cm.list_profiles()))
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 91, in list_profiles
+    self.update_profiles()
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 80, in update_profiles
+    for profile in list_profiles_in(path):
+  File "/usr/lib/python2.7/dist-packages/IPython/core/profileapp.py", line 99, in list_profiles_in
+    files = os.listdir(path)
+OSError: [Errno 2] No such file or directory: '(unreachable)/git/time_var/Time_Var_DBSCAN'
+ERROR:root:500 GET /clusters?_=1384381145878 (127.0.0.1) 1.51ms
+[NotebookApp] Using existing kernel: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+ERROR:root:Uncaught exception GET /clusters?_=1384381178117 (127.0.0.1)
+HTTPRequest(protocol='https', host='127.0.0.1:9999', method='GET', uri='/clusters?_=1384381178117', version='HTTP/1.1', remote_ip='127.0.0.1', body='', headers={'Accept-Language': 'en-US,en;q=0.8', 'Accept-Encoding': 'gzip,deflate,sdch', 'X-Requested-With': 'XMLHttpRequest', 'Host': '127.0.0.1:9999', 'Accept': 'application/json, text/javascript, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.48 Safari/537.36', 'Connection': 'keep-alive', 'Referer': 'https://127.0.0.1:9999/', 'Cookie': '__utma=96992031.1660114223.1375996760.1375996760.1375996760.1; __utmc=96992031; __utmz=96992031.1375996760.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); username=MDFhNjI4M2UtZjljNy00ZGFlLTg4MjktOWI5YTU2OTY3MjAz|1384380900|89a1eda9cdb4041c85dc0fa40eee94d2449bb494'})
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 954, in _execute
+    getattr(self, self.request.method.lower())(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 1667, in wrapper
+    return method(self, *args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/handlers.py", line 683, in get
+    self.finish(jsonapi.dumps(cm.list_profiles()))
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 91, in list_profiles
+    self.update_profiles()
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 80, in update_profiles
+    for profile in list_profiles_in(path):
+  File "/usr/lib/python2.7/dist-packages/IPython/core/profileapp.py", line 99, in list_profiles_in
+    files = os.listdir(path)
+OSError: [Errno 2] No such file or directory: '(unreachable)/git/time_var/Time_Var_DBSCAN'
+ERROR:root:500 GET /clusters?_=1384381178117 (127.0.0.1) 1.38ms
+ERROR:root:Uncaught exception GET /clusters?_=1384381181970 (127.0.0.1)
+HTTPRequest(protocol='https', host='127.0.0.1:9999', method='GET', uri='/clusters?_=1384381181970', version='HTTP/1.1', remote_ip='127.0.0.1', body='', headers={'Accept-Language': 'en-US,en;q=0.8', 'Accept-Encoding': 'gzip,deflate,sdch', 'X-Requested-With': 'XMLHttpRequest', 'Host': '127.0.0.1:9999', 'Accept': 'application/json, text/javascript, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.48 Safari/537.36', 'Connection': 'keep-alive', 'Referer': 'https://127.0.0.1:9999/', 'Cookie': '__utma=96992031.1660114223.1375996760.1375996760.1375996760.1; __utmc=96992031; __utmz=96992031.1375996760.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); username=MDFhNjI4M2UtZjljNy00ZGFlLTg4MjktOWI5YTU2OTY3MjAz|1384380900|89a1eda9cdb4041c85dc0fa40eee94d2449bb494'})
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 954, in _execute
+    getattr(self, self.request.method.lower())(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 1667, in wrapper
+    return method(self, *args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/handlers.py", line 683, in get
+    self.finish(jsonapi.dumps(cm.list_profiles()))
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 91, in list_profiles
+    self.update_profiles()
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 80, in update_profiles
+    for profile in list_profiles_in(path):
+  File "/usr/lib/python2.7/dist-packages/IPython/core/profileapp.py", line 99, in list_profiles_in
+    files = os.listdir(path)
+OSError: [Errno 2] No such file or directory: '(unreachable)/git/time_var/Time_Var_DBSCAN'
+ERROR:root:500 GET /clusters?_=1384381181970 (127.0.0.1) 1.56ms
+ERROR:root:Uncaught exception GET /clusters?_=1384381267723 (127.0.0.1)
+HTTPRequest(protocol='https', host='127.0.0.1:9999', method='GET', uri='/clusters?_=1384381267723', version='HTTP/1.1', remote_ip='127.0.0.1', body='', headers={'Accept-Language': 'en-US,en;q=0.8', 'Accept-Encoding': 'gzip,deflate,sdch', 'X-Requested-With': 'XMLHttpRequest', 'Host': '127.0.0.1:9999', 'Accept': 'application/json, text/javascript, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.48 Safari/537.36', 'Connection': 'keep-alive', 'Referer': 'https://127.0.0.1:9999/', 'Cookie': '__utma=96992031.1660114223.1375996760.1375996760.1375996760.1; __utmc=96992031; __utmz=96992031.1375996760.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); username=MDFhNjI4M2UtZjljNy00ZGFlLTg4MjktOWI5YTU2OTY3MjAz|1384380900|89a1eda9cdb4041c85dc0fa40eee94d2449bb494'})
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 954, in _execute
+    getattr(self, self.request.method.lower())(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 1667, in wrapper
+    return method(self, *args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/handlers.py", line 683, in get
+    self.finish(jsonapi.dumps(cm.list_profiles()))
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 91, in list_profiles
+    self.update_profiles()
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 80, in update_profiles
+    for profile in list_profiles_in(path):
+  File "/usr/lib/python2.7/dist-packages/IPython/core/profileapp.py", line 99, in list_profiles_in
+    files = os.listdir(path)
+OSError: [Errno 2] No such file or directory: '(unreachable)/git/time_var/Time_Var_DBSCAN'
+ERROR:root:500 GET /clusters?_=1384381267723 (127.0.0.1) 3.85ms
+[NotebookApp] Kernel restarted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-1ebe6f51-ebb8-4b73-8fbf-57f510312935.json --profile nbserver
+[NotebookApp] Kernel restarted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-1ebe6f51-ebb8-4b73-8fbf-57f510312935.json --profile nbserver
+[NotebookApp] Kernel restarted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-1ebe6f51-ebb8-4b73-8fbf-57f510312935.json --profile nbserver
+ERROR:root:Uncaught exception GET /clusters?_=1384381507351 (127.0.0.1)
+HTTPRequest(protocol='https', host='127.0.0.1:9999', method='GET', uri='/clusters?_=1384381507351', version='HTTP/1.1', remote_ip='127.0.0.1', body='', headers={'Accept-Language': 'en-US,en;q=0.8', 'Accept-Encoding': 'gzip,deflate,sdch', 'X-Requested-With': 'XMLHttpRequest', 'Host': '127.0.0.1:9999', 'Accept': 'application/json, text/javascript, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.48 Safari/537.36', 'Connection': 'keep-alive', 'Referer': 'https://127.0.0.1:9999/', 'Cookie': '__utma=96992031.1660114223.1375996760.1375996760.1375996760.1; __utmc=96992031; __utmz=96992031.1375996760.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); username=MDFhNjI4M2UtZjljNy00ZGFlLTg4MjktOWI5YTU2OTY3MjAz|1384380900|89a1eda9cdb4041c85dc0fa40eee94d2449bb494'})
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 954, in _execute
+    getattr(self, self.request.method.lower())(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 1667, in wrapper
+    return method(self, *args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/handlers.py", line 683, in get
+    self.finish(jsonapi.dumps(cm.list_profiles()))
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 91, in list_profiles
+    self.update_profiles()
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 80, in update_profiles
+    for profile in list_profiles_in(path):
+  File "/usr/lib/python2.7/dist-packages/IPython/core/profileapp.py", line 99, in list_profiles_in
+    files = os.listdir(path)
+OSError: [Errno 2] No such file or directory: '(unreachable)/git/time_var/Time_Var_DBSCAN'
+ERROR:root:500 GET /clusters?_=1384381507351 (127.0.0.1) 1.54ms
+ERROR:root:Uncaught exception GET /clusters?_=1384381533924 (127.0.0.1)
+HTTPRequest(protocol='https', host='127.0.0.1:9999', method='GET', uri='/clusters?_=1384381533924', version='HTTP/1.1', remote_ip='127.0.0.1', body='', headers={'Accept-Language': 'en-US,en;q=0.8', 'Accept-Encoding': 'gzip,deflate,sdch', 'X-Requested-With': 'XMLHttpRequest', 'Host': '127.0.0.1:9999', 'Accept': 'application/json, text/javascript, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.48 Safari/537.36', 'Connection': 'keep-alive', 'Referer': 'https://127.0.0.1:9999/', 'Cookie': '__utma=96992031.1660114223.1375996760.1375996760.1375996760.1; __utmc=96992031; __utmz=96992031.1375996760.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); username=MDFhNjI4M2UtZjljNy00ZGFlLTg4MjktOWI5YTU2OTY3MjAz|1384380900|89a1eda9cdb4041c85dc0fa40eee94d2449bb494'})
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 954, in _execute
+    getattr(self, self.request.method.lower())(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 1667, in wrapper
+    return method(self, *args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/handlers.py", line 683, in get
+    self.finish(jsonapi.dumps(cm.list_profiles()))
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 91, in list_profiles
+    self.update_profiles()
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 80, in update_profiles
+    for profile in list_profiles_in(path):
+  File "/usr/lib/python2.7/dist-packages/IPython/core/profileapp.py", line 99, in list_profiles_in
+    files = os.listdir(path)
+OSError: [Errno 2] No such file or directory: '(unreachable)/git/time_var/Time_Var_DBSCAN'
+ERROR:root:500 GET /clusters?_=1384381533924 (127.0.0.1) 1.64ms
+ERROR:root:Uncaught exception GET /clusters?_=1384381569540 (127.0.0.1)
+HTTPRequest(protocol='https', host='127.0.0.1:9999', method='GET', uri='/clusters?_=1384381569540', version='HTTP/1.1', remote_ip='127.0.0.1', body='', headers={'Accept-Language': 'en-US,en;q=0.8', 'Accept-Encoding': 'gzip,deflate,sdch', 'X-Requested-With': 'XMLHttpRequest', 'Host': '127.0.0.1:9999', 'Accept': 'application/json, text/javascript, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.48 Safari/537.36', 'Connection': 'keep-alive', 'Referer': 'https://127.0.0.1:9999/', 'Cookie': '__utma=96992031.1660114223.1375996760.1375996760.1375996760.1; __utmc=96992031; __utmz=96992031.1375996760.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); username=MDFhNjI4M2UtZjljNy00ZGFlLTg4MjktOWI5YTU2OTY3MjAz|1384380900|89a1eda9cdb4041c85dc0fa40eee94d2449bb494'})
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 954, in _execute
+    getattr(self, self.request.method.lower())(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 1667, in wrapper
+    return method(self, *args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/handlers.py", line 683, in get
+    self.finish(jsonapi.dumps(cm.list_profiles()))
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 91, in list_profiles
+    self.update_profiles()
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 80, in update_profiles
+    for profile in list_profiles_in(path):
+  File "/usr/lib/python2.7/dist-packages/IPython/core/profileapp.py", line 99, in list_profiles_in
+    files = os.listdir(path)
+OSError: [Errno 2] No such file or directory: '(unreachable)/git/time_var/Time_Var_DBSCAN'
+ERROR:root:500 GET /clusters?_=1384381569540 (127.0.0.1) 3.61ms
+ERROR:root:Uncaught exception GET /clusters?_=1384381605536 (127.0.0.1)
+HTTPRequest(protocol='https', host='127.0.0.1:9999', method='GET', uri='/clusters?_=1384381605536', version='HTTP/1.1', remote_ip='127.0.0.1', body='', headers={'Accept-Language': 'en-US,en;q=0.8', 'Accept-Encoding': 'gzip,deflate,sdch', 'X-Requested-With': 'XMLHttpRequest', 'Host': '127.0.0.1:9999', 'Accept': 'application/json, text/javascript, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.48 Safari/537.36', 'Connection': 'keep-alive', 'Referer': 'https://127.0.0.1:9999/', 'Cookie': '__utma=96992031.1660114223.1375996760.1375996760.1375996760.1; __utmc=96992031; __utmz=96992031.1375996760.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); username=MDFhNjI4M2UtZjljNy00ZGFlLTg4MjktOWI5YTU2OTY3MjAz|1384380900|89a1eda9cdb4041c85dc0fa40eee94d2449bb494'})
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 954, in _execute
+    getattr(self, self.request.method.lower())(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 1667, in wrapper
+    return method(self, *args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/handlers.py", line 683, in get
+    self.finish(jsonapi.dumps(cm.list_profiles()))
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 91, in list_profiles
+    self.update_profiles()
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 80, in update_profiles
+    for profile in list_profiles_in(path):
+  File "/usr/lib/python2.7/dist-packages/IPython/core/profileapp.py", line 99, in list_profiles_in
+    files = os.listdir(path)
+OSError: [Errno 2] No such file or directory: '(unreachable)/git/time_var/Time_Var_DBSCAN'
+ERROR:root:500 GET /clusters?_=1384381605536 (127.0.0.1) 1.54ms
+[NotebookApp] Kernel restarted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-1ebe6f51-ebb8-4b73-8fbf-57f510312935.json --profile nbserver
+[NotebookApp] Kernel restarted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-1ebe6f51-ebb8-4b73-8fbf-57f510312935.json --profile nbserver
+[NotebookApp] Kernel restarted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-1ebe6f51-ebb8-4b73-8fbf-57f510312935.json --profile nbserver
+[NotebookApp] Kernel interrupted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Kernel restarted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-1ebe6f51-ebb8-4b73-8fbf-57f510312935.json --profile nbserver
+[NotebookApp] Kernel interrupted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Kernel interrupted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Kernel interrupted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Kernel interrupted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Kernel interrupted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Kernel interrupted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Kernel interrupted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Kernel restarted: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Connecting to: tcp://127.0.0.1:44463
+[NotebookApp] Connecting to: tcp://127.0.0.1:58153
+[NotebookApp] Connecting to: tcp://127.0.0.1:45767
+---------------------------------------------------------------------------
+ZMQError                                  Traceback (most recent call last)
+<string> in <module>()
+
+/usr/lib/python2.7/dist-packages/IPython/zmq/ipkernel.pyc in main()
+    927     """Run an IPKernel as an application"""
+    928     app = IPKernelApp.instance()
+--> 929     app.initialize()
+        app.initialize = <bound method IPKernelApp.initialize of <IPython.zmq.ipkernel.IPKernelApp object at 0x3414f90>>
+    930     app.start()
+    931 
+
+/usr/lib/python2.7/dist-packages/IPython/zmq/ipkernel.pyc in initialize(self=<IPython.zmq.ipkernel.IPKernelApp object>, argv=None)
+
+/usr/lib/python2.7/dist-packages/IPython/config/application.pyc in catch_config_error(method=<function initialize>, app=<IPython.zmq.ipkernel.IPKernelApp object>, *args=(None,), **kwargs={})
+     82     """
+     83     try:
+---> 84         return method(app, *args, **kwargs)
+        method = <function initialize at 0x3418758>
+        app = <IPython.zmq.ipkernel.IPKernelApp object at 0x3414f90>
+        args = (None,)
+        kwargs = {}
+     85     except (TraitError, ArgumentError) as e:
+     86         app.print_description()
+
+/usr/lib/python2.7/dist-packages/IPython/zmq/ipkernel.pyc in initialize(self=<IPython.zmq.ipkernel.IPKernelApp object>, argv=None)
+    813     @catch_config_error
+    814     def initialize(self, argv=None):
+--> 815         super(IPKernelApp, self).initialize(argv)
+        global super = undefined
+        global IPKernelApp = <class 'IPython.zmq.ipkernel.IPKernelApp'>
+        self.initialize = <bound method IPKernelApp.initialize of <IPython.zmq.ipkernel.IPKernelApp object at 0x3414f90>>
+        argv = None
+    816         self.init_path()
+    817         self.init_shell()
+
+/usr/lib/python2.7/dist-packages/IPython/zmq/kernelapp.pyc in initialize(self=<IPython.zmq.ipkernel.IPKernelApp object>, argv=None)
+
+/usr/lib/python2.7/dist-packages/IPython/config/application.pyc in catch_config_error(method=<function initialize>, app=<IPython.zmq.ipkernel.IPKernelApp object>, *args=(None,), **kwargs={})
+     82     """
+     83     try:
+---> 84         return method(app, *args, **kwargs)
+        method = <function initialize at 0x2e01ed8>
+        app = <IPython.zmq.ipkernel.IPKernelApp object at 0x3414f90>
+        args = (None,)
+        kwargs = {}
+     85     except (TraitError, ArgumentError) as e:
+     86         app.print_description()
+
+/usr/lib/python2.7/dist-packages/IPython/zmq/kernelapp.pyc in initialize(self=<IPython.zmq.ipkernel.IPKernelApp object>, argv=None)
+    310         self.init_session()
+    311         self.init_poller()
+--> 312         self.init_sockets()
+        self.init_sockets = <bound method IPKernelApp.init_sockets of <IPython.zmq.ipkernel.IPKernelApp object at 0x3414f90>>
+    313         self.init_heartbeat()
+    314         # writing/displaying connection info must be *after* init_sockets/heartbeat
+
+/usr/lib/python2.7/dist-packages/IPython/zmq/kernelapp.pyc in init_sockets(self=<IPython.zmq.ipkernel.IPKernelApp object>)
+    223 
+    224         self.shell_socket = context.socket(zmq.ROUTER)
+--> 225         self.shell_port = self._bind_socket(self.shell_socket, self.shell_port)
+        self.shell_port = 44463
+        self._bind_socket = <bound method IPKernelApp._bind_socket of <IPython.zmq.ipkernel.IPKernelApp object at 0x3414f90>>
+        self.shell_socket = <zmq.core.socket.Socket object at 0x3417cb0>
+    226         self.log.debug("shell ROUTER Channel on port: %i"%self.shell_port)
+    227 
+
+/usr/lib/python2.7/dist-packages/IPython/zmq/kernelapp.pyc in _bind_socket(self=<IPython.zmq.ipkernel.IPKernelApp object>, s=<zmq.core.socket.Socket object>, port=44463)
+    159             port = s.bind_to_random_port(iface)
+    160         else:
+--> 161             s.bind(iface + ':%i'%port)
+        s.bind = <built-in method bind of zmq.core.socket.Socket object at 0x3417cb0>
+        iface = u'tcp://127.0.0.1'
+        port = 44463
+    162         return port
+    163 
+
+/usr/lib/python2.7/dist-packages/zmq/core/socket.so in zmq.core.socket.Socket.bind (zmq/core/socket.c:4797)()
+
+ZMQError: Address already in use
+[NotebookApp] Kernel 1ebe6f51-ebb8-4b73-8fbf-57f510312935 failed to respond to heartbeat
+[NotebookApp] Kernel started: 173239dd-a850-4e3a-98a4-799bf3efb423
+[NotebookApp] Connecting to: tcp://127.0.0.1:55486
+[NotebookApp] Connecting to: tcp://127.0.0.1:36374
+[NotebookApp] Connecting to: tcp://127.0.0.1:34026
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-173239dd-a850-4e3a-98a4-799bf3efb423.json --profile nbserver
+ERROR:root:Uncaught exception GET /clusters?_=1384391733456 (127.0.0.1)
+HTTPRequest(protocol='https', host='127.0.0.1:9999', method='GET', uri='/clusters?_=1384391733456', version='HTTP/1.1', remote_ip='127.0.0.1', body='', headers={'Accept-Language': 'en-US,en;q=0.8', 'Accept-Encoding': 'gzip,deflate,sdch', 'X-Requested-With': 'XMLHttpRequest', 'Host': '127.0.0.1:9999', 'Accept': 'application/json, text/javascript, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.48 Safari/537.36', 'Connection': 'keep-alive', 'Referer': 'https://127.0.0.1:9999/', 'Cookie': '__utma=96992031.1660114223.1375996760.1375996760.1375996760.1; __utmc=96992031; __utmz=96992031.1375996760.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); username=MDFhNjI4M2UtZjljNy00ZGFlLTg4MjktOWI5YTU2OTY3MjAz|1384380900|89a1eda9cdb4041c85dc0fa40eee94d2449bb494'})
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 954, in _execute
+    getattr(self, self.request.method.lower())(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/tornado/web.py", line 1667, in wrapper
+    return method(self, *args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/handlers.py", line 683, in get
+    self.finish(jsonapi.dumps(cm.list_profiles()))
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 91, in list_profiles
+    self.update_profiles()
+  File "/usr/lib/python2.7/dist-packages/IPython/frontend/html/notebook/clustermanager.py", line 80, in update_profiles
+    for profile in list_profiles_in(path):
+  File "/usr/lib/python2.7/dist-packages/IPython/core/profileapp.py", line 99, in list_profiles_in
+    files = os.listdir(path)
+OSError: [Errno 2] No such file or directory: '(unreachable)/git/time_var/Time_Var_DBSCAN'
+ERROR:root:500 GET /clusters?_=1384391733456 (127.0.0.1) 4.43ms
+[NotebookApp] Connecting to: tcp://127.0.0.1:54746
+[NotebookApp] Connecting to: tcp://127.0.0.1:58728
+[NotebookApp] Connecting to: tcp://127.0.0.1:50035
+[NotebookApp] Connecting to: tcp://127.0.0.1:54746
+[NotebookApp] Connecting to: tcp://127.0.0.1:58728
+[NotebookApp] Connecting to: tcp://127.0.0.1:50035
+[NotebookApp] received signal 15, stopping
+[NotebookApp] Shutting down kernels
+[NotebookApp] Kernel shutdown: 1ebe6f51-ebb8-4b73-8fbf-57f510312935
+[NotebookApp] Kernel shutdown: 173239dd-a850-4e3a-98a4-799bf3efb423
+[NotebookApp] Kernel shutdown: 20ff1cee-c0ca-48a6-8d04-24774597bf49
+[NotebookApp] Kernel shutdown: b17d13fb-425e-446a-9a6c-d6b65e54f271
+[NotebookApp] Using existing profile dir: u'/home/carlson/.config/ipython/profile_nbserver'
+[NotebookApp] Serving notebooks from /home/carlson/git/time_var/Time_Var_DBSCAN
+[NotebookApp] The IPython Notebook is running at: https://[all ip addresses on your system]:9999/
+[NotebookApp] Use Control-C to stop this server and shut down all kernels.
+WARNING:root:Invalid cookie signature 'MDFhNjI4M2UtZjljNy00ZGFlLTg4MjktOWI5YTU2OTY3MjAz|1384380900|89a1eda9cdb4041c85dc0fa40eee94d2449bb494'
+WARNING:root:Invalid cookie signature 'ZTEwY2U1YzktOTgwMi00NTg3LTg2NjMtMmM0NDZlOTQyNzcy|1383795207|24bc9e0cd00a93c80dccb3a8068c78765333cae9'
+[NotebookApp] Using system MathJax
+[NotebookApp] Kernel started: dc278ede-9291-44a7-b124-02847939425f
+[NotebookApp] Connecting to: tcp://127.0.0.1:36844
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-dc278ede-9291-44a7-b124-02847939425f.json --profile nbserver
+[NotebookApp] Connecting to: tcp://127.0.0.1:33236
+[NotebookApp] Connecting to: tcp://127.0.0.1:47330
+[NotebookApp] Kernel restarted: dc278ede-9291-44a7-b124-02847939425f
+[NotebookApp] Connecting to: tcp://127.0.0.1:36844
+[IPKernelApp] To connect another client to this kernel, use:
+[IPKernelApp] --existing kernel-dc278ede-9291-44a7-b124-02847939425f.json --profile nbserver
+[NotebookApp] Connecting to: tcp://127.0.0.1:33236
+[NotebookApp] Connecting to: tcp://127.0.0.1:47330
+[NotebookApp] received signal 15, stopping
+[NotebookApp] Shutting down kernels
+[NotebookApp] Kernel shutdown: dc278ede-9291-44a7-b124-02847939425f

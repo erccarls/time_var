@@ -123,10 +123,17 @@ def __Cluster_Properties_Thread(input,BGDensity,TotalTime, inner,outer,sigMethod
     clusters   = np.array(np.int_(np.unique(labels)[1:])) # want to ignore the -1 for noise so ignore first element
     CRLabels = clusters   
     # Some beurocracy because of way numpy array typecast handles things
-    arrlen = np.shape(np.unique(labels))[0]
+    arrlen = len(np.unique(labels))
     if arrlen == 1: 
+        CR = ClusterResult.ClusterResult(Labels=[], Coords=[], 
+                                     CentX=[]    , CentY=[]    , CentT=[], 
+                                     Sig95X=[]  , Sig95Y=[]  , Sig95T=[], 
+                                     Size95X=[], Size95Y=[], Size95T=[], 
+                                     MedR=[]      , MedT=[],
+                                     Members=[], Sigs=[], 
+                                     SigsMethod=[], NumClusters=[],PA=[])  # initialize new cluster results object
         CRNumClusters = 0 # Number of clusters found in the simulation
-        return ClusterResult.ClusterResult()
+        return CR
     elif arrlen != 2: CRNumClusters = np.array(np.shape(clusters))[0] # Number of clusters found in the simulation
     elif arrlen == 2: 
         CRNumClusters = 1 # Number of clusters found in the simulation
@@ -143,7 +150,7 @@ def __Cluster_Properties_Thread(input,BGDensity,TotalTime, inner,outer,sigMethod
     # Compute sizes and centroids
     CRSize95X, CRSize95Y, CRSize95T, CRPA, CRMedR, CRMedT, CRCentX,CRCentY,CRCentT,CRSig95X,CRSig95Y,CRSig95T = np.transpose([__Cluster_Size(CRCoords[cluster]) for cluster in range(len(clusters))])
     
-    CRMembers = np.array([np.shape(CRCoords[cluster])[0] for cluster in range(len(clusters))]) # count the number of points in each cluster.
+    CRMembers = np.array([len(CRCoords[cluster]) for cluster in range(len(clusters))]) # count the number of points in each cluster.
     # Input into cluster results instance
     CR = ClusterResult.ClusterResult(Labels=CRLabels, Coords=CRCoords, 
                                      CentX=CRCentX    , CentY=CRCentY    , CentT=CRCentT, 
@@ -152,8 +159,9 @@ def __Cluster_Properties_Thread(input,BGDensity,TotalTime, inner,outer,sigMethod
                                      MedR=CRMedR      , MedT=CRMedT,
                                      Members=CRMembers, Sigs=CRSigs, 
                                      SigsMethod=CRSigsMethod, NumClusters=CRNumClusters,PA=CRPA)  # initialize new cluster results object
-
+    
     return CR
+    
 
 
 def __Get_Cluster_Coords(sim,labels, cluster_index):

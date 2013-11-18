@@ -4,6 +4,7 @@
 # Author: Eric Carlson
 #===============================================================================
 import numpy as np
+#import dbscan3d_indexed_cython as dbscan3d_indexed
 import dbscan3d_indexed
 import math 
 
