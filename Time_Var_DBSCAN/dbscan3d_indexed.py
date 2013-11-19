@@ -186,7 +186,7 @@ def dbscan3_indexed(X, eps, min_samples, timeScale, metric,indexing):
     # anomalous behavior.
     startX, stopX = np.min(XX), np.max(XX) # widths
     startY, stopY = np.min(XY), np.max(XY)
-    eps2=eps*6. # Larger grids is a speed advantage in most cases (i.e. takes longer to index with finer grid)
+    eps2=eps*2. # Larger grids is a speed advantage in most cases (i.e. takes longer to index with finer grid)
     # We choose rectangles of 6x6 epsilons and return all grid elements when query point is within 10 degrees of a pole.
     GridSizeX, GridSizeY = int(np.ceil((stopX-startX)/eps2)), int((np.ceil((stopY-startY)/eps2)))
     Xidx, Yidx = np.floor(np.divide((XX-startX),eps2)).astype(int), np.floor(np.divide((XY-startY),eps2)).astype(int) # Grid indices for all points.
@@ -221,8 +221,8 @@ def dbscan3_indexed(X, eps, min_samples, timeScale, metric,indexing):
         #=========================================================================================
         # First query the grid
         # find the grid point boundaries within 12 deg of pole, return all longitudes and all latitudes above/below
-        high_grid_lat = np.floor((78.-startX)/eps2)  # Grid queries for elements above this latitude should return all longitudes
-        low_grid_lat  = np.ceil((-78.-startX)/eps2) # Grid queries for elements below this latitude should return all longitudes
+        high_grid_lat = np.floor((84.-startX)/eps2)  # Grid queries for elements above this latitude should return all longitudes
+        low_grid_lat  = np.ceil((-84.-startX)/eps2) # Grid queries for elements below this latitude should return all longitudes
         # ensure that these are within the grid bounds.
         if low_grid_lat<0: low_grid_lat=0
         if high_grid_lat >= GridSizeX: high_grid_lat=GridSizeX-1
@@ -230,7 +230,8 @@ def dbscan3_indexed(X, eps, min_samples, timeScale, metric,indexing):
         def __epsilonQuerySpherical(k):  
             i,j = Xidx[k],Yidx[k]
             il,ih = i-1, i+2 # select neighboring grid indices.
-            jl,jh = j-1, j+2 
+            if XX[k]<85 and XX[k]>-85:
+                jl,jh = int(j-1./np.sin(np.abs(np.deg2rad(90-XX[k])))), int(j+1./np.abs(np.sin(np.deg2rad(90-XX[k])))+1) # np.sin(np.deg2rad(90-84))
             # if within 10 degrees of either pole, return all points above or below
             if il<=low_grid_lat:
                 jl,jh  = 0,GridSizeY # select all longitudes
@@ -249,11 +250,8 @@ def dbscan3_indexed(X, eps, min_samples, timeScale, metric,indexing):
             else:
                 idx = np.array([item for sublist in [item for sublist2 in Grid[il:ih,jl:jh] for item in sublist2] for item in sublist])
             
-            #if len(idx)==0: return np.array([])
             #Compute real arc lengths for these points.
-            print idx
             idx = np.append(idx,k).astype(int)
-            print idx
             j = -1 # index of original point in reduced list
             x = np.deg2rad(XX[idx])
             y = np.deg2rad(XY[idx])
@@ -266,7 +264,6 @@ def dbscan3_indexed(X, eps, min_samples, timeScale, metric,indexing):
             rcut =d<np.deg2rad(eps)
             return idx[np.where(np.logical_and(rcut, tcut)==True)[0]] # This now contains indices of points in the eps neighborhood 
         #=========================================================================================
-        print Yidx,Xidx
         neighborhoods = [ __epsilonQuerySpherical(k) for k in range(0,n)]
         
     # Initially, all samples are noise.
@@ -376,28 +373,6 @@ def __epsQueryThread(k,Xidx,Yidx,GridSizeX,GridSizeY,Grid,XX,XY,XT,timeScale,eps
         else: return np.array([])
     else: return np.array([])
     
-def __epsQueryThreadSpherical(k,Xidx,Yidx,GridSizeX,GridSizeY,Grid,XX,XY,XT,timeScale,eps,min_samples):
-    """ Returns the epsilon neighborhood of a point for euclidean metric"""  
-    i,j = Xidx[k],Yidx[k]
-    il,ih = i-1, i+2
-    jl,jh = j-1, j+2
-    if jl<0  : jl=0
-    if il<0  : il=0
-    if ih>=GridSizeX: ih=-1
-    if jh>=GridSizeY: jh=-1
-    idx = np.array([item for sublist in [item for sublist2 in Grid[il:ih,jl:jh] for item in sublist2] for item in sublist])
-    if len(idx) !=0:
-        tcut = np.logical_and(XT[idx] <= (XT[k]+eps*timeScale),XT[idx] >= (XT[k]-eps*float(timeScale)))
-        tcut = np.where(tcut==True)[0]
-        if len(tcut)!=0:
-            try:
-                idx = idx[tcut] #original indices meeting tcut  This is the rough eps neighborhood
-            except:
-                print 'Error with idx', idx                    
-            # Compute actual distances using numpy vector methods                
-            return idx[np.where( np.square( XX[idx] - XX[k]) + np.square(XY[idx] - XY[k]) <= eps*eps)[0]]
-        else: return np.array([])
-    else: return np.array([])
     
 
 class DBSCAN(BaseEstimator, ClusterMixin):
