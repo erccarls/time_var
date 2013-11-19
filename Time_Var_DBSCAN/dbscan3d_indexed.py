@@ -21,7 +21,7 @@ def dbscan3(X, eps, min_samples, timeScale=1, metric='euclidean',indexing=False)
 
     Parameters
     ----------
-    X: array [X, Y, T] where X,Y,T are a single coordinate vector.
+    X: array [X, Y, T] where X,Y,T are a single coordinate vector. (lat, long, time for spherical)
     eps: float
         The maximum distance between two samples for them to be considered
         as in the same neighborhood.
@@ -176,36 +176,39 @@ def dbscan3_indexed(X, eps, min_samples, timeScale, metric,indexing):
     cos = np.cos
     arctan = np.arctan
     sqrt = np.sqrt
+    
+    ############################################################################
+    # In this section we create assign each point in the input array an index i,j
+    # which locates the points on a large scale grid.  The epsilon query will then
+    # only compute distances to points in the neighboring grid points.
+    # For a Euclidean metric, we want a grid with elements of width ~epsilon.
+    # This will have to be refined for spherical metrics since the poles produce
+    # anomalous behavior.
+    startX, stopX = np.min(XX), np.max(XX) # widths
+    startY, stopY = np.min(XY), np.max(XY)
+    eps2=eps*6. # Larger grids is a speed advantage in most cases (i.e. takes longer to index with finer grid)
+    # We choose rectangles of 6x6 epsilons and return all grid elements when query point is within 10 degrees of a pole.
+    GridSizeX, GridSizeY = int(np.ceil((stopX-startX)/eps2)), int((np.ceil((stopY-startY)/eps2)))
+    Xidx, Yidx = np.floor(np.divide((XX-startX),eps2)).astype(int), np.floor(np.divide((XY-startY),eps2)).astype(int) # Grid indices for all points.
+    # Iterate through each grid element and add indices
+    Grid = np.empty(shape=(GridSizeX,GridSizeY),dtype=object)
+    for i in range(GridSizeX):
+        Xtrue = np.where((Xidx==i))[0] # indices where x condition is met
+        for j in range(GridSizeY):
+            #find indicies 
+            Ytrue = np.where((Yidx[Xtrue]==j))[0]
+            Grid[i][j] = Xtrue[Ytrue]        
+    #==============================================================================
 
+    
     #===========================================================================
     # Refine the epislon neighborhoods (compute the euclidean distances)
     #===========================================================================
     if (metric == 'euclidean'):
-        ############################################################################
-        # In this section we create assign each point in the input array an index i,j
-        # which locates the points on a large scale grid.  The epsilon query will then
-        # only compute distances to points in the neighboring grid points.
-        # For a Euclidean metric, we want a grid with elements of width ~epsilon.
-        # This will have to be refined for spherical metrics since the poles produce
-        # anomalous behavior.
-        startX, stopX = np.min(XX), np.max(XX) # widths
-        startY, stopY = np.min(XY), np.max(XY)
-        GridSizeX, GridSizeY = int(np.ceil((stopX-startX)/(eps/5.))), int((np.ceil((stopY-startY)/(eps/5.))))
-        
-        Xidx, Yidx = np.floor(np.divide((XX-startX),eps)).astype(int), np.floor(np.divide((XY-startY),eps)).astype(int) # Grid indices for all points.
-        # Iterate through each grid element and add indices 
-        Grid = np.empty(shape=(GridSizeX,GridSizeY),dtype=object)
-        for i in range(GridSizeX):
-            Xtrue = np.where((Xidx==i))[0] # indices where x condition is met
-            for j in range(GridSizeY):
-                #find indicies 
-                Ytrue = np.where((Yidx[Xtrue]==j))[0]
-                Grid[i][j] = Xtrue[Ytrue]            
-  
-        #p = pool.Pool(mp.cpu_count()) # Allocate thread pool
         EPS_PARTIAL = partial(__epsQueryThread,  Xidx=Xidx,Yidx=Yidx,GridSizeX=GridSizeX,GridSizeY=GridSizeY,Grid=Grid,XT=XT,XX=XX,XY=XY,timeScale=timeScale,eps=eps,min_samples=min_samples)    
-        #neighborhoods = p.map(EPS_PARTIAL,range(0,n)) # Call mutithreaded map.
         neighborhoods = map(EPS_PARTIAL,range(0,n)) # Call mutithreaded map.
+        #p = pool.Pool(mp.cpu_count()) # Allocate thread pool
+        #neighborhoods = p.map(EPS_PARTIAL,range(0,n)) # Call mutithreaded map.
         #p.close()  # Kill pool after jobs complete.  required to free memory.
         #p.join()   # wait for jobs to finish.
 
@@ -215,16 +218,56 @@ def dbscan3_indexed(X, eps, min_samples, timeScale, metric,indexing):
 
     #TODO: implement spherical refinement for real data
     elif (metric=='spherical'):
-        XX = np.deg2rad(XX)
-        XY = np.deg2rad(XY)
-        tcut = np.logical_and(XT <= XT[i]+eps*float(timeScale),XT >= XT[i]-eps*float(timeScale))
-        def Vincenty_Form(XX,XY,i):
-            #XX are lats XY is longitudes, i is the point of interest
-            dPhi = XX-XX[i]
-            dLam = XY-XY[i]
-            return arctan(np.divide(sqrt( square( np.multiply(cos(XX)),sin(dPhi)) + square(cos(XX[i])*sin(XX)-np.multiply(sin(XX[i])*cos(XX),cos(dLam))) ) , (sin(XX[i])*sin(XX)+cos(XX[i])*np.multiply(cos(XX), cos(dPhi)))))
-        # Compute arc length, and also cut on time
-        neighborhoods = [np.logical_and(where(Vincenty_Form(XX,XY,i) <= np.deg2rad(eps))[0], tcut==True) for i in range(0,n)]
+        #=========================================================================================
+        # First query the grid
+        # find the grid point boundaries within 12 deg of pole, return all longitudes and all latitudes above/below
+        high_grid_lat = np.floor((78.-startX)/eps2)  # Grid queries for elements above this latitude should return all longitudes
+        low_grid_lat  = np.ceil((-78.-startX)/eps2) # Grid queries for elements below this latitude should return all longitudes
+        # ensure that these are within the grid bounds.
+        if low_grid_lat<0: low_grid_lat=0
+        if high_grid_lat >= GridSizeX: high_grid_lat=GridSizeX-1
+        #def get_grid_points(k):  
+        def __epsilonQuerySpherical(k):  
+            i,j = Xidx[k],Yidx[k]
+            il,ih = i-1, i+2 # select neighboring grid indices.
+            jl,jh = j-1, j+2 
+            # if within 10 degrees of either pole, return all points above or below
+            if il<=low_grid_lat:
+                jl,jh  = 0,GridSizeY # select all longitudes
+                il,ih  = 0,low_grid_lat+1
+            if ih>=high_grid_lat: 
+                jl,jh  = 0,GridSizeY-1 # select all longitudes
+                il,ih  = high_grid_lat-1, GridSizeX
+            idx = []
+            # if we span the line of 0 longitude, we need to break into 2 chunks.
+            if jl<0: 
+                idx = idx + [item for sublist in [item for sublist2 in Grid[il:ih,jl:] for item in sublist2] for item in sublist]
+                idx = np.array(idx + [item for sublist in [item for sublist2 in Grid[il:ih,0:jh] for item in sublist2] for item in sublist])
+            if jh >(GridSizeY-1):
+                idx = idx + [item for sublist in [item for sublist2 in Grid[il:ih,jl:] for item in sublist2] for item in sublist]
+                idx = np.array(idx + [item for sublist in [item for sublist2 in Grid[il:ih,0:jh-(GridSizeY)] for item in sublist2] for item in sublist])
+            else:
+                idx = np.array([item for sublist in [item for sublist2 in Grid[il:ih,jl:jh] for item in sublist2] for item in sublist])
+            
+            #if len(idx)==0: return np.array([])
+            #Compute real arc lengths for these points.
+            print idx
+            idx = np.append(idx,k).astype(int)
+            print idx
+            j = -1 # index of original point in reduced list
+            x = np.deg2rad(XX[idx])
+            y = np.deg2rad(XY[idx])
+            dPhi = x-x[j]
+            dLam = y-y[j]
+            # Distances using Vincenty's formula for arc length on a great circle.
+            d = arctan(np.divide(sqrt( square( np.multiply(cos(x),sin(dPhi))) + square(cos(x[j])*sin(x)-np.multiply(sin(x[j])*cos(x),cos(dLam))) ) , (sin(x[j])*sin(x)+cos(x[j])*np.multiply(cos(x), cos(dPhi)))))
+            # Find where within time constraints
+            tcut = np.logical_and(XT[idx] <= XT[k]+eps*float(timeScale),XT[idx] >= XT[k]-eps*float(timeScale))
+            rcut =d<np.deg2rad(eps)
+            return idx[np.where(np.logical_and(rcut, tcut)==True)[0]] # This now contains indices of points in the eps neighborhood 
+        #=========================================================================================
+        print Yidx,Xidx
+        neighborhoods = [ __epsilonQuerySpherical(k) for k in range(0,n)]
         
     # Initially, all samples are noise.
     labels = -np.ones(n)
@@ -311,7 +354,7 @@ def __SSThread(nhood, core_samples):
     return np.searchsorted(core_samples,intersection)
 
 def __epsQueryThread(k,Xidx,Yidx,GridSizeX,GridSizeY,Grid,XX,XY,XT,timeScale,eps,min_samples):
-    """ Returns the indicies of all points within a crude epsilon """  
+    """ Returns the epsilon neighborhood of a point for euclidean metric"""  
     i,j = Xidx[k],Yidx[k]
     il,ih = i-1, i+2
     jl,jh = j-1, j+2
@@ -332,6 +375,30 @@ def __epsQueryThread(k,Xidx,Yidx,GridSizeX,GridSizeY,Grid,XX,XY,XT,timeScale,eps
             return idx[np.where( np.square( XX[idx] - XX[k]) + np.square(XY[idx] - XY[k]) <= eps*eps)[0]]
         else: return np.array([])
     else: return np.array([])
+    
+def __epsQueryThreadSpherical(k,Xidx,Yidx,GridSizeX,GridSizeY,Grid,XX,XY,XT,timeScale,eps,min_samples):
+    """ Returns the epsilon neighborhood of a point for euclidean metric"""  
+    i,j = Xidx[k],Yidx[k]
+    il,ih = i-1, i+2
+    jl,jh = j-1, j+2
+    if jl<0  : jl=0
+    if il<0  : il=0
+    if ih>=GridSizeX: ih=-1
+    if jh>=GridSizeY: jh=-1
+    idx = np.array([item for sublist in [item for sublist2 in Grid[il:ih,jl:jh] for item in sublist2] for item in sublist])
+    if len(idx) !=0:
+        tcut = np.logical_and(XT[idx] <= (XT[k]+eps*timeScale),XT[idx] >= (XT[k]-eps*float(timeScale)))
+        tcut = np.where(tcut==True)[0]
+        if len(tcut)!=0:
+            try:
+                idx = idx[tcut] #original indices meeting tcut  This is the rough eps neighborhood
+            except:
+                print 'Error with idx', idx                    
+            # Compute actual distances using numpy vector methods                
+            return idx[np.where( np.square( XX[idx] - XX[k]) + np.square(XY[idx] - XY[k]) <= eps*eps)[0]]
+        else: return np.array([])
+    else: return np.array([])
+    
 
 class DBSCAN(BaseEstimator, ClusterMixin):
 #class DBSCAN(BaseEstimator):
