@@ -14,13 +14,13 @@ def LoadEvents(fname, elow=30,ehigh=1e6,tlow=0,thigh=1e10):
     idx = np.where(np.logical_and(ecut,tcut)==True)[0]
     return (E[idx],L[idx],B[idx],T[idx])
 
-E,L,B,T = LoadEvents('./test_events_0001.fits',elow=1000)
+#E,L,B,T = LoadEvents('./test_events_0001.fits',elow=1000)
 
-from matplotlib import pyplot as plt
-from mpl_toolkits.basemap import Basemap
-m = Basemap(projection='hammer',lon_0=0)
-x, y = m(L,B)
-print len(x)/41250.
+#from matplotlib import pyplot as plt
+#from mpl_toolkits.basemap import Basemap
+#m = Basemap(projection='hammer',lon_0=0)
+#x, y = m(L,B)
+#print len(x)/41250.
 #m.drawmapboundary(fill_color='#99ffff')
 #plt.scatter(x,y,s=2)
 #plt.show()

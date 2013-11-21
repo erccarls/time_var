@@ -2214,3 +2214,29 @@ WARNING:root:Invalid cookie signature 'ZTEwY2U1YzktOTgwMi00NTg3LTg2NjMtMmM0NDZlO
 [NotebookApp] received signal 15, stopping
 [NotebookApp] Shutting down kernels
 [NotebookApp] Kernel shutdown: dc278ede-9291-44a7-b124-02847939425f
+2013-11-19 20:39:20.305 [NotebookApp] Using existing profile dir: u'/home/carlson/.config/ipython/profile_nbserver'
+2013-11-19 20:39:20.310 [NotebookApp] Using MathJax from CDN: https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js
+2013-11-19 20:39:20.317 [NotebookApp] Serving notebooks from local directory: /home/carlson/git/time_var/Time_Var_DBSCAN
+2013-11-19 20:39:20.317 [NotebookApp] The IPython Notebook is running at: https://[all ip addresses on your system]:9999/
+2013-11-19 20:39:20.317 [NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+2013-11-19 20:39:26.263 [tornado.general] WARNING | Invalid cookie signature 'ZjUxNzcwY2EtZDFmMC00MDM5LWEyNGEtZjI0ZmJhMDY0MTMx|1384477955|57336bec5aa4157ca5b194acd1ef57cf192bc7e3'
+2013-11-19 20:39:36.048 [NotebookApp] Connecting to: tcp://127.0.0.1:37614
+2013-11-19 20:39:36.049 [NotebookApp] Kernel started: e3a06303-d3b1-4262-896b-f1eced55f9f7
+2013-11-19 20:39:36.201 [NotebookApp] Connecting to: tcp://127.0.0.1:57374
+2013-11-19 20:39:36.297 [NotebookApp] Connecting to: tcp://127.0.0.1:46977
+2013-11-19 20:39:36.395 [NotebookApp] Connecting to: tcp://127.0.0.1:48313
+2013-11-19 20:45:10.336 [NotebookApp] Connecting to: tcp://127.0.0.1:41308
+2013-11-19 20:45:10.337 [NotebookApp] Kernel started: 4a12ec7a-a0d2-4132-827a-bc31dada24f4
+2013-11-19 20:45:10.496 [NotebookApp] Connecting to: tcp://127.0.0.1:59801
+2013-11-19 20:45:10.574 [NotebookApp] Connecting to: tcp://127.0.0.1:55530
+2013-11-19 20:45:10.677 [NotebookApp] Connecting to: tcp://127.0.0.1:37764
+2013-11-19 21:13:53.602 [NotebookApp] Kernel interrupted: e3a06303-d3b1-4262-896b-f1eced55f9f7
+2013-11-19 22:52:41.991 [NotebookApp] Kernel interrupted: e3a06303-d3b1-4262-896b-f1eced55f9f7
+2013-11-20 00:18:13.866 [NotebookApp] Kernel restarted: e3a06303-d3b1-4262-896b-f1eced55f9f7
+2013-11-20 00:18:14.134 [NotebookApp] Connecting to: tcp://127.0.0.1:46977
+2013-11-20 00:18:14.236 [NotebookApp] Connecting to: tcp://127.0.0.1:48313
+2013-11-20 00:18:14.415 [NotebookApp] Connecting to: tcp://127.0.0.1:57374
+2013-11-20 14:35:14.514 [NotebookApp] Kernel restarted: e3a06303-d3b1-4262-896b-f1eced55f9f7
+2013-11-20 14:35:14.656 [NotebookApp] Connecting to: tcp://127.0.0.1:57374
+2013-11-20 14:35:14.759 [NotebookApp] Connecting to: tcp://127.0.0.1:46977
+2013-11-20 14:35:14.863 [NotebookApp] Connecting to: tcp://127.0.0.1:48313
