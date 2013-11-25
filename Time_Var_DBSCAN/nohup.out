@@ -2240,3 +2240,13 @@ WARNING:root:Invalid cookie signature 'ZTEwY2U1YzktOTgwMi00NTg3LTg2NjMtMmM0NDZlO
 2013-11-20 14:35:14.656 [NotebookApp] Connecting to: tcp://127.0.0.1:57374
 2013-11-20 14:35:14.759 [NotebookApp] Connecting to: tcp://127.0.0.1:46977
 2013-11-20 14:35:14.863 [NotebookApp] Connecting to: tcp://127.0.0.1:48313
+2013-11-20 16:29:14.909 [NotebookApp] Kernel restarted: e3a06303-d3b1-4262-896b-f1eced55f9f7
+2013-11-20 16:29:15.061 [NotebookApp] Connecting to: tcp://127.0.0.1:57374
+2013-11-20 16:29:15.149 [NotebookApp] Connecting to: tcp://127.0.0.1:46977
+2013-11-20 16:29:15.256 [NotebookApp] Connecting to: tcp://127.0.0.1:48313
+2013-11-22 19:05:21.090 [tornado.general] WARNING | SSL Error on 7 ('183.60.48.25', 48877): [Errno 1] _ssl.c:507: error:1407609C:SSL routines:SSL23_GET_CLIENT_HELLO:http request
+2013-11-23 13:55:46.838 [tornado.general] WARNING | SSL Error on 7 ('218.6.135.167', 58477): [Errno 1] _ssl.c:507: error:1407609C:SSL routines:SSL23_GET_CLIENT_HELLO:http request
+2013-11-24 18:03:15.597 [NotebookApp] Using existing kernel: 4a12ec7a-a0d2-4132-827a-bc31dada24f4
+2013-11-24 18:03:15.752 [NotebookApp] Connecting to: tcp://127.0.0.1:59801
+2013-11-24 18:03:15.847 [NotebookApp] Connecting to: tcp://127.0.0.1:55530
+2013-11-24 18:03:15.946 [NotebookApp] Connecting to: tcp://127.0.0.1:37764
