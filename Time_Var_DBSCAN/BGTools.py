@@ -85,6 +85,21 @@ class BGTools:
         # Bounds checking on lat.  longitude is handled by modulo operator above
         b_idx[np.where(b_idx==len_b)[0]] = len_b-1
         return self.BGMap[b_idx,l_idx]
+        
+    def SigsBG(self, CR):
+        """Returns Significance vector based on integration of the background template for each cluster."""
+        cx,cy = CR.CentX, CR.CentY # Get centroids
+        dens  = self.GetBG(cx,cy)  # Evaluate the background density at that location
+        N_bg   = dens*np.pi*CR.Size95X*CR.Size95Y# Area of an ellipse times BG density
+        N_bg   = N_bg*2.*CR.Size95T/12.*3.15e7/self.Time # Find ratio of cluster length to total integration length
+        N_cl   = (0.95*CR.Members) # 95% containment radius
+        ######################################################
+        # Evaluate significance as defined by Li & Ma (1983).  N_cl corresponds to N_on, N_bg corresponds to N_off
+        S2 = np.zeros(len(N_cl))
+        idx = np.where(np.logical_and(N_cl/(N_cl+N_bg)>0, N_bg/(N_cl+N_bg)>0))[0]
+        N_cl, N_bg = N_cl[idx], N_bg[idx]
+        S2[idx] = 2.0*(N_cl*np.log(2.0*N_cl/(N_cl+N_bg)) + N_bg*np.log(2.0*N_bg/(N_cl+N_bg)))
+        return np.sqrt(S2)   
 
 
 
