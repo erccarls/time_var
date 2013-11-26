@@ -61,7 +61,7 @@ def DBSCAN_Compute_Clusters(mcSims, eps, timeScale, min_samples ,nCorePoints = 3
     ################################################################
     # Compute cluster properties for each cluster in each simulation
     ################################################################
-    PROPS_PARTIAL = partial( __Cluster_Properties_Thread,BGDensity=BGDensity,TotalTime=TotalTime, inner=inner,outer=outer,sigMethod=sigMethod)
+    PROPS_PARTIAL = partial( __Cluster_Properties_Thread,BGDensity=BGDensity,TotalTime=TotalTime, inner=inner,outer=outer,sigMethod=sigMethod,metric=metric)
     if numProcs>1:
         p = pool.Pool(numProcs) # Allocate thread pool 
         ClusterResults = p.map(PROPS_PARTIAL,zip(dbscanResults,mcSims))
@@ -118,12 +118,14 @@ def __DBSCAN_THREAD(sim, eps, min_samples,timeScale,nCorePoints,plot=False,index
 
 def __Cluster_Properties_Thread(input,BGDensity,TotalTime, inner,outer,sigMethod,metric):
     labels,sim = input
-    
-    clusters   = np.array(np.int_(np.unique(labels)[1:])) # want to ignore the -1 for noise so ignore first element
-    CRLabels = clusters   
+    idx=np.where(labels!=-1)[0] # ignore the noise points
+    clusters = np.unique(labels[idx]).astype(int)
+#    clusters   = np.array(np.int_(np.unique(labels)[1:])) # want to ignore the -1 for noise so ignore first element
+    CRLabels = np.array(labels)
+
     # Some beurocracy because of way numpy array typecast handles things
     arrlen = len(np.unique(labels))
-    if arrlen == 1: 
+    if 0 not in labels: # no clusters 
         CR = ClusterResult.ClusterResult(Labels=[], Coords=[], 
                                      CentX=[]    , CentY=[]    , CentT=[], 
                                      Sig95X=[]  , Sig95Y=[]  , Sig95T=[], 
@@ -136,7 +138,7 @@ def __Cluster_Properties_Thread(input,BGDensity,TotalTime, inner,outer,sigMethod
     elif arrlen != 2: CRNumClusters = np.array(np.shape(clusters))[0] # Number of clusters found in the simulation
     elif arrlen == 2: 
         CRNumClusters = 1 # Number of clusters found in the simulation
-        CRLabels, clusters = [clusters,], [clusters,]
+        CRLabels, clusters = [np.array(labels),], [clusters,]
     
     CRCoords = [__Get_Cluster_Coords(sim, labels, cluster) for cluster in clusters] # contains coordinate triplets for each cluster in clusters.
 
@@ -154,12 +156,10 @@ def __Cluster_Properties_Thread(input,BGDensity,TotalTime, inner,outer,sigMethod
         CRSigsMethod = 'annulus'
         CRSigs   = np.array([DBSCAN.Compute_Cluster_Significance_3d_Annulus(CRCoords[cluster], np.transpose(sim), inner=inner, outer=outer) for cluster in range(len(clusters))])
     else: print 'Invalid significance evaluation method: ' , str(sigMethod)
-    # Compute sizes and centroids
-    CRSize95X, CRSize95Y, CRSize95T, CRPA, CRMedR, CRMedT, CRCentX,CRCentY,CRCentT,CRSig95X,CRSig95Y,CRSig95T = np.transpose([__Cluster_Size(CRCoords[cluster]) for cluster in range(len(clusters))])
     
     CRMembers = np.array([len(CRCoords[cluster]) for cluster in range(len(clusters))]) # count the number of points in each cluster.
     # Input into cluster results instance
-    CR = ClusterResult.ClusterResult(Labels=CRLabels, Coords=CRCoords, 
+    CR = ClusterResult.ClusterResult(Labels=np.array(CRLabels), Coords=CRCoords, 
                                      CentX=CRCentX    , CentY=CRCentY    , CentT=CRCentT, 
                                      Sig95X=CRSig95X  , Sig95Y=CRSig95Y  , Sig95T=CRSig95T, 
                                      Size95X=CRSize95X, Size95Y=CRSize95Y, Size95T=CRSize95T, 
@@ -216,20 +216,59 @@ def __Cluster_Size(cluster_coords):
 def __Cluster_Size_Spherical(cluster_coords):
     """Returns basic cluster properties, given a set of cluster coordinate triplets""" 
     X,Y,T = np.transpose(cluster_coords)
-    CentX0,CentY0,CentT0 = np.mean(X),np.mean(Y), np.mean(T)
-    #X, Y = X-CentX0, Y-CentY0
+    # Map to cartesian
+    X, Y = np.deg2rad(X), np.deg2rad(Y)
+    x = np.cos(X) * np.cos(Y)
+    y = np.cos(X) * np.sin(Y)
+    z = np.sin(X)
+
+    # Compute Cartesian Centroids
+    CentX0,CentY0,CentZ0,CentT0 = np.mean(x),np.mean(y), np.mean(z), np.mean(T)
+    r = np.sqrt(CentX0**2 + CentY0**2 + CentZ0**2)
     
-    #convert all distances to arc lengths using Vincenty's formula.
-    dPhi, dLam = X-CentX0,0
-    X = np.arctan(np.divide(np.sqrt( np.square( np.multiply(np.cos(X))),np.sin(dPhi) + np.square(np.cos(CentX0)*np.sin(X)-np.multiply(np.sin(CentX0)*np.cos(X),np.cos(dLam))))  , 
-                            (np.sin(CentX0)*np.sin(X)+np.cos(CentX0*np.multiply(np.cos(X), np.cos(dPhi)))) ))
-    dPhi, dLam = 0 , Y-CentY0
-    Y = np.arctan(np.divide(np.sqrt( np.square( np.multiply(np.cos(X))),np.sin(dPhi) + np.square(np.cos(CentX0)*np.sin(X)-np.multiply(np.sin(CentX0)*np.cos(X),np.cos(dLam))))  , 
-                            (np.sin(CentX0)*np.sin(X)+np.cos(CentX0*np.multiply(np.cos(X), np.cos(dPhi)))) ))
-    #Now that the distances are computed in terms of arc length and small, we treat them as euclidean.
+    # Rotate away Z components so we are in the x,z plane and properly oriented with galactic coordinates
+    def rotation_matrix(axis,theta):
+        axis = axis/np.sqrt(np.dot(axis,axis))
+        a = np.cos(theta/2.)
+        b,c,d = -axis*np.sin(theta/2.)
+        return np.array([[a*a+b*b-c*c-d*d, 2*(b*c-a*d), 2*(b*d+a*c)],
+                         [2*(b*c+a*d), a*a+c*c-b*b-d*d, 2*(c*d-a*b)],
+                         [2*(b*d-a*c), 2*(c*d+a*b), a*a+d*d-b*b-c*c]])
+    # Pick axes
+    n = np.array([CentX0, CentY0,CentZ0])/r
+
+    n=np.array(n)/np.sqrt(np.dot(n,n))
+    nz = np.array([0.,0.,1.])
+    if (n!=nz).all():axis = np.cross(nz,n) 
+    else: axis = np.array([0,1,0])
+
+    theta = np.pi/2.-np.arccos(np.dot(nz,n))
+
+    R1 = rotation_matrix(axis,-theta)
+    print np.dot(R1,n)
+    theta2 = np.pi/2-np.arccos(np.dot(R1,n)[0])
+    R2 = rotation_matrix(nz,theta2)
+    R  = np.dot(R2,R1)
+    def rotate(n):
+        n = n/np.sqrt(np.dot(n,n))
+        return np.dot(R,n)
+
+    # rotate all the vectors (Y component should be zero for all)
+    X,Z,Y = np.rad2deg(np.transpose([rotate(np.transpose((x,y,z))[i]) for i in range(len(x))]))
     
+    #from matplotlib import pyplot as plt
+    #plt.figure(0)
+    #plt.scatter(X,Y)
+    #plt.axis('equal')
+    #plt.show()  
+    
+    # Convert Centroids back to lat/long in radians
+    CentY0 = np.rad2deg(np.arctan2(CentY0, CentX0))
+    CentX0 = np.rad2deg(np.arcsin(CentZ0/r))
+     
     # Singular Value Decomposition
     U,S,V = la.svd((X,Y))
+    
     # Rotate to align x-coord to principle component
     x = U[0][0]*X + U[0][1]*Y
     y = U[1][0]*X + U[1][1]*Y
@@ -237,6 +276,7 @@ def __Cluster_Size_Spherical(cluster_coords):
     # Compute weighted average and stdev in rotated frame
     weights = np.divide(1,np.sqrt(np.square(x)+np.square(y))) # weight by 1/r 
     CentX, CentY = np.average(x,weights=weights), np.average(y,weights=weights)
+    CentX,CentY =     CentX0, CentY0
     SigX,SigY = np.sqrt(np.average(np.square(x-CentX), weights=weights)), np.sqrt(np.average(np.square(y-CentY), weights=weights))
     
     # Find Position Angle
@@ -244,19 +284,20 @@ def __Cluster_Size_Spherical(cluster_coords):
     theta = -np.rad2deg(np.arctan2(xref,yref))
     POSANG = theta+90.
     
-    CentX ,CentY = np.dot(la.inv(U),(CentX,CentY)) #Translate the updated centroid into the original frame
-    CENTX,CENTY =  CentX+CentX0,CentY+CentY0          # Add this update to the old centroids
+   
+    #CentX ,CentY = np.dot(la.inv(U),(CentX,CentY)) #Translate the updated centroid into the original frame
+    #CENTX,CENTY =  CentX+CentX0,CentY+CentY0          # Add this update to the old centroids
     SIG95X,SIG95Y = 2*SigX/np.sqrt(np.shape(x)[0]),2*SigY/np.sqrt(np.shape(x)[0]) 
     SIZE95X, SIZE95Y = 2*S/np.sqrt(len(X)) 
-    
-    r = np.sqrt(np.square(X-CENTX)+np.square(y-CENTY))  # Build list of radii from cluster centroid
+    #r = np.sqrt(np.square(X-CENTX)+np.square(y-CENTY))  # Build list of radii from cluster centroid
+    r = np.sqrt(np.square(X-CentX0)+np.square(y-CentY0))  # Build list of radii from cluster centroid
     
     SIG95T = np.std(T)/np.sqrt(np.shape(r)[0])
     dt = np.abs(T-CentT0)
     countIndexT = int(np.ceil(0.95*np.shape(dt)[0]-1))
     SIZE95T = np.sort(dt)[countIndexT]   # choose the radius at this index
 
-    return SIZE95X, SIZE95Y,SIZE95T, POSANG, np.median(r), np.median(dt), CENTX,CENTY,CentT0,SIG95X,SIG95Y,SIG95T
+    return SIZE95X, SIZE95Y,SIZE95T, POSANG, np.median(r), np.median(dt), CentX0,CentY0,CentT0,SIG95X,SIG95Y,SIG95T
 
 
 

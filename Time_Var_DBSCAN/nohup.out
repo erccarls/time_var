@@ -2250,3 +2250,7 @@ WARNING:root:Invalid cookie signature 'ZTEwY2U1YzktOTgwMi00NTg3LTg2NjMtMmM0NDZlO
 2013-11-24 18:03:15.752 [NotebookApp] Connecting to: tcp://127.0.0.1:59801
 2013-11-24 18:03:15.847 [NotebookApp] Connecting to: tcp://127.0.0.1:55530
 2013-11-24 18:03:15.946 [NotebookApp] Connecting to: tcp://127.0.0.1:37764
+2013-11-24 19:17:40.622 [NotebookApp] Kernel restarted: 4a12ec7a-a0d2-4132-827a-bc31dada24f4
+2013-11-24 19:17:40.825 [NotebookApp] Connecting to: tcp://127.0.0.1:59801
+2013-11-24 19:17:40.918 [NotebookApp] Connecting to: tcp://127.0.0.1:55530
+2013-11-24 19:17:41.266 [NotebookApp] Connecting to: tcp://127.0.0.1:37764

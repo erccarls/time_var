@@ -212,11 +212,6 @@ def dbscan3_indexed(X, eps, min_samples, timeScale, metric,indexing):
         #p.close()  # Kill pool after jobs complete.  required to free memory.
         #p.join()   # wait for jobs to finish.
 
-#        neighborhoods = [epsQuery(i) for i in range(0,n)] # serial version
-
-
-
-    #TODO: implement spherical refinement for real data
     elif (metric=='spherical'):
         #=========================================================================================
         # First query the grid
@@ -228,40 +223,41 @@ def dbscan3_indexed(X, eps, min_samples, timeScale, metric,indexing):
         if high_grid_lat >= GridSizeX: high_grid_lat=GridSizeX-1
         #def get_grid_points(k):  
         def __epsilonQuerySpherical(k):  
-            i,j = Xidx[k],Yidx[k]
-            il,ih = i-1, i+2 # select neighboring grid indices.
-            if XX[k]<85 and XX[k]>-85:
-                jl,jh = int(j-1./np.sin(np.abs(np.deg2rad(90-XX[k])))), int(j+1./np.abs(np.sin(np.deg2rad(90-XX[k])))+1) # np.sin(np.deg2rad(90-84))
-            # if within 10 degrees of either pole, return all points above or below
-            if il<=low_grid_lat:
-                jl,jh  = 0,GridSizeY # select all longitudes
-                il,ih  = 0,low_grid_lat+1
-            if ih>=high_grid_lat: 
-                jl,jh  = 0,GridSizeY-1 # select all longitudes
-                il,ih  = high_grid_lat-1, GridSizeX
-            idx = []
-            # if we span the line of 0 longitude, we need to break into 2 chunks.
-            if jl<0: 
-                idx = idx + [item for sublist in [item for sublist2 in Grid[il:ih,jl:] for item in sublist2] for item in sublist]
-                idx = np.array(idx + [item for sublist in [item for sublist2 in Grid[il:ih,0:jh] for item in sublist2] for item in sublist])
-            if jh >(GridSizeY-1):
-                idx = idx + [item for sublist in [item for sublist2 in Grid[il:ih,jl:] for item in sublist2] for item in sublist]
-                idx = np.array(idx + [item for sublist in [item for sublist2 in Grid[il:ih,0:jh-(GridSizeY)] for item in sublist2] for item in sublist])
-            else:
-                idx = np.array([item for sublist in [item for sublist2 in Grid[il:ih,jl:jh] for item in sublist2] for item in sublist])
+            if indexing == True:
+                i,j = Xidx[k],Yidx[k]
+                il,ih = i-1, i+2 # select neighboring grid indices.
+                if (XX[k]<85 and XX[k]>-85):
+                    jl,jh = int(j-1./np.sin(np.abs(np.deg2rad(90-XX[k])))), int(j+2./np.abs(np.sin(np.deg2rad(90-XX[k])))) # np.sin(np.deg2rad(90-84))
+                # if within 10 degrees of either pole, return all points above or below
+                if il<=low_grid_lat:
+                    jl,jh  = 0,GridSizeY # select all longitudes
+                    il,ih  = 0,low_grid_lat+1
+                if ih>=high_grid_lat: 
+                    jl,jh  = 0,GridSizeY # select all longitudes
+                    il,ih  = high_grid_lat-1, GridSizeX
+                idx = []
+                # if we span the line of 0 longitude, we need to break into 2 chunks.
+                if (jl<0 or jh > GridSizeY):
+                    
+                    idx = idx + [item for sublist in [item for sublist2 in Grid[il:ih,int(-2-2):] for item in sublist2] for item in sublist]
+                    idx = np.array(idx + [item for sublist in [item for sublist2 in Grid[il:ih,0:2+int(2.)] for item in sublist2] for item in sublist])
+                else:
+                    idx = np.array([item for sublist in [item for sublist2 in Grid[il:ih,jl:jh] for item in sublist2] for item in sublist])
+            
+            if indexing==False: idx = np.array(range(0,n)).astype(int) # select all points
             
             #Compute real arc lengths for these points.
             idx = np.append(idx,k).astype(int)
             j = -1 # index of original point in reduced list
             x = np.deg2rad(XX[idx])
             y = np.deg2rad(XY[idx])
-            dPhi = x-x[j]
-            dLam = y-y[j]
+            dPhi = x-x[j] # lat 
+            dLam = y-y[j] # lon
             # Distances using Vincenty's formula for arc length on a great circle.
-            d = arctan(np.divide(sqrt( square( np.multiply(cos(x),sin(dPhi))) + square(cos(x[j])*sin(x)-np.multiply(sin(x[j])*cos(x),cos(dLam))) ) , (sin(x[j])*sin(x)+cos(x[j])*np.multiply(cos(x), cos(dPhi)))))
+            d = np.arctan2(sqrt( square(cos(x)*sin(dLam) ) + square(cos(x[j])*sin(x)-sin(x[j])*cos(x)*cos(dLam)) ) , sin(x[j])*sin(x)+cos(x[j])*cos(x)*cos(dLam) )
             # Find where within time constraints
             tcut = np.logical_and(XT[idx] <= XT[k]+eps*float(timeScale),XT[idx] >= XT[k]-eps*float(timeScale))
-            rcut =d<np.deg2rad(eps)
+            rcut = d<np.deg2rad(eps)
             return idx[np.where(np.logical_and(rcut, tcut)==True)[0]] # This now contains indices of points in the eps neighborhood 
         #=========================================================================================
         neighborhoods = [ __epsilonQuerySpherical(k) for k in range(0,n)]
@@ -274,25 +270,6 @@ def dbscan3_indexed(X, eps, min_samples, timeScale, metric,indexing):
     core_samples = [] # A list of all core samples found.
     label_num = 0 # label_num is the label given to the new clust
 
-    if True==False:
-        labels = -np.ones(np.int(len(neighborhoods)))
-        samples = np.array([len(nhood) for nhood in neighborhoods]) # count in each eps neighborhoods
-        core_samples= np.where(samples>=min_samples)[0]             # Find where this is greater than threshold
-        label_num=0
-        # Now we want the core n_hoods in terms of core_sample indices.
-        SSThread = partial(__SSThread,core_samples=core_samples)
-        #p = pool.Pool(mp.cpu_count())
-        #core_nhoods = p.map(SSThread,neighborhoods) # this is a list of neighboring core points in core_samples indices.
-        core_nhoods = map(SSThread,neighborhoods) # this is a list of neighboring core points in core_samples indices.
-        #p.close()
-        #p.join()
-        
-        core_labels = -np.ones(np.int(len(core_samples))) # keeps track of cluster assignment
-        core_status = np.zeros(np.int(len(core_samples))) # keeps track of cluster expansion: 0/1/2 <-> unhandled/pending/added
-        core_labels == __ExpandClusters(core_labels,core_status,core_nhoods)
-        labels[core_samples]=core_labels 
-        return core_samples, labels
-    
     for index in range(0,n):
         if labels[index] != -1 or len(neighborhoods[index]) < min_samples:
             # This point is already classified, or not enough for a core point.
@@ -321,34 +298,9 @@ def dbscan3_indexed(X, eps, min_samples, timeScale, metric,indexing):
         # Current cluster finished.
         # Next core point found will start a new cluster.
         label_num += 1
-    #print "Core Samples", len(core_samples), " Distance Comps: ", ndist
     return core_samples, labels
 
-def __ExpandClusters(core_labels,core_status,core_nhoods):
-    chain = itertools.chain
-    label_num=0
-    while 0 in core_status:
-        idx = np.where(core_labels==-1)[0][0] # select first unassigned index 
-        core_labels[core_nhoods[idx]]=label_num # assign a cluster label
-        core_status[core_nhoods[idx]]=1         # flag as pending add
-        core_status[idx] = 2
-        core_labels[idx] = label_num
-        while 1 in core_status:   
-            idx = np.where(core_status==1)[0] # Find pending points
-            core_labels[idx]=label_num        # label the new points 
-            nhoods = np.fromiter(chain.from_iterable([core_nhoods[i] for i in idx]), dtype='int')
-            #for i in idx: core_status[nhoods[i][np.where(core_status[nhoods[i]]==0)[0]] ]=1
-            core_status[nhoods[np.where(core_status[nhoods]==0)[0]] ]=1
-            core_status[idx]=2                # flag them as added
-            
-        label_num+=1
-    return core_labels
-        
-  
 
-def __SSThread(nhood, core_samples):
-    intersection = np.intersect1d(core_samples,nhood,assume_unique=True)
-    return np.searchsorted(core_samples,intersection)
 
 def __epsQueryThread(k,Xidx,Yidx,GridSizeX,GridSizeY,Grid,XX,XY,XT,timeScale,eps,min_samples):
     """ Returns the epsilon neighborhood of a point for euclidean metric"""  
@@ -432,9 +384,6 @@ class DBSCAN(BaseEstimator, ClusterMixin):
         ----------
         X: array [n_samples X (or lat), n_samples Y (or long),n_samples T]
         """
-        if self.indexing== True:
-            self.core_sample_indices_, self.labels_ = dbscan3_indexed(X,**self.get_params())
-        else:
-            self.core_sample_indices_, self.labels_ = dbscan3(X,**self.get_params())
+        self.core_sample_indices_, self.labels_ = dbscan3_indexed(X,**self.get_params())
         return self
 
