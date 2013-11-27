@@ -5,10 +5,10 @@ from Cython.Distutils import build_ext
 import numpy
 
 
-ext_modules = [Extension("dbscan3d_indexed_cython", ["dbscan3d_indexed_cython.pyx"])]
+ext_modules = [Extension("BGTools_cython", ["BGTools_cython.pyx"])]
 
 setup(
-  name = 'dbscan_indexed',
+  name = 'BGTools_cython',
   cmdclass = {'build_ext':build_ext},
   include_dirs = [numpy.get_include()],
   ext_modules = ext_modules,

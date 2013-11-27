@@ -72,11 +72,15 @@ class BGTools:
     def GetBG(self,l,b):
         '''Given a lat and long vector, return a vector with the number of photons/sq-deg at that point.
         Inputs:
-            l: longitude vector (Nx1)
-            b: latitude vector  (Nx1)
+            l: longitude vector np.array:shape (n,1)
+            b: latitude vector  np.array:shape (n,1)
         returns:
-            evt: Number of photons/deg^2 at the input coordinates. (Nx1)
+            evt: Number of photons/deg^2 at the input coordinates. np.array:shape (n,1)
             '''
+        # if integer, need to convert to array
+        if np.shape(l)==():    
+            l = np.array((l,))
+            b = np.array((b,))
         # Find size of BG map
         len_b,len_l = np.shape(self.BGMap)
         # Map the input coords onto the background model
@@ -85,14 +89,111 @@ class BGTools:
         # Bounds checking on lat.  longitude is handled by modulo operator above
         b_idx[np.where(b_idx==len_b)[0]] = len_b-1
         return self.BGMap[b_idx,l_idx]
+    
+    def SubsampleBG(self,l,b,eps):
+        '''Given a lat and long vector, return a vector with the number of photons/sq-deg at that point 
+          computed by subsampling within the epsilon radius points. 
+        Inputs:
+            l: longitude vector np.array:shape (n,1)
+            b: latitude vector  np.array:shape (n,1)
+            eps: The Epsilon being used
+        returns:
+            evt: Number of photons/deg^2 at the input coordinates. np.array:shape (n,1)
+        '''
+        if np.shape(l)==():    
+            l = np.array((l,))
+            b = np.array((b,))
+        l=l.astype(float)
+        b=b.astype(float)
+        def get(l,b):
+            up = np.where(b>90)[0]
+            down = np.where(b<-90)[0]
+            l[np.append(up,down)] += 180. # flip meridian
+            b[up]=-b[up]%90.        # invert bup
+            b[down]=90.-b[down]%90.
+            
+            l = l%360.
+            return self.GetBG(l, b)
+        sh = eps/2. # shift
+        rate = [get(l,b), get(l+sh,b-sh),
+                get(l-sh,b), get(l+sh,b),get(l,b-sh)]
+            
+        return np.mean(rate)
         
+        
+    
+    def GetIntegratedBG(self, l, b, A, B):
+        """
+        Returns the integrated background level  for an ellipses of semi-major, semi-minor axes a,b centered at l,b.
+            Does not currently support position angle, but instead integrates a square circumscribed by circle of radius
+            a and then normalizes to ellipse area.  This is MUCH more computationally efficient.
+        Inputs:
+            l: longitude np.array:shape (n,1)
+            b: latitude  np.array:shape (n,1)
+            a: Semimajor Axis in deg   np.array:shape (n,1)
+            b: Semiminor Axis in deg  np.array:shape (n,1)
+        returns:
+            evt: Number of photons/deg^2 at the input coordinates. np.array:shape (n,1)
+        """
+        # if integer, need to convert to array
+        if np.shape(l)==():    
+            l = np.array((l,))
+            b = np.array((b,))
+        len_b,len_l = np.shape(self.BGMap)
+        # Map the input coords onto the background model
+        l_idx = np.divide((np.array(l)+180.)%360,360./float(len_l)).astype(int)
+        b_idx = np.divide(np.array(b)+90.,180./float(len_b)).astype(int)
+        a2 = np.sqrt(2)*A/2.
+        a2 = A
+        scales = np.abs(1./np.cos(np.deg2rad(b))) # amount we must expand longitude as a function of lat
+        ipd    = len_l/360.   # how many index increments per degree 
+        l_start, l_stop =  np.array(l_idx - ipd*a2*scales).astype(int), np.array(l_idx+ipd*a2*scales+1).astype(int)
+        b_start, b_stop =  np.array(b_idx - ipd*a2).astype(int), np.array(b_idx+ipd*a2+1).astype(int)
+        
+        all = np.where((l_stop-l_start)>len_l)[0] # in case scale blows up just set to full length
+        l_start[all], l_stop[all] = 0,len_l
+        rate = np.zeros(len(l_start))
+        
+        for i in range(len(l_start)):
+            l_slice = (l_start[i]<0 or l_stop[i]>len_l)
+            b_slice = (b_start[i]<0 or b_stop[i]>len_b)
+            
+            # if all within bounds, give the mean rate of that square
+            if (l_slice==False and b_slice==False):
+                rate[i] = np.mean(self.BGMap[b_start[i]:b_stop[i],l_start[i]:l_stop[i]])
+                
+            # Otherwise need to use some indexing tricks to span boundaries.  This is why integrations through poles are slow
+            # could speedup with cython if needed.  Still only ~1ms per circle 
+            else:
+                # For longitude roll the longitude indices around to the beginning using mod(len_l) (happens at end)
+                
+                l_idx = np.arange(l_start[i],l_stop[i])%len_l
+                # For lat need to shift the longitudes where b_idx >= len_b or b_idx<0 by 180deg and then % 360 deg
+                b_idx = np.arange(b_start[i],b_stop[i])
+                #print b_idx[i], len_b
+                up    = np.where(b_idx>=len_b)[0] # where > 90 deg we must flip over the meridian
+                down  = np.where(b_idx<0)[0]      # where < -90 deg we must flip over the meridian
+                normal= np.where(np.logical_and(b_idx>=0,b_idx<len_b))[0] # where lat is within range do nothing
+                
+                b_idx[down]   = -b_idx[down]      # invert the latitudes 
+                b_idx[up]     = -b_idx[up]%len_b  # invert the latitudes 
+                # Average each of the three squares mena rates with weights equal to area. 
+                # (note widths all the same so just weight by height)                
+                rate[i] = np.average( np.nan_to_num([np.mean(self.BGMap[b_idx[normal]][:,l_idx]),
+                                       np.mean(self.BGMap[b_idx[up]][:,(l_idx+len_l/2)%len_l]),
+                                       np.mean(self.BGMap[b_idx[down]][:,(l_idx+len_l/2)%len_l])]),
+                                     weights=[len(normal),len(up),len(down)])
+                
+        # Finally, multiply by the ellipse area.
+        return rate*np.pi*A*B
+    
     def SigsBG(self, CR):
         """Returns Significance vector based on integration of the background template for each cluster."""
         cx,cy = CR.CentX, CR.CentY # Get centroids
         dens  = self.GetBG(cx,cy)  # Evaluate the background density at that location
         N_bg   = dens*np.pi*CR.Size95X*CR.Size95Y# Area of an ellipse times BG density
         N_bg   = N_bg*2.*CR.Size95T/12.*3.15e7/self.Time # Find ratio of cluster length to total integration length
-        N_cl   = (0.95*CR.Members) # 95% containment radius
+        N_cl   = (0.95*CR.Members) # 95% containment radius so only count 95% of members
         ######################################################
         # Evaluate significance as defined by Li & Ma (1983).  N_cl corresponds to N_on, N_bg corresponds to N_off
         S2 = np.zeros(len(N_cl))
