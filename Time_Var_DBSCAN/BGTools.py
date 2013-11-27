@@ -191,7 +191,7 @@ class BGTools:
         """Returns Significance vector based on integration of the background template for each cluster."""
         cx,cy = CR.CentX, CR.CentY # Get centroids
         dens  = self.GetBG(cx,cy)  # Evaluate the background density at that location
-        N_bg   = dens*np.pi*CR.Size95X*CR.Size95Y# Area of an ellipse times BG density
+        N_bg = GetIntegratedBG(l=cy,b=cx, A=CR.Size95X, B=CR.Size95Y)
         N_bg   = N_bg*2.*CR.Size95T/12.*3.15e7/self.Time # Find ratio of cluster length to total integration length
         N_cl   = (0.95*CR.Members) # 95% containment radius so only count 95% of members
         ######################################################
